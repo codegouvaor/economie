@@ -21,6 +21,7 @@
       "republic": "Republic of Astoria",
       "help": "Help",
       "accessibility": "Accessibility",
+      "utilitiesLabel": "Portal utilities",
       "languageLabel": "Choose language"
     },
     "account": {
@@ -261,7 +262,6 @@
   },
   "nav": {
     "primary": {
-      "demarches": "Procedures",
       "economie": "Economy",
       "fiscalite": "Taxation",
       "entreprises": "Companies",
@@ -270,29 +270,6 @@
       "donneesRessources": "Data & Resources"
     },
     "panel": {
-      "demarchesTitle": "Procedures",
-      "demarchesText": "Carry out an online procedure: taxes, companies, trade and customs.",
-      "demarchesAllLink": "See all procedures",
-      "demarchesParticuliersCategory": "Individuals",
-      "demarchesEntreprisesCategory": "Companies",
-      "demarchesCommerceCategory": "Trade & Customs",
-      "demarchesDeclarerRevenus": "Declare my income",
-      "demarchesPayerImpots": "Pay my taxes",
-      "demarchesSituationFiscale": "Check my tax situation",
-      "demarchesMesDocuments": "Access my documents",
-      "demarchesCreerEntreprise": "Create a company",
-      "demarchesDeclarerTva": "Declare VAT",
-      "demarchesPayerObligations": "Pay my obligations",
-      "demarchesGererEntreprise": "Manage my company",
-      "demarchesDouaniere": "Carry out a customs procedure",
-      "demarchesDeclarerOperation": "Declare an operation",
-      "demarchesAutorisation": "Check an authorisation",
-      "demarchesImporterExporter": "Import or export",
-      "demarchesToutes": "All procedures",
-      "demarchesAides": "Support and schemes",
-      "demarchesAdministratives": "Administrative requests",
-      "demarchesOutils": "Simulators and tools",
-
       "economieTitle": "Economy",
       "economieText": "Economic policy, growth, employment, investment and innovation.",
       "economieAllLink": "See all economy",
@@ -439,63 +416,43 @@
       "donneesDoctrine": "Doctrine",
       "donneesDocumentation": "Documentation",
 
-      "allNews": "All news",
-      "actualitePremierMinistre": "Prime Minister's news",
-      "budget": "Budget",
-      "sante": "Health",
-      "ceQuiChange": "What changes",
-      "vosQuestions": "Your questions, our answers",
-      "videos": "Videos",
-      "podcasts": "Podcasts",
-      "lettresInfo": "Newsletters",
-      "articlesAudio": "Audio articles",
-      "parlonsSanteMentale": "Let's talk mental health",
-      "toutesEtTousEgaux": "Equal for all",
-      "relanceLogement": "Housing recovery",
-      "republiqueGrandAngle": "The Republic in wide angle",
-      "astoria2030": "Astoria 2030",
-      "astoriaNationVerte": "Astoria, green nation",
-      "maisonsServicesPublics": "Public service houses",
-      "tousLesGrandsDossiers": "All major topics",
-      "sePreparerUrgenceTitle": "Preparing for an emergency",
-      "risquesNaturels": "Natural and technological risks",
-      "risquesEpidemiques": "Epidemic risks",
-      "menaceTerroriste": "Terrorist threat",
-      "menaceCyber": "Cyber threat",
-      "portailAccessibilite": "Accessibility portal",
-      "marqueEtat": "The State brand",
-      "devenirPartenaireEtat": "Become a State partner",
-      "liensUtilesDemarches": "Useful links and procedures",
-      "suiviEngagementsFooter": "Commitment tracking",
-      "homeLink": "The State and me",
-      "etatOrganisateur": "The organising State",
-      "etatProtecteur": "The protective State",
-      "etatFacilitateur": "The facilitating State",
-      "etatMoteur": "The driving State",
-      "etatPromoteur": "The promoting State",
-      "etatInfluent": "The influential State"
+      "accueil": "Home",
+      "actualites": "News",
+      "ministres": "The Ministers",
+      "ministere": "The Ministry",
+      "rejoignezNous": "Join us",
+      "audienceParticulier": "You are an individual",
+      "audienceEntreprise": "You are a company",
+      "actualiteMinistere": "Ministry news",
+      "communiquesPresse": "Press releases",
+      "informationPortail": "About this portal",
+      "consultationsPubliques": "Public consultations",
+      "fournisseurs": "Ministry suppliers",
+      "documentation": "Documentation",
+      "dataEconomie": "data.economie.gouv.aor",
+      "servicesPublicsPlus": "Services Publics +"
     }
   },
   "footer": {
     "contentDescription": "The Ministry of Economy and Finance brings together its missions, information and digital services in a single application.",
     "columns": {
-      "actualites": {
-        "title": "News"
+      "rubriques": {
+        "title": "Sections"
       },
-      "grandsDossiers": {
-        "title": "Major topics"
+      "vousEtes": {
+        "title": "Your situation"
       },
-      "prevenirLesRisques": {
-        "title": "Preventing risks"
+      "pressePortail": {
+        "title": "Press & portal"
       },
-      "outils": {
-        "title": "Tools"
-      },
-      "lEtatEtMoi": {
-        "title": "The State and me"
+      "autresRessources": {
+        "title": "Other resources"
       }
     },
     "bottom": {
+      "contact": "Contact",
+      "planDuPortail": "Site map",
+      "documentsOpposables": "Binding documents",
       "privacy": "Privacy",
       "cookies": "Cookie management",
       "publications": "Official publications"

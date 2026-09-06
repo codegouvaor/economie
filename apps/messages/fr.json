@@ -21,6 +21,7 @@
       "republic": "République d'Astoria",
       "help": "Aide",
       "accessibility": "Accessibilité",
+      "utilitiesLabel": "Liens utiles du portail",
       "languageLabel": "Choisir la langue"
     },
     "account": {
@@ -261,7 +262,6 @@
   },
   "nav": {
     "primary": {
-      "demarches": "Démarches",
       "economie": "Économie",
       "fiscalite": "Fiscalité",
       "entreprises": "Entreprises",
@@ -270,29 +270,6 @@
       "donneesRessources": "Données & Ressources"
     },
     "panel": {
-      "demarchesTitle": "Démarches",
-      "demarchesText": "Effectuer une démarche en ligne : impôts, entreprises, commerce et douanes.",
-      "demarchesAllLink": "Voir toutes les démarches",
-      "demarchesParticuliersCategory": "Particuliers",
-      "demarchesEntreprisesCategory": "Entreprises",
-      "demarchesCommerceCategory": "Commerce & Douanes",
-      "demarchesDeclarerRevenus": "Déclarer mes revenus",
-      "demarchesPayerImpots": "Payer mes impôts",
-      "demarchesSituationFiscale": "Consulter ma situation fiscale",
-      "demarchesMesDocuments": "Consulter mes documents",
-      "demarchesCreerEntreprise": "Créer une entreprise",
-      "demarchesDeclarerTva": "Déclarer la TVA",
-      "demarchesPayerObligations": "Payer mes obligations",
-      "demarchesGererEntreprise": "Gérer mon entreprise",
-      "demarchesDouaniere": "Effectuer une démarche douanière",
-      "demarchesDeclarerOperation": "Déclarer une opération",
-      "demarchesAutorisation": "Consulter une autorisation",
-      "demarchesImporterExporter": "Importer ou exporter",
-      "demarchesToutes": "Toutes les démarches",
-      "demarchesAides": "Aides et dispositifs",
-      "demarchesAdministratives": "Demandes administratives",
-      "demarchesOutils": "Simulateurs et outils",
-
       "economieTitle": "Économie",
       "economieText": "Politique économique, croissance, emploi, investissement et innovation.",
       "economieAllLink": "Voir toute l'économie",
@@ -439,63 +416,43 @@
       "donneesDoctrine": "Doctrine",
       "donneesDocumentation": "Documentation",
 
-      "allNews": "Toute l'actualité",
-      "actualitePremierMinistre": "L'actualité du Premier ministre",
-      "budget": "Budget",
-      "sante": "Santé",
-      "ceQuiChange": "Ce qui change",
-      "vosQuestions": "Vos questions, nos réponses",
-      "videos": "Vidéos",
-      "podcasts": "Podcasts",
-      "lettresInfo": "Lettres d'information",
-      "articlesAudio": "Articles audio",
-      "parlonsSanteMentale": "Parlons santé mentale",
-      "toutesEtTousEgaux": "Toutes et tous égaux",
-      "relanceLogement": "Relance du logement",
-      "republiqueGrandAngle": "La République en grand angle",
-      "astoria2030": "Astoria 2030",
-      "astoriaNationVerte": "Astoria, nation verte",
-      "maisonsServicesPublics": "Maisons de services publics",
-      "tousLesGrandsDossiers": "Tous les grands dossiers",
-      "sePreparerUrgenceTitle": "Se préparer à une situation d'urgence",
-      "risquesNaturels": "Risques naturels et technologiques",
-      "risquesEpidemiques": "Risques épidémiques",
-      "menaceTerroriste": "Menace terroriste",
-      "menaceCyber": "Menace cyber",
-      "portailAccessibilite": "Portail accessibilité",
-      "marqueEtat": "La marque de l'État",
-      "devenirPartenaireEtat": "Devenir partenaire de l'État",
-      "liensUtilesDemarches": "Liens utiles et démarches",
-      "suiviEngagementsFooter": "Suivi des engagements",
-      "homeLink": "L'État et moi",
-      "etatOrganisateur": "L'État organisateur",
-      "etatProtecteur": "L'État protecteur",
-      "etatFacilitateur": "L'État facilitateur",
-      "etatMoteur": "L'État moteur",
-      "etatPromoteur": "L'État promoteur",
-      "etatInfluent": "L'État influent"
+      "accueil": "Accueil",
+      "actualites": "Actualités",
+      "ministres": "Les ministres",
+      "ministere": "Le ministère",
+      "rejoignezNous": "Rejoignez-nous",
+      "audienceParticulier": "Vous êtes un particulier",
+      "audienceEntreprise": "Vous êtes une entreprise",
+      "actualiteMinistere": "L'actualité du ministère",
+      "communiquesPresse": "Communiqués de presse",
+      "informationPortail": "Information sur le portail",
+      "consultationsPubliques": "Consultations publiques",
+      "fournisseurs": "Fournisseurs du ministère",
+      "documentation": "Documentation",
+      "dataEconomie": "data.economie.gouv.aor",
+      "servicesPublicsPlus": "Services Publics +"
     }
   },
   "footer": {
     "contentDescription": "Le Ministère de l'Économie et des Finances regroupe dans une seule application ses missions, ses informations et ses services numériques.",
     "columns": {
-      "actualites": {
-        "title": "Actualités"
+      "rubriques": {
+        "title": "Rubriques"
       },
-      "grandsDossiers": {
-        "title": "Grands dossiers"
+      "vousEtes": {
+        "title": "Vous êtes"
       },
-      "prevenirLesRisques": {
-        "title": "Prévenir les risques"
+      "pressePortail": {
+        "title": "Presse & portail"
       },
-      "outils": {
-        "title": "Outils"
-      },
-      "lEtatEtMoi": {
-        "title": "L'État et moi"
+      "autresRessources": {
+        "title": "Autres ressources"
       }
     },
     "bottom": {
+      "contact": "Contact",
+      "planDuPortail": "Plan du portail",
+      "documentsOpposables": "Documents opposables",
       "privacy": "Confidentialité",
       "cookies": "Gestion des cookies",
       "publications": "Publications officielles"

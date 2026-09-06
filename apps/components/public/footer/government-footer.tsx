@@ -16,12 +16,14 @@ const OFFICIAL_DOMAINS: string[] = [
 ];
 
 /**
- * Government Footer of the Astoria portal, modelled after info.gouv.fr:
+ * Government Footer of the Astoria portal — secondary navigation zone of the
+ * site, distinct from the main header navigation:
  *  - brand block + “managed by” line,
- *  - five link columns (Actualités, Grands dossiers, Prévenir les risques,
- *    Outils, L'État et moi) fed by the centralized `site-structure`
- *    configuration,
- *  - official portal domains and the legal bottom bar.
+ *  - link columns (Rubriques, Vous êtes, Presse & portail, Autres
+ *    ressources) fed by the centralized `site-structure` configuration,
+ *  - official portal domains,
+ *  - bottom bar: Contact, Plan du portail, Documents opposables and the
+ *    legal links.
  *
  * ADS provides the markup (columns, accessibility line, bottom bar) and the
  * responsive behaviour. This component only decides *what* is shown — from
@@ -59,10 +61,21 @@ export function GovernmentFooter() {
       }}
       contentDescription={t("footer.contentDescription")}
       domains={OFFICIAL_DOMAINS}
-      websiteMapLinkProps={{ href: legalPaths.sitemap }}
       accessibilityLinkProps={{ href: legalPaths.accessibility }}
       termsLinkProps={{ href: legalPaths.terms }}
       bottomItems={[
+        {
+          text: t("footer.bottom.contact"),
+          linkProps: { href: "/contact" },
+        },
+        {
+          text: t("footer.bottom.planDuPortail"),
+          linkProps: { href: legalPaths.sitemap },
+        },
+        {
+          text: t("footer.bottom.documentsOpposables"),
+          linkProps: { href: "/documents-opposables" },
+        },
         {
           text: t("footer.bottom.privacy"),
           linkProps: { href: legalPaths.privacy },

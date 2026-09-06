@@ -322,6 +322,151 @@ html.select-none [contenteditable="true"] {
 }
 
 /* -------------------------------------------------------------------------- *
+ * Header top band — institutional utilities
+ * -------------------------------------------------------------------------- *
+ * A discreet one-line band above the ministry identity:
+ *
+ *   République d'Astoria            Aide · Accessibilité · Français | English
+ *
+ * It only recalls the institutional context and hosts a few global
+ * utilities — it must never become a second navigation. On narrow screens
+ * it stays minimal (Republic name + languages).
+ */
+.gov-top-band {
+  border-bottom: 1px solid var(--border);
+  background: var(--secondary);
+}
+
+.gov-top-band__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 75rem;
+  margin-inline: auto;
+  padding: 0.375rem 1rem;
+}
+
+.gov-top-band__republic {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  color: var(--muted-foreground);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.gov-top-band__republic:hover,
+.gov-top-band__republic:focus-visible {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.gov-top-band__utilities ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.gov-top-band__utilities a {
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  color: var(--muted-foreground);
+  text-decoration: none;
+}
+
+.gov-top-band__utilities a:hover,
+.gov-top-band__utilities a:focus-visible {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.gov-top-band__utilities > ul > li + li::before,
+.gov-top-band__languages li + li::before {
+  content: "·";
+  margin-right: 0.5rem;
+  color: var(--muted-foreground);
+}
+
+.gov-top-band__language[aria-current="true"] {
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+@media (max-width: 39.98em) {
+  .gov-top-band__utility--link {
+    display: none;
+  }
+}
+
+/* -------------------------------------------------------------------------- *
+ * Compact official header (V3)
+ * -------------------------------------------------------------------------- *
+ * The desktop header stays compact and readable: smaller institutional
+ * lockup, tighter brand row and navigation row, affirmed « Mon espace »
+ * action. The six domains keep a strong presence; the transversal actions
+ * (Rechercher, Mon espace) sit apart in the tools row.
+ */
+.gov-header .fr-header__body-row {
+  padding-block: 0.75rem;
+}
+
+@media (min-width: 62em) {
+  .gov-header .fr-header__body-row {
+    padding-block: 1.25rem;
+  }
+
+  /* Navigation row: denser links so the six domains fit on one line. */
+  .gov-header .fr-nav__link,
+  .gov-header .fr-nav__btn {
+    min-height: 2.75rem;
+    padding: 0.625rem 0.75rem;
+  }
+}
+
+/* « Mon espace » — the transversal personal action, slightly affirmed so it
+   reads as the user's own space without multiplying coloured buttons. */
+.gov-header .fr-header__tools-links .gov-quick-access--space {
+  border: 1px solid color-mix(in srgb, var(--primary) 40%, transparent);
+  border-radius: 0.25rem;
+  color: var(--primary);
+  background-color: transparent;
+}
+
+.gov-header .fr-header__tools-links .gov-quick-access--space:hover,
+.gov-header .fr-header__tools-links .gov-quick-access--space:focus-visible {
+  background-color: color-mix(in srgb, var(--primary) 6%, transparent);
+  border-color: var(--primary);
+}
+
+/* In the mobile drawer the quick-access buttons are full width. */
+.gov-header .fr-header__menu-links .gov-quick-access--space {
+  border: 1px solid color-mix(in srgb, var(--primary) 40%, transparent);
+  border-radius: 0.25rem;
+  color: var(--primary);
+  background-color: transparent;
+}
+
+/* Desktop search bar of the header, compact enough to sit beside the
+   quick-access actions without wrapping the brand row. */
+@media (min-width: 62em) {
+  .gov-header .fr-header__tools .fr-header__search {
+    max-width: 17rem;
+  }
+}
+
+@media (min-width: 62em) and (max-width: 71.98em) {
+  .gov-header .fr-header__tools .fr-header__search {
+    max-width: 13rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- *
  * Header brand lockup — official-portal layout (info.gouv.fr convention)
  * -------------------------------------------------------------------------- *
  * From 48rem upward the official mark and the portal identity are laid out as
@@ -370,21 +515,21 @@ html.select-none [contenteditable="true"] {
   display: none;
 }
 
-/* Enlarge the institutional logo (Astoria emblem) for better visibility.
- * The image is the primary branding element. */
+/* Institutional logo (Astoria emblem) — sized for a compact official
+ * header: visible but never dominating the identity block. */
 .gov-header .ads-identity__img {
-  height: 3.5rem;
+  height: 2.75rem;
 }
 
 @media (min-width: 48em) {
   .gov-header .ads-identity__img {
-    height: 4.5rem;
+    height: 3.25rem;
   }
 }
 
 @media (min-width: 62em) {
   .gov-header .ads-identity__img {
-    height: 5rem;
+    height: 3.5rem;
   }
 }
 
@@ -3441,16 +3586,16 @@ section:has(.gov-home-social) {
  */
 
 .gov-account-menu {
-  position: fixed;
-  top: 0;
-  right: 6rem;
-  z-index: 800;
+  /* In-flow quick-access item (desktop tools row and mobile drawer); the
+     dropdown anchors to it instead of overlaying the header. */
+  position: relative;
+  z-index: 850;
 }
 
-@media (max-width: 48rem) {
-  .gov-account-menu {
-    display: none;
-  }
+/* In the mobile drawer the trigger fills the row like the other actions. */
+.gov-header .fr-header__menu-links .gov-account-menu__trigger {
+  width: 100%;
+  justify-content: flex-start;
 }
 
 .gov-account-menu__trigger {

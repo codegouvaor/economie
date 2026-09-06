@@ -61,15 +61,11 @@ export type PrimaryNavItem =
       type: "link";
       labelKey: string;
       href: string;
-      /** Extra class on the nav item (e.g. to emphasise a transversal entry). */
-      className?: string;
     }
   | {
       type: "megaMenu";
       labelKey: string;
       href: string;
-      /** Extra class on the nav item (e.g. to emphasise a transversal entry). */
-      className?: string;
       /** Leader band shown on top of the panel. */
       leader: {
         titleKey: string;
@@ -96,8 +92,6 @@ export type FooterColumn = {
 };
 
 export const sectionPaths = {
-  /** User-intent entry point of the portal: the main online procedures. */
-  demarches: "/demarches",
   composition: "/government/composition",
   decryptages: "/decryptages",
   lEtatEtMoi: "/l-etat-et-moi",
@@ -132,80 +126,56 @@ export const pageAnchors = {
 } as const;
 
 /**
- * Link columns of the Government Footer, mirroring info.gouv.fr:
- * Actualités, Grands dossiers, Prévenir les risques, Outils, L'État et moi.
- * Labels resolve under `nav.panel`, column titles under `footer.columns`.
+ * Secondary navigation zone of the site footer, distinct from the main
+ * navigation of the header. Organised like a ministry footer:
+ *
+ *   Rubriques        → Accueil, Actualités, le Gouvernement, le ministère
+ *   Vous êtes        → the portal audiences (individuals, companies)
+ *   Presse & portail → ministry news, press releases, portal information
+ *   Autres ressources→ consultations, suppliers, documentation, data portal,
+ *                      the “Services Publics +” application
+ *
+ * The column zone is complemented by the bottom bar of the footer
+ * (Contact, Plan du portail, Documents opposables, legal links). Labels
+ * resolve under `nav.panel`, column titles under `footer.columns`.
  */
 export const footerNavigation: ReadonlyArray<FooterColumn> = [
   {
-    columnKey: "actualites",
+    columnKey: "rubriques",
     links: [
-      { labelKey: "allNews", href: "/news" },
-      {
-        labelKey: "actualitePremierMinistre",
-        href: "/news/actualite-du-premier-ministre",
-      },
-      { labelKey: "budget", href: "/news/budget" },
-      { labelKey: "sante", href: "/news/sante" },
-      { labelKey: "ceQuiChange", href: "/news/ce-qui-change" },
-      { labelKey: "vosQuestions", href: "/news/vos-questions-nos-reponses" },
-      { labelKey: "videos", href: "/news/videos" },
-      { labelKey: "podcasts", href: "/news/podcasts" },
-      { labelKey: "lettresInfo", href: "/news/newsletters" },
-      { labelKey: "articlesAudio", href: "/news/articles-audio" },
+      { labelKey: "accueil", href: PORTAL_HOME },
+      { labelKey: "actualites", href: "/news" },
+      { labelKey: "ministres", href: "/government/ministres" },
+      { labelKey: "ministere", href: "/le-ministere" },
+      { labelKey: "rejoignezNous", href: "/rejoignez-nous" },
     ],
   },
   {
-    columnKey: "grandsDossiers",
+    columnKey: "vousEtes",
     links: [
-      { labelKey: "parlonsSanteMentale", href: "/news/parlons-sante-mentale" },
-      { labelKey: "toutesEtTousEgaux", href: "/news/toutes-et-tous-egaux" },
-      { labelKey: "relanceLogement", href: "/news/relance-logement" },
-      { labelKey: "republiqueGrandAngle", href: "/news/la-republique-en-grand-angle" },
-      { labelKey: "astoria2030", href: "/news/astoria-2030" },
-      { labelKey: "astoriaNationVerte", href: "/news/astoria-nation-verte" },
-      { labelKey: "maisonsServicesPublics", href: "/news/maisons-services-publics" },
-      { labelKey: "tousLesGrandsDossiers", href: "/news/grands-dossiers" },
+      // The audience entries reuse the domain hubs of the main navigation:
+      // the portal is one application, oriented by audience in the footer.
+      { labelKey: "audienceParticulier", href: "/fiscalite" },
+      { labelKey: "audienceEntreprise", href: "/entreprises" },
     ],
   },
   {
-    columnKey: "prevenirLesRisques",
+    columnKey: "pressePortail",
     links: [
-      {
-        labelKey: "sePreparerUrgenceTitle",
-        href: "/prevention-des-risques/se-preparer-a-une-situation-durgence",
-      },
-      {
-        labelKey: "risquesNaturels",
-        href: "/prevention-des-risques/risques-naturels-et-technologiques",
-      },
-      { labelKey: "risquesEpidemiques", href: "/prevention-des-risques/risques-epidemiques" },
-      { labelKey: "menaceTerroriste", href: "/prevention-des-risques/menace-terroriste" },
-      { labelKey: "menaceCyber", href: "/prevention-des-risques/menace-cyber" },
+      { labelKey: "actualiteMinistere", href: "/news/actualite-du-ministere" },
+      { labelKey: "communiquesPresse", href: pressPath },
+      { labelKey: "informationPortail", href: "/information-sur-le-portail" },
     ],
   },
   {
-    columnKey: "outils",
+    columnKey: "autresRessources",
     links: [
-      { labelKey: "portailAccessibilite", href: legalPaths.accessibility },
-      { labelKey: "marqueEtat", href: "/marque-de-letat" },
-      { labelKey: "devenirPartenaireEtat", href: "/devenir-partenaire-de-letat" },
-      { labelKey: "liensUtilesDemarches", href: sectionPaths.liensUtiles },
-      // Kept reachable from the footer after leaving the main navigation
-      // (info.gouv.fr keeps its bar to 6 items).
-      { labelKey: "suiviEngagementsFooter", href: sectionPaths.suiviDesEngagements },
-    ],
-  },
-  {
-    columnKey: "lEtatEtMoi",
-    links: [
-      { labelKey: "homeLink", href: sectionPaths.lEtatEtMoi },
-      { labelKey: "etatOrganisateur", href: "/l-etat-et-moi/etat-organisateur" },
-      { labelKey: "etatProtecteur", href: "/l-etat-et-moi/etat-protecteur" },
-      { labelKey: "etatFacilitateur", href: "/l-etat-et-moi/etat-facilitateur" },
-      { labelKey: "etatMoteur", href: "/l-etat-et-moi/etat-moteur" },
-      { labelKey: "etatPromoteur", href: "/l-etat-et-moi/etat-promoteur" },
-      { labelKey: "etatInfluent", href: "/l-etat-et-moi/etat-influent" },
+      { labelKey: "consultationsPubliques", href: "/consultations-publiques" },
+      { labelKey: "fournisseurs", href: "/fournisseurs-du-ministere" },
+      { labelKey: "documentation", href: "/documentation" },
+      // Partner portals of the ministry, opened outside the portal.
+      { labelKey: "dataEconomie", href: "https://data.economie.gouv.aor" },
+      { labelKey: "servicesPublicsPlus", href: "https://service-public.gouv.aor/plus" },
     ],
   },
 ];
@@ -233,66 +203,6 @@ export const footerNavigation: ReadonlyArray<FooterColumn> = [
  * being published and will resolve as soon as those sections ship.
  */
 export const primaryNavigation: ReadonlyArray<PrimaryNavItem> = [
-  /**
-   * Démarches — the user-intent entry point of the portal.
-   *
-   * Not a seventh administrative domain: it answers « Je veux faire quelque
-   * chose » and gives direct access to the main online procedures, grouped
-   * by who the user is. Every href reuses an existing destination of the
-   * portal's URL plan (no invented pages).
-   */
-  {
-    type: "megaMenu",
-    labelKey: "demarches",
-    href: sectionPaths.demarches,
-    className: "gov-nav-item--action",
-    leader: {
-      titleKey: "demarchesTitle",
-      paragraphKey: "demarchesText",
-      link: { labelKey: "demarchesAllLink", href: sectionPaths.demarches },
-    },
-    categories: [
-      {
-        // PARTICULIERS
-        titleKey: "demarchesParticuliersCategory",
-        links: [
-          { labelKey: "demarchesDeclarerRevenus", href: "/fiscalite/declaration-fiscale" },
-          { labelKey: "demarchesPayerImpots", href: "/fiscalite/payer" },
-          { labelKey: "demarchesSituationFiscale", href: "/fiscalite/situation-fiscale" },
-          { labelKey: "demarchesMesDocuments", href: "/mon-espace/documents" },
-        ],
-      },
-      {
-        // ENTREPRISES
-        titleKey: "demarchesEntreprisesCategory",
-        links: [
-          { labelKey: "demarchesCreerEntreprise", href: "/entreprises/creer-une-entreprise" },
-          { labelKey: "demarchesDeclarerTva", href: "/fiscalite/tva" },
-          { labelKey: "demarchesPayerObligations", href: "/fiscalite/payer" },
-          { labelKey: "demarchesGererEntreprise", href: "/entreprises/gestion" },
-        ],
-      },
-      {
-        // COMMERCE & DOUANES
-        titleKey: "demarchesCommerceCategory",
-        links: [
-          { labelKey: "demarchesDouaniere", href: "/commerce-et-douanes/douanes" },
-          { labelKey: "demarchesDeclarerOperation", href: "/commerce-et-douanes/declarations" },
-          { labelKey: "demarchesAutorisation", href: "/commerce-et-douanes/procedures" },
-          { labelKey: "demarchesImporterExporter", href: "/commerce-et-douanes/exportation" },
-        ],
-      },
-      {
-        // AUTRES DÉMARCHES — the column heading is the aggregate destination.
-        mainLink: { labelKey: "demarchesToutes", href: sectionPaths.demarches },
-        links: [
-          { labelKey: "demarchesAides", href: "/entreprises/aides-publiques" },
-          { labelKey: "demarchesAdministratives", href: "/liens-utiles" },
-          { labelKey: "demarchesOutils", href: "/fiscalite/simulateurs-fiscaux" },
-        ],
-      },
-    ],
-  },
   {
     type: "megaMenu",
     labelKey: "economie",
