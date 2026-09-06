@@ -61,11 +61,15 @@ export type PrimaryNavItem =
       type: "link";
       labelKey: string;
       href: string;
+      /** Extra class on the nav item (e.g. to emphasise a transversal entry). */
+      className?: string;
     }
   | {
       type: "megaMenu";
       labelKey: string;
       href: string;
+      /** Extra class on the nav item (e.g. to emphasise a transversal entry). */
+      className?: string;
       /** Leader band shown on top of the panel. */
       leader: {
         titleKey: string;
@@ -92,6 +96,8 @@ export type FooterColumn = {
 };
 
 export const sectionPaths = {
+  /** User-intent entry point of the portal: the main online procedures. */
+  demarches: "/demarches",
   composition: "/government/composition",
   decryptages: "/decryptages",
   lEtatEtMoi: "/l-etat-et-moi",
@@ -227,6 +233,66 @@ export const footerNavigation: ReadonlyArray<FooterColumn> = [
  * being published and will resolve as soon as those sections ship.
  */
 export const primaryNavigation: ReadonlyArray<PrimaryNavItem> = [
+  /**
+   * Démarches — the user-intent entry point of the portal.
+   *
+   * Not a seventh administrative domain: it answers « Je veux faire quelque
+   * chose » and gives direct access to the main online procedures, grouped
+   * by who the user is. Every href reuses an existing destination of the
+   * portal's URL plan (no invented pages).
+   */
+  {
+    type: "megaMenu",
+    labelKey: "demarches",
+    href: sectionPaths.demarches,
+    className: "gov-nav-item--action",
+    leader: {
+      titleKey: "demarchesTitle",
+      paragraphKey: "demarchesText",
+      link: { labelKey: "demarchesAllLink", href: sectionPaths.demarches },
+    },
+    categories: [
+      {
+        // PARTICULIERS
+        titleKey: "demarchesParticuliersCategory",
+        links: [
+          { labelKey: "demarchesDeclarerRevenus", href: "/fiscalite/declaration-fiscale" },
+          { labelKey: "demarchesPayerImpots", href: "/fiscalite/payer" },
+          { labelKey: "demarchesSituationFiscale", href: "/fiscalite/situation-fiscale" },
+          { labelKey: "demarchesMesDocuments", href: "/mon-espace/documents" },
+        ],
+      },
+      {
+        // ENTREPRISES
+        titleKey: "demarchesEntreprisesCategory",
+        links: [
+          { labelKey: "demarchesCreerEntreprise", href: "/entreprises/creer-une-entreprise" },
+          { labelKey: "demarchesDeclarerTva", href: "/fiscalite/tva" },
+          { labelKey: "demarchesPayerObligations", href: "/fiscalite/payer" },
+          { labelKey: "demarchesGererEntreprise", href: "/entreprises/gestion" },
+        ],
+      },
+      {
+        // COMMERCE & DOUANES
+        titleKey: "demarchesCommerceCategory",
+        links: [
+          { labelKey: "demarchesDouaniere", href: "/commerce-et-douanes/douanes" },
+          { labelKey: "demarchesDeclarerOperation", href: "/commerce-et-douanes/declarations" },
+          { labelKey: "demarchesAutorisation", href: "/commerce-et-douanes/procedures" },
+          { labelKey: "demarchesImporterExporter", href: "/commerce-et-douanes/exportation" },
+        ],
+      },
+      {
+        // AUTRES DÉMARCHES — the column heading is the aggregate destination.
+        mainLink: { labelKey: "demarchesToutes", href: sectionPaths.demarches },
+        links: [
+          { labelKey: "demarchesAides", href: "/entreprises/aides-publiques" },
+          { labelKey: "demarchesAdministratives", href: "/liens-utiles" },
+          { labelKey: "demarchesOutils", href: "/fiscalite/simulateurs-fiscaux" },
+        ],
+      },
+    ],
+  },
   {
     type: "megaMenu",
     labelKey: "economie",
