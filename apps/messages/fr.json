@@ -12,7 +12,7 @@
   "header": {
     "homeTitle": "Accueil — Ministère de l'Économie et des Finances",
     "serviceTitle": "Ministère de l'Économie et des Finances",
-    "serviceTagline": "Le point d'entrée numérique du Ministère de l'Économie et des Finances",
+    "serviceTagline": "Politique économique et financière de la République d’Astoria.",
     "mySpace": "Mon espace",
     "accountLabel": "Mon espace",
     "logoutLink": "Se déconnecter",
@@ -34,66 +34,60 @@
     "searchPlaceholder": "Rechercher sur le site du ministère"
   },
   "home": {
-    "metaTitle": "Ministère de l'Économie et des Finances — Le point d'entrée numérique du ministère",
+    "metaTitle": "Économie et Finances — Le portail des démarches, données et services économiques de l'État",
     "hero": {
       "kicker": "Ministère de l'Économie et des Finances",
-      "title": "L'économie et les finances publiques au service d'une Astoria forte, prospère et durable.",
-      "lead": "Découvrez les missions du ministère, réalisez vos démarches en ligne et consultez les données économiques et budgétaires de l'État.",
-      "servicesCta": "Accéder à mes services",
-      "economyCta": "Découvrir l'économie d'Astoria"
+      "title": "Économie et Finances",
+      "lead": "Tout ce dont vous avez besoin pour comprendre et gérer vos démarches économiques et financières avec l'État."
     },
     "search": {
-      "kicker": "Recherche",
       "title": "Que recherchez-vous ?",
-      "lead": "Une démarche, un impôt, une entreprise, une réglementation, une publication ou une donnée économique.",
-      "label": "Rechercher sur le site du ministère",
-      "placeholder": "Ex. : déclarer mes revenus, TVA, budget, inflation…",
-      "popularLabel": "Recherches fréquentes :",
+      "label": "Rechercher une démarche, un impôt, une règle, une entreprise, une donnée ou une actualité",
+      "placeholder": "Une démarche, un impôt, une règle, une entreprise…",
+      "popularLabel": "Suggestions :",
       "popular": {
-        "impots": "Déclarer mes revenus",
+        "declarer": "Déclarer mes revenus",
+        "payer": "Payer un impôt",
         "creerEntreprise": "Créer une entreprise",
-        "tva": "TVA",
-        "budget": "Budget 2027",
-        "importer": "Importer une marchandise",
-        "inflation": "Inflation"
+        "budget": "Consulter le budget",
+        "reglementation": "Trouver une réglementation"
       }
     },
-    "services": {
+    "actions": {
       "kicker": "Démarches",
-      "title": "Les services les plus utilisés",
-      "lead": "Réalisez vos principales démarches directement depuis l'application du ministère.",
+      "title": "Que souhaitez-vous faire ?",
+      "lead": "Chaque parcours vous mène directement au service correspondant.",
       "items": {
-        "declarerRevenus": {
-          "title": "Déclarer mes revenus",
-          "desc": "Effectuer ma déclaration fiscale en ligne"
+        "declarer": {
+          "title": "Déclarer",
+          "desc": "Déclarer mes revenus, taxes ou obligations."
         },
-        "situationFiscale": {
-          "title": "Consulter ma situation fiscale",
-          "desc": "Suivre mes impôts et mes remboursements"
-        },
-        "payerImpot": {
-          "title": "Payer un impôt ou une taxe",
-          "desc": "Régler mes impôts et mes taxes en ligne"
-        },
-        "creerEntreprise": {
-          "title": "Créer une entreprise",
-          "desc": "Accomplir les formalités de création"
+        "payer": {
+          "title": "Payer",
+          "desc": "Effectuer un paiement ou consulter mes paiements."
         },
         "gererEntreprise": {
           "title": "Gérer mon entreprise",
-          "desc": "Accéder aux services de gestion courante"
+          "desc": "Créer, gérer ou développer mon activité."
         },
-        "demarcheDouaniere": {
-          "title": "Effectuer une démarche douanière",
-          "desc": "Déclarer mes marchandises importées ou exportées"
+        "documents": {
+          "title": "Consulter mes documents",
+          "desc": "Retrouver mes avis, déclarations et documents officiels."
+        },
+        "obligations": {
+          "title": "Comprendre mes obligations",
+          "desc": "Trouver les règles qui s'appliquent à ma situation."
+        },
+        "information": {
+          "title": "Trouver une information",
+          "desc": "Accéder aux données, statistiques et ressources économiques."
         }
-      },
-      "allLink": "Voir tous les services"
+      }
     },
     "domains": {
-      "kicker": "Le ministère",
-      "title": "Les domaines de l'économie et des finances",
-      "lead": "Six grands domaines regroupent l'ensemble des missions et des services numériques du ministère.",
+      "kicker": "Explorer",
+      "title": "Explorer l'économie et les finances",
+      "lead": "Six grands domaines pour parcourir l'ensemble des missions, des données et des services du ministère.",
       "items": {
         "economie": {
           "title": "Économie",
@@ -122,9 +116,9 @@
       }
     },
     "monEspace": {
-      "kicker": "MyGouv",
-      "title": "Mon espace",
-      "lead": "Retrouvez vos démarches, obligations et documents au même endroit.",
+      "kicker": "Espace personnel",
+      "title": "Votre espace Économie et Finances",
+      "lead": "Retrouvez vos démarches, documents, paiements et informations personnelles au même endroit.",
       "items": {
         "demarches": "Mes démarches",
         "obligations": "Mes obligations",
@@ -134,12 +128,35 @@
         "entreprises": "Mes entreprises"
       },
       "cta": "Accéder à mon espace",
-      "loginCta": "Se connecter avec MyGouv"
+      "authNote": "Connexion sécurisée avec MyGouv, votre identité numérique de l'État."
+    },
+    "audiences": {
+      "kicker": "Profils",
+      "title": "Selon votre situation",
+      "lead": "Je ne sais pas où chercher, mais je sais qui je suis : retrouvez les parcours qui vous correspondent, sur la même plateforme.",
+      "items": {
+        "particulier": {
+          "title": "Particulier",
+          "desc": "Impôts, paiements, démarches et situation personnelle."
+        },
+        "entreprise": {
+          "title": "Entreprise",
+          "desc": "Fiscalité, obligations, financement et développement."
+        },
+        "professionnel": {
+          "title": "Professionnel",
+          "desc": "Réglementation, démarches et ressources professionnelles."
+        },
+        "administration": {
+          "title": "Administration",
+          "desc": "Finances publiques, données et ressources destinées aux administrations."
+        }
+      }
     },
     "stats": {
       "kicker": "Chiffres clés",
-      "title": "L'économie d'Astoria en quelques chiffres",
-      "lead": "Les principaux indicateurs économiques et financiers de l'État.",
+      "title": "L'économie d'Astoria en chiffres",
+      "lead": "PIB, inflation, emploi, dette publique, déficit et commerce extérieur : la situation économique du pays en un coup d'œil.",
       "items": {
         "pib": {
           "label": "PIB"
@@ -152,35 +169,20 @@
         },
         "dette": {
           "label": "Dette publique"
+        },
+        "deficit": {
+          "label": "Déficit public"
+        },
+        "commerceExterieur": {
+          "label": "Commerce extérieur"
         }
       },
       "exploreLink": "Explorer les données économiques",
       "note": "Valeurs provisoires en attente de publication officielle."
     },
-    "budget": {
-      "kicker": "Budget",
-      "title": "Le budget de l'État",
-      "lead": "Recettes, dépenses, solde et dette : les grandes masses des finances publiques astoriennes.",
-      "items": {
-        "recettes": {
-          "label": "Recettes"
-        },
-        "depenses": {
-          "label": "Dépenses"
-        },
-        "solde": {
-          "label": "Solde budgétaire"
-        },
-        "dette": {
-          "label": "Dette publique"
-        }
-      },
-      "exploreLink": "Explorer le budget",
-      "note": "Chiffres provisoires — consultez les documents officiels pour les montants définitifs."
-    },
     "news": {
       "kicker": "Actualités",
-      "title": "À la une",
+      "title": "Actualités et informations",
       "lead": "Les dernières décisions, publications et communiqués du ministère.",
       "featured": {
         "title": "Réforme fiscale : ce qui change pour les particuliers en 2027",
@@ -207,73 +209,45 @@
       },
       "allLink": "Toutes les actualités"
     },
-    "enterprise": {
-      "kicker": "Entreprises",
-      "title": "Vous êtes une entreprise ?",
-      "lead": "Des services dédiés pour créer, gérer, financer et développer votre activité.",
-      "items": {
-        "creer": {
-          "title": "Créer votre entreprise",
-          "desc": "Formalités, structures et accompagnement"
+    "ministry": {
+      "kicker": "Institution",
+      "title": "Le Ministère de l'Économie et des Finances",
+      "lead": "Le ministère définit et met en œuvre les politiques économiques et financières de la République : missions, politiques publiques, organisation, publications, rapports et transparence.",
+      "links": {
+        "discover": {
+          "title": "Découvrir le ministère"
         },
-        "gerer": {
-          "title": "Gérer votre activité",
-          "desc": "Obligations administratives et réglementation"
+        "publications": {
+          "title": "Publications"
         },
-        "financer": {
-          "title": "Trouver un financement",
-          "desc": "Aides publiques, subventions et investissement"
+        "organisation": {
+          "title": "Organisation"
         },
-        "international": {
-          "title": "Développer votre activité à l'international",
-          "desc": "Exportation et marchés internationaux"
-        }
-      },
-      "cta": "Accéder aux services pour les entreprises"
-    },
-    "resources": {
-      "kicker": "Ressources",
-      "title": "Publications et ressources",
-      "lead": "Rapports, études, textes réglementaires et données publiques du ministère.",
-      "items": {
-        "rapports": {
-          "title": "Rapports",
-          "desc": "Les rapports officiels du ministère"
-        },
-        "etudes": {
-          "title": "Études",
-          "desc": "Analyses et travaux de recherche"
-        },
-        "textes": {
-          "title": "Textes réglementaires",
-          "desc": "Lois, décrets et circulaires"
-        },
-        "donnees": {
-          "title": "Données publiques",
-          "desc": "Jeux de données et indicateurs ouverts"
-        }
-      },
-      "allLink": "Voir toutes les ressources"
-    },
-    "help": {
-      "kicker": "Accompagnement",
-      "title": "Besoin d'aide ?",
-      "lead": "Une question, une difficulté ? Le ministère vous accompagne.",
-      "items": {
         "contact": {
-          "title": "Contacter le ministère"
-        },
-        "service": {
-          "title": "Trouver un service"
-        },
-        "faq": {
-          "title": "Consulter la FAQ"
-        },
-        "signalement": {
-          "title": "Signaler un problème"
-        },
-        "aide": {
-          "title": "Accéder à l'aide en ligne"
+          "title": "Nous contacter"
+        }
+      }
+    },
+    "social": {
+      "newsletter": {
+        "kicker": "Newsletter",
+        "title": "Abonnez-vous à nos lettres d'information",
+        "desc": "Recevez régulièrement les actualités du Ministère de l'Économie et des Finances, directement dans votre boîte de réception.",
+        "label": "Adresse électronique",
+        "placeholder": "vous@adresse.gouv.aor",
+        "submit": "S'abonner",
+        "hint": "Votre adresse électronique n'est utilisée que pour vous envoyer nos lettres d'information. Vous pouvez vous désabonner à tout moment.",
+        "invalidEmail": "Veuillez saisir une adresse électronique valide.",
+        "success": "Merci, votre inscription a bien été enregistrée."
+      },
+      "follow": {
+        "title": "Suivez le ministère",
+        "items": {
+          "x": "X (anciennement Twitter)",
+          "facebook": "Facebook",
+          "linkedin": "LinkedIn",
+          "instagram": "Instagram",
+          "threads": "Threads"
         }
       }
     }

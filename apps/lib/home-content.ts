@@ -9,6 +9,19 @@ import type { FrIconClassName } from "@codegouvaor/react-ads/fr";
  * locale). Updating the homepage means editing this file (and the message
  * catalogs), never rewriting the interface — the same architecture can be
  * reused for another ministry with a different configuration.
+ *
+ * The homepage tells one story — find, do, manage, get oriented, explore,
+ * understand, get informed, discover — through nine sections:
+ *
+ *   01 Hero / Accès immédiat      → popularSearches
+ *   02 Que souhaitez-vous faire ? → actions
+ *   03 Mon espace                 → monEspace
+ *   04 Selon votre situation      → audiences
+ *   05 Explorer les domaines      → domains
+ *   06 L'économie en chiffres     → indicators
+ *   07 Actualités                 → news
+ *   08 Le ministère               → ministry
+ *   09 Rester en contact          → social
  */
 export type HomeLink = {
   /** Message key (namespace `home`) of the entry label. */
@@ -16,7 +29,7 @@ export type HomeLink = {
   href: string;
 };
 
-export type HomeService = HomeLink & {
+export type HomeAction = HomeLink & {
   /** Message key (namespace `home`) of the one-line description. */
   descKey: string;
   iconId: FrIconClassName;
@@ -29,17 +42,10 @@ export type HomeDomain = HomeLink & {
 export type HomeIndicator = HomeLink & {
   /**
    * Displayed value. Values are provisional/mocked until real data is
-   * published by the statistical office of the ministry.
+   * published by the statistical office of the ministry; the config is the
+   * seam where a future API or data source plugs in.
    */
   value: string;
-};
-
-export type HomeBudgetItem = {
-  /** Message key (namespace `home`) of the label. */
-  key: string;
-  value: string;
-  /** Relative weight (0–100) driving the accessible bar graphic. */
-  ratio: number;
 };
 
 export type HomeNewsItem = {
@@ -52,67 +58,64 @@ export type HomeNewsItem = {
 };
 
 export const ministryHome = {
-  hero: {
-    /** MyGouv — the first action is oriented towards services. */
-    primaryCta: { key: "hero.servicesCta", href: "/mon-espace" },
-    secondaryCta: { key: "hero.economyCta", href: "/economie" },
-  },
+  /**
+   * Quick suggestions under the hero search. Labels resolve under
+   * `home.search.popular.<key>`.
+   */
   popularSearches: [
-    { key: "impots", href: "/fiscalite/declaration-fiscale" },
+    { key: "declarer", href: "/fiscalite/declaration-fiscale" },
+    { key: "payer", href: "/fiscalite/payer" },
     { key: "creerEntreprise", href: "/entreprises/creer-une-entreprise" },
-    { key: "tva", href: "/fiscalite/tva" },
     { key: "budget", href: "/finances-publiques/budget-annuel" },
-    { key: "importer", href: "/commerce-et-douanes/importation" },
-    { key: "inflation", href: "/donnees-et-ressources/inflation" },
+    { key: "reglementation", href: "/donnees-et-ressources/reglementation" },
   ] satisfies ReadonlyArray<HomeLink>,
-  services: [
+  /**
+   * Section 02 — “Que souhaitez-vous faire ?” : user intentions, each mapped
+   * to a real destination (never decorative cards).
+   */
+  actions: [
     {
-      key: "declarerRevenus",
-      descKey: "services.items.declarerRevenus.desc",
-      href: "/fiscalite/declaration-fiscale",
+      key: "declarer",
+      descKey: "actions.items.declarer.desc",
+      href: "/fiscalite/declarer",
       iconId: "fr-icon-file-text-line",
     },
     {
-      key: "situationFiscale",
-      descKey: "services.items.situationFiscale.desc",
-      href: "/fiscalite/situation-fiscale",
-      iconId: "fr-icon-account-line",
-    },
-    {
-      key: "payerImpot",
-      descKey: "services.items.payerImpot.desc",
+      key: "payer",
+      descKey: "actions.items.payer.desc",
       href: "/fiscalite/payer",
-      iconId: "fr-icon-bank-line",
-    },
-    {
-      key: "creerEntreprise",
-      descKey: "services.items.creerEntreprise.desc",
-      href: "/entreprises/creer-une-entreprise",
-      iconId: "fr-icon-add-circle-line",
+      iconId: "fr-icon-bank-card-line",
     },
     {
       key: "gererEntreprise",
-      descKey: "services.items.gererEntreprise.desc",
+      descKey: "actions.items.gererEntreprise.desc",
       href: "/entreprises/gestion",
       iconId: "fr-icon-settings-5-line",
     },
     {
-      key: "demarcheDouaniere",
-      descKey: "services.items.demarcheDouaniere.desc",
-      href: "/commerce-et-douanes/declarations",
-      iconId: "fr-icon-ship-2-line",
+      key: "documents",
+      descKey: "actions.items.documents.desc",
+      href: "/mon-espace/documents",
+      iconId: "fr-icon-folder-2-line",
     },
-  ] satisfies ReadonlyArray<HomeService>,
-  /** The six functional domains of the ministry — same hrefs as the header. */
-  domains: [
-    { key: "economie", href: "/economie", iconId: "fr-icon-line-chart-line" },
-    { key: "fiscalite", href: "/fiscalite", iconId: "fr-icon-money-euro-circle-line" },
-    { key: "entreprises", href: "/entreprises", iconId: "fr-icon-building-line" },
-    { key: "financesPubliques", href: "/finances-publiques", iconId: "fr-icon-bank-line" },
-    { key: "commerceDouanes", href: "/commerce-et-douanes", iconId: "fr-icon-global-line" },
-    { key: "donneesRessources", href: "/donnees-et-ressources", iconId: "fr-icon-database-line" },
-  ] satisfies ReadonlyArray<HomeDomain>,
+    {
+      key: "obligations",
+      descKey: "actions.items.obligations.desc",
+      href: "/fiscalite/obligations-fiscales",
+      iconId: "fr-icon-book-2-line",
+    },
+    {
+      key: "information",
+      descKey: "actions.items.information.desc",
+      href: "/donnees-et-ressources",
+      iconId: "fr-icon-bar-chart-2-line",
+    },
+  ] satisfies ReadonlyArray<HomeAction>,
   monEspace: {
+    /**
+     * Entries of the personal space, shown to an authenticated user. Each
+     * leads to a dedicated space page.
+     */
     items: [
       { key: "demarches", href: "/mon-espace/demarches" },
       { key: "obligations", href: "/mon-espace/obligations" },
@@ -121,21 +124,72 @@ export const ministryHome = {
       { key: "notifications", href: "/mon-espace/notifications" },
       { key: "entreprises", href: "/mon-espace/entreprises" },
     ] satisfies ReadonlyArray<HomeLink>,
+    /**
+     * Main benefits presented to an unauthenticated user. Labels reuse the
+     * `monEspace.items.*` messages; the hrefs are intentionally unused in
+     * that state (the space requires signing in through MyGouv).
+     */
+    benefits: [
+      { key: "demarches", iconId: "fr-icon-file-text-line" },
+      { key: "documents", iconId: "fr-icon-folder-2-line" },
+      { key: "paiements", iconId: "fr-icon-bank-card-line" },
+      { key: "notifications", iconId: "fr-icon-notification-3-line" },
+    ] satisfies ReadonlyArray<{ key: string; iconId: FrIconClassName }>,
   },
+  /**
+   * Section 04 — “Selon votre situation” : audience orientation towards the
+   * right parcours of the same platform (no separate sites per audience).
+   */
+  audiences: [
+    {
+      key: "particulier",
+      descKey: "audiences.items.particulier.desc",
+      href: "/fiscalite",
+      iconId: "fr-icon-user-line",
+    },
+    {
+      key: "entreprise",
+      descKey: "audiences.items.entreprise.desc",
+      href: "/entreprises",
+      iconId: "fr-icon-building-line",
+    },
+    {
+      key: "professionnel",
+      descKey: "audiences.items.professionnel.desc",
+      href: "/commerce-et-douanes",
+      iconId: "fr-icon-suitcase-2-line",
+    },
+    {
+      key: "administration",
+      descKey: "audiences.items.administration.desc",
+      href: "/finances-publiques",
+      iconId: "fr-icon-government-line",
+    },
+  ] satisfies ReadonlyArray<HomeAction>,
+  /**
+   * The six functional domains of the ministry — same hrefs as the header.
+   */
+  domains: [
+    { key: "economie", href: "/economie", iconId: "fr-icon-line-chart-line" },
+    { key: "fiscalite", href: "/fiscalite", iconId: "fr-icon-money-euro-circle-line" },
+    { key: "entreprises", href: "/entreprises", iconId: "fr-icon-building-line" },
+    { key: "financesPubliques", href: "/finances-publiques", iconId: "fr-icon-bank-line" },
+    { key: "commerceDouanes", href: "/commerce-et-douanes", iconId: "fr-icon-global-line" },
+    { key: "donneesRessources", href: "/donnees-et-ressources", iconId: "fr-icon-database-line" },
+  ] satisfies ReadonlyArray<HomeDomain>,
+  /**
+   * Key economic indicators. Values are provisional/mocked until real data is
+   * published; the config is the seam where a future API or data source
+   * plugs in (labels resolve under `home.stats.items.<key>.label`).
+   */
   indicators: [
     { key: "pib", value: "XXX Md A$", href: "/donnees-et-ressources/pib" },
     { key: "inflation", value: "X,X %", href: "/donnees-et-ressources/inflation" },
     { key: "emploi", value: "XX %", href: "/donnees-et-ressources/emploi" },
     { key: "dette", value: "XX % du PIB", href: "/finances-publiques/dette-publique" },
+    { key: "deficit", value: "−XX Md A$", href: "/finances-publiques/comptes-publics" },
+    { key: "commerceExterieur", value: "XXX Md A$", href: "/donnees-et-ressources/commerce-exterieur" },
   ] satisfies ReadonlyArray<HomeIndicator>,
-  budget: {
-    items: [
-      { key: "recettes", value: "XXX Md A$", ratio: 62 },
-      { key: "depenses", value: "XXX Md A$", ratio: 66 },
-      { key: "solde", value: "−XX Md A$", ratio: 8 },
-      { key: "dette", value: "XX % du PIB", ratio: 100 },
-    ] satisfies ReadonlyArray<HomeBudgetItem>,
-  },
   news: {
     featured: {
       titleKey: "news.featured.title",
@@ -165,23 +219,30 @@ export const ministryHome = {
       },
     ] satisfies ReadonlyArray<HomeNewsItem>,
   },
-  enterprise: [
-    { key: "creer", href: "/entreprises/creer-une-entreprise" },
-    { key: "gerer", href: "/entreprises/gestion" },
-    { key: "financer", href: "/entreprises/financement" },
-    { key: "international", href: "/entreprises/exportation" },
-  ] satisfies ReadonlyArray<HomeLink>,
-  resources: [
-    { key: "rapports", href: "/donnees-et-ressources/rapports" },
-    { key: "etudes", href: "/donnees-et-ressources/etudes" },
-    { key: "textes", href: "/donnees-et-ressources/textes-officiels" },
-    { key: "donnees", href: "/donnees-et-ressources/donnees-ouvertes" },
-  ] satisfies ReadonlyArray<HomeLink>,
-  help: [
+  /**
+   * Section 08 — institutional links of the closing section. Labels resolve
+   * under `home.ministry.links.<key>`.
+   */
+  ministry: [
+    { key: "discover", href: "/presse" },
+    { key: "publications", href: "/donnees-et-ressources/publications" },
+    { key: "organisation", href: "/government/composition" },
     { key: "contact", href: "/contact" },
-    { key: "service", href: "/services" },
-    { key: "faq", href: "/liens-utiles/faq" },
-    { key: "signalement", href: "/contact" },
-    { key: "aide", href: "/liens-utiles" },
   ] satisfies ReadonlyArray<HomeLink>,
+  /**
+   * Section 09 — “Rester en contact” : newsletter subscription and the
+   * ministry's social accounts. The hrefs below are placeholders (the
+   * ministry's real accounts do not exist yet); the social labels resolve
+   * under `home.social.follow.items.<key>`. The icon for each key is mapped
+   * in the homepage (social icons are components, not DSFR icon ids).
+   */
+  social: {
+    follow: [
+      { key: "x", href: "https://x.com" },
+      { key: "facebook", href: "https://www.facebook.com" },
+      { key: "linkedin", href: "https://www.linkedin.com" },
+      { key: "instagram", href: "https://www.instagram.com" },
+      { key: "threads", href: "https://www.threads.net" },
+    ] satisfies ReadonlyArray<HomeLink>,
+  },
 };

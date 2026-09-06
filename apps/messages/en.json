@@ -12,7 +12,7 @@
   "header": {
     "homeTitle": "Home — Ministry of Economy and Finance",
     "serviceTitle": "Ministry of Economy and Finance",
-    "serviceTagline": "The single digital entry point of the Ministry of Economy and Finance",
+    "serviceTagline": "Economic and Financial Policy of the Republic of Astoria.",
     "mySpace": "My space",
     "accountLabel": "My space",
     "logoutLink": "Log out",
@@ -34,66 +34,60 @@
     "searchPlaceholder": "Search the ministry website"
   },
   "home": {
-    "metaTitle": "Ministry of Economy and Finance — The ministry's digital entry point",
+    "metaTitle": "Economy and Finance — The State portal for economic procedures, data and services",
     "hero": {
       "kicker": "Ministry of Economy and Finance",
-      "title": "The economy and public finances serving a strong, prosperous and sustainable Astoria.",
-      "lead": "Discover the ministry's missions, complete your procedures online and consult the country's economic and budgetary data.",
-      "servicesCta": "Access my services",
-      "economyCta": "Discover Astoria's economy"
+      "title": "Economy and Finance",
+      "lead": "Everything you need to understand and manage your economic and financial procedures with the State."
     },
     "search": {
-      "kicker": "Search",
       "title": "What are you looking for?",
-      "lead": "A procedure, a tax, a company, a regulation, a publication or an economic data point.",
-      "label": "Search the ministry website",
-      "placeholder": "E.g. declare my income, VAT, budget, inflation…",
-      "popularLabel": "Popular searches:",
+      "label": "Search for a procedure, a tax, a rule, a company, a data point or a news item",
+      "placeholder": "A procedure, a tax, a rule, a company…",
+      "popularLabel": "Suggestions:",
       "popular": {
-        "impots": "Declare my income",
+        "declarer": "Declare my income",
+        "payer": "Pay a tax",
         "creerEntreprise": "Create a company",
-        "tva": "VAT",
-        "budget": "2027 budget",
-        "importer": "Import goods",
-        "inflation": "Inflation"
+        "budget": "Browse the budget",
+        "reglementation": "Find a regulation"
       }
     },
-    "services": {
+    "actions": {
       "kicker": "Procedures",
-      "title": "Most used services",
-      "lead": "Complete your main procedures directly from the ministry application.",
+      "title": "What do you want to do?",
+      "lead": "Each path takes you straight to the corresponding service.",
       "items": {
-        "declarerRevenus": {
-          "title": "Declare my income",
-          "desc": "Complete my tax return online"
+        "declarer": {
+          "title": "Declare",
+          "desc": "Declare my income, taxes or obligations."
         },
-        "situationFiscale": {
-          "title": "Check my tax situation",
-          "desc": "Track my taxes and refunds"
-        },
-        "payerImpot": {
-          "title": "Pay a tax or duty",
-          "desc": "Pay my taxes and duties online"
-        },
-        "creerEntreprise": {
-          "title": "Create a company",
-          "desc": "Complete the incorporation formalities"
+        "payer": {
+          "title": "Pay",
+          "desc": "Make a payment or check my payments."
         },
         "gererEntreprise": {
           "title": "Manage my company",
-          "desc": "Access day-to-day management services"
+          "desc": "Create, manage or grow my business."
         },
-        "demarcheDouaniere": {
-          "title": "Complete a customs procedure",
-          "desc": "Declare my imported or exported goods"
+        "documents": {
+          "title": "Access my documents",
+          "desc": "Find my notices, declarations and official documents."
+        },
+        "obligations": {
+          "title": "Understand my obligations",
+          "desc": "Find the rules that apply to my situation."
+        },
+        "information": {
+          "title": "Find information",
+          "desc": "Access economic data, statistics and resources."
         }
-      },
-      "allLink": "See all services"
+      }
     },
     "domains": {
-      "kicker": "The ministry",
-      "title": "The domains of economy and finance",
-      "lead": "Six major domains bring together all of the ministry's missions and digital services.",
+      "kicker": "Explore",
+      "title": "Explore the economy and public finances",
+      "lead": "Six major domains covering all of the ministry's missions, data and services.",
       "items": {
         "economie": {
           "title": "Economy",
@@ -122,9 +116,9 @@
       }
     },
     "monEspace": {
-      "kicker": "MyGouv",
-      "title": "My space",
-      "lead": "Find your procedures, obligations and documents in one place.",
+      "kicker": "Personal space",
+      "title": "Your Economy and Finance space",
+      "lead": "Find your procedures, documents, payments and personal information in one place.",
       "items": {
         "demarches": "My procedures",
         "obligations": "My obligations",
@@ -134,12 +128,35 @@
         "entreprises": "My companies"
       },
       "cta": "Access my space",
-      "loginCta": "Sign in with MyGouv"
+      "authNote": "Secure sign-in with MyGouv, your State digital identity."
+    },
+    "audiences": {
+      "kicker": "Profiles",
+      "title": "Depending on your situation",
+      "lead": "I don't know where to look, but I know who I am: find the paths that suit you, on the same platform.",
+      "items": {
+        "particulier": {
+          "title": "Individual",
+          "desc": "Taxes, payments, procedures and personal situation."
+        },
+        "entreprise": {
+          "title": "Company",
+          "desc": "Taxation, obligations, funding and growth."
+        },
+        "professionnel": {
+          "title": "Professional",
+          "desc": "Regulation, procedures and professional resources."
+        },
+        "administration": {
+          "title": "Administration",
+          "desc": "Public finances, data and resources for administrations."
+        }
+      }
     },
     "stats": {
       "kicker": "Key figures",
-      "title": "Astoria's economy in a few figures",
-      "lead": "The country's main economic and financial indicators.",
+      "title": "Astoria's economy in figures",
+      "lead": "GDP, inflation, employment, public debt, deficit and foreign trade: the country's economic situation at a glance.",
       "items": {
         "pib": {
           "label": "GDP"
@@ -152,35 +169,20 @@
         },
         "dette": {
           "label": "Public debt"
+        },
+        "deficit": {
+          "label": "Public deficit"
+        },
+        "commerceExterieur": {
+          "label": "Foreign trade"
         }
       },
       "exploreLink": "Explore economic data",
       "note": "Provisional values pending official publication."
     },
-    "budget": {
-      "kicker": "Budget",
-      "title": "The State budget",
-      "lead": "Revenue, expenditure, balance and debt: the main aggregates of Astoria's public finances.",
-      "items": {
-        "recettes": {
-          "label": "Revenue"
-        },
-        "depenses": {
-          "label": "Expenditure"
-        },
-        "solde": {
-          "label": "Budget balance"
-        },
-        "dette": {
-          "label": "Public debt"
-        }
-      },
-      "exploreLink": "Explore the budget",
-      "note": "Provisional figures — consult the official documents for final amounts."
-    },
     "news": {
       "kicker": "News",
-      "title": "Top stories",
+      "title": "News and information",
       "lead": "The ministry's latest decisions, publications and press releases.",
       "featured": {
         "title": "Tax reform: what changes for individuals in 2027",
@@ -207,73 +209,45 @@
       },
       "allLink": "All news"
     },
-    "enterprise": {
-      "kicker": "Companies",
-      "title": "Are you a company?",
-      "lead": "Dedicated services to create, manage, finance and grow your business.",
-      "items": {
-        "creer": {
-          "title": "Create your company",
-          "desc": "Formalities, structures and support"
+    "ministry": {
+      "kicker": "Institution",
+      "title": "The Ministry of Economy and Finance",
+      "lead": "The ministry sets and implements the Republic's economic and financial policies: missions, public policies, organisation, publications, reports and transparency.",
+      "links": {
+        "discover": {
+          "title": "Discover the ministry"
         },
-        "gerer": {
-          "title": "Manage your activity",
-          "desc": "Administrative obligations and regulation"
+        "publications": {
+          "title": "Publications"
         },
-        "financer": {
-          "title": "Find funding",
-          "desc": "Public support, grants and investment"
+        "organisation": {
+          "title": "Organisation"
         },
-        "international": {
-          "title": "Grow your business internationally",
-          "desc": "Exporting and international markets"
-        }
-      },
-      "cta": "Access services for companies"
-    },
-    "resources": {
-      "kicker": "Resources",
-      "title": "Publications and resources",
-      "lead": "Reports, studies, regulatory texts and public data from the ministry.",
-      "items": {
-        "rapports": {
-          "title": "Reports",
-          "desc": "The ministry's official reports"
-        },
-        "etudes": {
-          "title": "Studies",
-          "desc": "Analyses and research work"
-        },
-        "textes": {
-          "title": "Regulatory texts",
-          "desc": "Laws, decrees and circulars"
-        },
-        "donnees": {
-          "title": "Public data",
-          "desc": "Open datasets and indicators"
-        }
-      },
-      "allLink": "See all resources"
-    },
-    "help": {
-      "kicker": "Support",
-      "title": "Need help?",
-      "lead": "A question or difficulty? The ministry is here to help.",
-      "items": {
         "contact": {
-          "title": "Contact the ministry"
-        },
-        "service": {
-          "title": "Find a service"
-        },
-        "faq": {
-          "title": "Browse the FAQ"
-        },
-        "signalement": {
-          "title": "Report a problem"
-        },
-        "aide": {
-          "title": "Access online help"
+          "title": "Contact us"
+        }
+      }
+    },
+    "social": {
+      "newsletter": {
+        "kicker": "Newsletter",
+        "title": "Subscribe to our newsletters",
+        "desc": "Receive the latest news from the Ministry of Economy and Finance straight to your inbox.",
+        "label": "Email address",
+        "placeholder": "you@address.gouv.aor",
+        "submit": "Subscribe",
+        "hint": "Your email address is only used to send you our newsletters. You can unsubscribe at any time.",
+        "invalidEmail": "Please enter a valid email address.",
+        "success": "Thank you, your subscription has been registered."
+      },
+      "follow": {
+        "title": "Follow the ministry",
+        "items": {
+          "x": "X (formerly Twitter)",
+          "facebook": "Facebook",
+          "linkedin": "LinkedIn",
+          "instagram": "Instagram",
+          "threads": "Threads"
         }
       }
     }
