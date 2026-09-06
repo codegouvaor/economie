@@ -1,5 +1,5 @@
 {
-  "name": "info-gouv",
+  "name": "economie-gouv",
   "version": "1.0.0",
   "description": "Official information portal of the Government of Astoria.",
   "private": true,
@@ -68,7 +68,7 @@
   "packageManager": "pnpm@8.15.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/codegouvaor/info.git"
+    "url": "https://github.com/codegouvaor/economie.git"
   },
   "keywords": [
     "news",
@@ -80,14 +80,14 @@
   ],
   "author": {
     "name": "Astoria Government Development Team",
-    "email": "developer@info.gouv.aor",
-    "url": "https://info.gouv.aor"
+    "email": "developer@economie.gouv.aor",
+    "url": "https://economie.gouv.aor"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/codegouvaor/info/issues"
+    "url": "https://github.com/codegouvaor/economie/issues"
   },
-  "homepage": "https://github.com/codegouvaor/info#readme",
+  "homepage": "https://github.com/codegouvaor/economie#readme",
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix --quiet",
