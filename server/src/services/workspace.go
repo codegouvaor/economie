@@ -5,10 +5,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/codegouvaor/info/server/src/config"
-	"github.com/codegouvaor/info/server/src/interfaces"
-	"github.com/codegouvaor/info/server/src/models"
-	"github.com/codegouvaor/info/server/src/utils"
+	"github.com/codegouvaor/economie/server/src/config"
+	"github.com/codegouvaor/economie/server/src/interfaces"
+	"github.com/codegouvaor/economie/server/src/models"
+	"github.com/codegouvaor/economie/server/src/utils"
 	"gorm.io/gorm"
 )
 

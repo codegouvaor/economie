@@ -11,10 +11,10 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/codegouvaor/info/server/src/interfaces"
-	"github.com/codegouvaor/info/server/src/models"
-	"github.com/codegouvaor/info/server/src/services"
-	"github.com/codegouvaor/info/server/src/utils"
+	"github.com/codegouvaor/economie/server/src/interfaces"
+	"github.com/codegouvaor/economie/server/src/models"
+	"github.com/codegouvaor/economie/server/src/services"
+	"github.com/codegouvaor/economie/server/src/utils"
 )
 
 func (h *apiHandler) register(c *gin.Context) {

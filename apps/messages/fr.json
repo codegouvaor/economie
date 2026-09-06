@@ -1,0 +1,500 @@
+{
+  "brand": {
+    "republicName": "République d'Astoria"
+  },
+  "common": {
+    "skipToContent": "Aller au contenu",
+    "skipToFooter": "Aller au pied de page",
+    "backToTop": {
+      "ariaLabel": "Revenir en haut de page"
+    }
+  },
+  "header": {
+    "homeTitle": "Accueil — Ministère de l'Économie et des Finances",
+    "serviceTitle": "Ministère de l'Économie et des Finances",
+    "serviceTagline": "Le point d'entrée numérique du Ministère de l'Économie et des Finances",
+    "mySpace": "Mon espace",
+    "accountLabel": "Mon espace",
+    "logoutLink": "Se déconnecter",
+    "account": {
+      "demarches": "Mes démarches",
+      "obligations": "Mes obligations",
+      "paiements": "Mes paiements",
+      "documents": "Mes documents",
+      "notifications": "Mes notifications",
+      "entreprises": "Mes entreprises",
+      "profile": "Mon profil",
+      "settings": "Paramètres"
+    }
+  },
+  "meta": {
+    "defaultTitle": "Ministère de l'Économie et des Finances",
+    "suffix": "Ministère de l'Économie et des Finances",
+    "description": "Le point d'entrée numérique du Ministère de l'Économie et des Finances : démarches, services, données économiques, budget et réglementation.",
+    "searchPlaceholder": "Rechercher sur le site du ministère"
+  },
+  "home": {
+    "metaTitle": "Ministère de l'Économie et des Finances — Le point d'entrée numérique du ministère",
+    "hero": {
+      "kicker": "Ministère de l'Économie et des Finances",
+      "title": "L'économie et les finances publiques au service d'une Astoria forte, prospère et durable.",
+      "lead": "Découvrez les missions du ministère, réalisez vos démarches en ligne et consultez les données économiques et budgétaires de l'État.",
+      "servicesCta": "Accéder à mes services",
+      "economyCta": "Découvrir l'économie d'Astoria"
+    },
+    "search": {
+      "kicker": "Recherche",
+      "title": "Que recherchez-vous ?",
+      "lead": "Une démarche, un impôt, une entreprise, une réglementation, une publication ou une donnée économique.",
+      "label": "Rechercher sur le site du ministère",
+      "placeholder": "Ex. : déclarer mes revenus, TVA, budget, inflation…",
+      "popularLabel": "Recherches fréquentes :",
+      "popular": {
+        "impots": "Déclarer mes revenus",
+        "creerEntreprise": "Créer une entreprise",
+        "tva": "TVA",
+        "budget": "Budget 2027",
+        "importer": "Importer une marchandise",
+        "inflation": "Inflation"
+      }
+    },
+    "services": {
+      "kicker": "Démarches",
+      "title": "Les services les plus utilisés",
+      "lead": "Réalisez vos principales démarches directement depuis l'application du ministère.",
+      "items": {
+        "declarerRevenus": {
+          "title": "Déclarer mes revenus",
+          "desc": "Effectuer ma déclaration fiscale en ligne"
+        },
+        "situationFiscale": {
+          "title": "Consulter ma situation fiscale",
+          "desc": "Suivre mes impôts et mes remboursements"
+        },
+        "payerImpot": {
+          "title": "Payer un impôt ou une taxe",
+          "desc": "Régler mes impôts et mes taxes en ligne"
+        },
+        "creerEntreprise": {
+          "title": "Créer une entreprise",
+          "desc": "Accomplir les formalités de création"
+        },
+        "gererEntreprise": {
+          "title": "Gérer mon entreprise",
+          "desc": "Accéder aux services de gestion courante"
+        },
+        "demarcheDouaniere": {
+          "title": "Effectuer une démarche douanière",
+          "desc": "Déclarer mes marchandises importées ou exportées"
+        }
+      },
+      "allLink": "Voir tous les services"
+    },
+    "domains": {
+      "kicker": "Le ministère",
+      "title": "Les domaines de l'économie et des finances",
+      "lead": "Six grands domaines regroupent l'ensemble des missions et des services numériques du ministère.",
+      "items": {
+        "economie": {
+          "title": "Économie",
+          "desc": "Comprendre l'économie astorienne et les politiques mises en œuvre pour soutenir la croissance, l'emploi, l'investissement et l'innovation."
+        },
+        "fiscalite": {
+          "title": "Fiscalité",
+          "desc": "Comprendre, déclarer et payer ses impôts et taxes."
+        },
+        "entreprises": {
+          "title": "Entreprises",
+          "desc": "Créer, gérer, financer et développer une entreprise en Astoria."
+        },
+        "financesPubliques": {
+          "title": "Finances publiques",
+          "desc": "Comprendre le budget de l'État, ses recettes, ses dépenses et sa dette."
+        },
+        "commerceDouanes": {
+          "title": "Commerce & Douanes",
+          "desc": "Accompagner les échanges commerciaux nationaux et internationaux ainsi que les démarches douanières."
+        },
+        "donneesRessources": {
+          "title": "Données & Ressources",
+          "desc": "Accéder aux statistiques, indicateurs, publications, études, textes et données publiques."
+        }
+      }
+    },
+    "monEspace": {
+      "kicker": "MyGouv",
+      "title": "Mon espace",
+      "lead": "Retrouvez vos démarches, obligations et documents au même endroit.",
+      "items": {
+        "demarches": "Mes démarches",
+        "obligations": "Mes obligations",
+        "paiements": "Mes paiements",
+        "documents": "Mes documents",
+        "notifications": "Mes notifications",
+        "entreprises": "Mes entreprises"
+      },
+      "cta": "Accéder à mon espace",
+      "loginCta": "Se connecter avec MyGouv"
+    },
+    "stats": {
+      "kicker": "Chiffres clés",
+      "title": "L'économie d'Astoria en quelques chiffres",
+      "lead": "Les principaux indicateurs économiques et financiers de l'État.",
+      "items": {
+        "pib": {
+          "label": "PIB"
+        },
+        "inflation": {
+          "label": "Inflation"
+        },
+        "emploi": {
+          "label": "Emploi"
+        },
+        "dette": {
+          "label": "Dette publique"
+        }
+      },
+      "exploreLink": "Explorer les données économiques",
+      "note": "Valeurs provisoires en attente de publication officielle."
+    },
+    "budget": {
+      "kicker": "Budget",
+      "title": "Le budget de l'État",
+      "lead": "Recettes, dépenses, solde et dette : les grandes masses des finances publiques astoriennes.",
+      "items": {
+        "recettes": {
+          "label": "Recettes"
+        },
+        "depenses": {
+          "label": "Dépenses"
+        },
+        "solde": {
+          "label": "Solde budgétaire"
+        },
+        "dette": {
+          "label": "Dette publique"
+        }
+      },
+      "exploreLink": "Explorer le budget",
+      "note": "Chiffres provisoires — consultez les documents officiels pour les montants définitifs."
+    },
+    "news": {
+      "kicker": "Actualités",
+      "title": "À la une",
+      "lead": "Les dernières décisions, publications et communiqués du ministère.",
+      "featured": {
+        "title": "Réforme fiscale : ce qui change pour les particuliers en 2027",
+        "text": "Le ministère détaille les principales mesures de la réforme fiscale et leur calendrier d'entrée en vigueur.",
+        "tag": "Fiscalité",
+        "date": "12 janvier 2027"
+      },
+      "items": {
+        "budget2027": {
+          "title": "Le projet de budget 2027 présenté au Parlement",
+          "tag": "Budget",
+          "date": "8 janvier 2027"
+        },
+        "entreprises": {
+          "title": "Nouvelles aides à l'innovation pour les entreprises",
+          "tag": "Entreprises",
+          "date": "6 janvier 2027"
+        },
+        "commerce": {
+          "title": "Un nouvel accord commercial pour les entreprises astoriennes",
+          "tag": "Commerce",
+          "date": "3 janvier 2027"
+        }
+      },
+      "allLink": "Toutes les actualités"
+    },
+    "enterprise": {
+      "kicker": "Entreprises",
+      "title": "Vous êtes une entreprise ?",
+      "lead": "Des services dédiés pour créer, gérer, financer et développer votre activité.",
+      "items": {
+        "creer": {
+          "title": "Créer votre entreprise",
+          "desc": "Formalités, structures et accompagnement"
+        },
+        "gerer": {
+          "title": "Gérer votre activité",
+          "desc": "Obligations administratives et réglementation"
+        },
+        "financer": {
+          "title": "Trouver un financement",
+          "desc": "Aides publiques, subventions et investissement"
+        },
+        "international": {
+          "title": "Développer votre activité à l'international",
+          "desc": "Exportation et marchés internationaux"
+        }
+      },
+      "cta": "Accéder aux services pour les entreprises"
+    },
+    "resources": {
+      "kicker": "Ressources",
+      "title": "Publications et ressources",
+      "lead": "Rapports, études, textes réglementaires et données publiques du ministère.",
+      "items": {
+        "rapports": {
+          "title": "Rapports",
+          "desc": "Les rapports officiels du ministère"
+        },
+        "etudes": {
+          "title": "Études",
+          "desc": "Analyses et travaux de recherche"
+        },
+        "textes": {
+          "title": "Textes réglementaires",
+          "desc": "Lois, décrets et circulaires"
+        },
+        "donnees": {
+          "title": "Données publiques",
+          "desc": "Jeux de données et indicateurs ouverts"
+        }
+      },
+      "allLink": "Voir toutes les ressources"
+    },
+    "help": {
+      "kicker": "Accompagnement",
+      "title": "Besoin d'aide ?",
+      "lead": "Une question, une difficulté ? Le ministère vous accompagne.",
+      "items": {
+        "contact": {
+          "title": "Contacter le ministère"
+        },
+        "service": {
+          "title": "Trouver un service"
+        },
+        "faq": {
+          "title": "Consulter la FAQ"
+        },
+        "signalement": {
+          "title": "Signaler un problème"
+        },
+        "aide": {
+          "title": "Accéder à l'aide en ligne"
+        }
+      }
+    }
+  },
+  "nav": {
+    "primary": {
+      "economie": "Économie",
+      "fiscalite": "Fiscalité",
+      "entreprises": "Entreprises",
+      "financesPubliques": "Finances publiques",
+      "commerceDouanes": "Commerce & Douanes",
+      "donneesRessources": "Données & Ressources"
+    },
+    "panel": {
+      "economieTitle": "Économie",
+      "economieText": "Politique économique, croissance, emploi, investissement et innovation.",
+      "economieAllLink": "Tout l'univers Économie",
+      "fiscaliteTitle": "Fiscalité",
+      "fiscaliteText": "Impôts, taxes, déclarations et paiements pour les particuliers et les entreprises.",
+      "fiscaliteAllLink": "Tout l'univers Fiscalité",
+      "entreprisesTitle": "Entreprises",
+      "entreprisesText": "Créer, gérer, financer et développer son entreprise, en Astoria comme à l'international.",
+      "entreprisesAllLink": "Tout l'univers Entreprises",
+      "financesTitle": "Finances publiques",
+      "financesText": "Budget de l'État, recettes, dépenses, dette et transparence financière.",
+      "financesAllLink": "Tout l'univers Finances publiques",
+      "commerceDouanesTitle": "Commerce & Douanes",
+      "commerceDouanesText": "Commerce intérieur et international, importations, exportations et réglementation douanière.",
+      "commerceDouanesAllLink": "Tout l'univers Commerce & Douanes",
+      "donneesRessourcesTitle": "Données & Ressources",
+      "donneesRessourcesText": "Données économiques, statistiques, études, publications et textes officiels.",
+      "donneesRessourcesAllLink": "Tout l'univers Données & Ressources",
+
+      "economiePolitiqueCategory": "Politique économique",
+      "economieCroissanceCategory": "Croissance & compétitivité",
+      "economieEmploiCategory": "Emploi & activité",
+      "economieInvestissementCategory": "Investissement & innovation",
+      "fiscaliteParticuliersCategory": "Particuliers",
+      "fiscaliteEntreprisesCategory": "Entreprises",
+      "fiscaliteTaxesCategory": "Taxes & contributions",
+      "fiscaliteDeclarationsCategory": "Déclarations & paiements",
+      "entreprisesCreerCategory": "Créer & enregistrer",
+      "entreprisesGererCategory": "Gérer & développer",
+      "entreprisesFinancerCategory": "Financer & investir",
+      "entreprisesExporterCategory": "Exporter & international",
+      "financesBudgetCategory": "Budget de l'État",
+      "financesRecettesCategory": "Recettes & dépenses",
+      "financesDetteCategory": "Dette & trésorerie",
+      "financesTransparenceCategory": "Transparence financière",
+      "commerceInterieurCategory": "Commerce intérieur",
+      "commerceInternationalCategory": "Commerce international",
+      "commerceImporterCategory": "Importer & exporter",
+      "commerceDouanesCategory": "Douanes & droits",
+      "donneesDonneesCategory": "Données économiques",
+      "donneesStatistiquesCategory": "Statistiques & indicateurs",
+      "donneesEtudesCategory": "Études & publications",
+      "donneesLoisCategory": "Lois & réglementation",
+
+      "economieStrategie": "Stratégie économique",
+      "economieReformes": "Réformes économiques",
+      "economieIndustrie": "Politique industrielle",
+      "economiePolitiqueCompetitivite": "Politique de compétitivité",
+      "economieCroissance": "Croissance",
+      "economieProductivite": "Productivité",
+      "economieCompetitivite": "Compétitivité",
+      "economieDeveloppement": "Développement économique",
+      "economieMarcheTravail": "Marché du travail",
+      "economieActivite": "Activité économique",
+      "economieEntrepreneuriat": "Entrepreneuriat",
+      "economieDynamiqueEntreprises": "Dynamique des entreprises",
+      "economieInvestissement": "Investissement",
+      "economieInnovation": "Innovation",
+      "economieRecherche": "Recherche",
+      "economieTechnologiesStrategiques": "Technologies stratégiques",
+
+      "fiscaliteImpotRevenu": "Impôt sur le revenu",
+      "fiscaliteDeclarationFiscale": "Déclaration fiscale",
+      "fiscalitePaiement": "Paiement",
+      "fiscaliteSituationFiscale": "Situation fiscale",
+      "fiscaliteImpotSocietes": "Impôt sur les sociétés",
+      "fiscaliteTva": "TVA",
+      "fiscaliteEntreprises": "Fiscalité des entreprises",
+      "fiscaliteObligationsFiscales": "Obligations fiscales",
+      "fiscaliteTaxes": "Taxes",
+      "fiscaliteContributions": "Contributions",
+      "fiscaliteDroitsPrelevements": "Droits et prélèvements",
+      "fiscaliteRegimesParticuliers": "Régimes particuliers",
+      "fiscaliteDeclarer": "Déclarer",
+      "fiscalitePayer": "Payer",
+      "fiscaliteEcheances": "Échéances",
+      "fiscaliteSimulateurs": "Simulateurs fiscaux",
+
+      "entreprisesCreer": "Créer une entreprise",
+      "entreprisesChoisirStructure": "Choisir une structure",
+      "entreprisesEnregistrerActivite": "Enregistrer une activité",
+      "entreprisesModifier": "Modifier une entreprise",
+      "entreprisesObligationsAdministratives": "Obligations administratives",
+      "entreprisesDeveloppement": "Développement",
+      "entreprisesGestion": "Gestion",
+      "entreprisesReglementation": "Réglementation",
+      "entreprisesFinancement": "Financement",
+      "entreprisesAidesPubliques": "Aides publiques",
+      "entreprisesSubventions": "Subventions",
+      "entreprisesInvestissement": "Investissement",
+      "entreprisesExportation": "Exportation",
+      "entreprisesMarchesInternationaux": "Marchés internationaux",
+      "entreprisesAccompagnement": "Accompagnement",
+      "entreprisesCommerceInternational": "Commerce international",
+
+      "financesBudgetAnnuel": "Budget annuel",
+      "financesProjetBudget": "Projet de budget",
+      "financesLoiFinances": "Loi de finances",
+      "financesExecutionBudgetaire": "Exécution budgétaire",
+      "financesRecettesPubliques": "Recettes publiques",
+      "financesDepensesPubliques": "Dépenses publiques",
+      "financesRepartitionDepenses": "Répartition des dépenses",
+      "financesDepensesMinistere": "Dépenses par ministère",
+      "financesDettePublique": "Dette publique",
+      "financesTresorerie": "Trésorerie",
+      "financesFinancementEtat": "Financement de l'État",
+      "financesGestionDette": "Gestion de la dette",
+      "financesComptesPublics": "Comptes publics",
+      "financesDonneesBudgetaires": "Données budgétaires",
+      "financesControleFinancier": "Contrôle financier",
+      "financesRapports": "Rapports",
+
+      "commerceReglementationCommerciale": "Réglementation commerciale",
+      "commerceProtectionMarche": "Protection du marché",
+      "commercePratiquesCommerciales": "Pratiques commerciales",
+      "commerceConcurrence": "Concurrence",
+      "commerceExterieur": "Commerce extérieur",
+      "commerceAccordsCommerciaux": "Accords commerciaux",
+      "commerceMarchesInternationaux": "Marchés internationaux",
+      "commercePolitiqueCommerciale": "Politique commerciale",
+      "commerceImportation": "Importation",
+      "commerceExportation": "Exportation",
+      "commerceDeclarations": "Déclarations",
+      "commerceProcedures": "Procédures",
+      "commerceDouanes": "Douanes",
+      "commerceDroitsTaxes": "Droits et taxes",
+      "commerceTarifs": "Tarifs",
+      "commerceReglementationDouaniere": "Réglementation douanière",
+
+      "donneesEconomiques": "Données économiques",
+      "donneesIndicateurs": "Indicateurs",
+      "donneesSeriesHistoriques": "Séries historiques",
+      "donneesOuvertes": "Données ouvertes",
+      "donneesPib": "PIB",
+      "donneesInflation": "Inflation",
+      "donneesEmploi": "Emploi",
+      "donneesCommerceExterieur": "Commerce extérieur",
+      "donneesRapports": "Rapports",
+      "donneesEtudes": "Études",
+      "donneesAnalyses": "Analyses",
+      "donneesPublications": "Publications",
+      "donneesTextesOfficiels": "Textes officiels",
+      "donneesReglementation": "Réglementation",
+      "donneesDoctrine": "Doctrine",
+      "donneesDocumentation": "Documentation",
+
+      "allNews": "Toute l'actualité",
+      "actualitePremierMinistre": "L'actualité du Premier ministre",
+      "budget": "Budget",
+      "sante": "Santé",
+      "ceQuiChange": "Ce qui change",
+      "vosQuestions": "Vos questions, nos réponses",
+      "videos": "Vidéos",
+      "podcasts": "Podcasts",
+      "lettresInfo": "Lettres d'information",
+      "articlesAudio": "Articles audio",
+      "parlonsSanteMentale": "Parlons santé mentale",
+      "toutesEtTousEgaux": "Toutes et tous égaux",
+      "relanceLogement": "Relance du logement",
+      "republiqueGrandAngle": "La République en grand angle",
+      "astoria2030": "Astoria 2030",
+      "astoriaNationVerte": "Astoria, nation verte",
+      "maisonsServicesPublics": "Maisons de services publics",
+      "tousLesGrandsDossiers": "Tous les grands dossiers",
+      "sePreparerUrgenceTitle": "Se préparer à une situation d'urgence",
+      "risquesNaturels": "Risques naturels et technologiques",
+      "risquesEpidemiques": "Risques épidémiques",
+      "menaceTerroriste": "Menace terroriste",
+      "menaceCyber": "Menace cyber",
+      "portailAccessibilite": "Portail accessibilité",
+      "marqueEtat": "La marque de l'État",
+      "devenirPartenaireEtat": "Devenir partenaire de l'État",
+      "liensUtilesDemarches": "Liens utiles et démarches",
+      "suiviEngagementsFooter": "Suivi des engagements",
+      "homeLink": "L'État et moi",
+      "etatOrganisateur": "L'État organisateur",
+      "etatProtecteur": "L'État protecteur",
+      "etatFacilitateur": "L'État facilitateur",
+      "etatMoteur": "L'État moteur",
+      "etatPromoteur": "L'État promoteur",
+      "etatInfluent": "L'État influent"
+    }
+  },
+  "footer": {
+    "contentDescription": "Le Ministère de l'Économie et des Finances regroupe dans une seule application ses missions, ses informations et ses services numériques.",
+    "columns": {
+      "actualites": {
+        "title": "Actualités"
+      },
+      "grandsDossiers": {
+        "title": "Grands dossiers"
+      },
+      "prevenirLesRisques": {
+        "title": "Prévenir les risques"
+      },
+      "outils": {
+        "title": "Outils"
+      },
+      "lEtatEtMoi": {
+        "title": "L'État et moi"
+      }
+    },
+    "bottom": {
+      "privacy": "Confidentialité",
+      "cookies": "Gestion des cookies",
+      "publications": "Publications officielles"
+    },
+    "license": "Sauf mention contraire, tous les contenus de ce site sont sous <link>licence APSL</link>"
+  }
+}

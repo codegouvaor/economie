@@ -37,22 +37,28 @@ function collectChildHrefs(item: (typeof primaryNavigation)[number]): string[] {
 }
 
 /**
- * Government Header of the Astoria portal.
+ * Government Header of the Ministry of Economy and Finance (Astoria).
  *
- * Main navigation — the permanent architecture of the portal, six entries,
- * each answering one user intention:
+ * Main navigation — the permanent architecture of the ministry application,
+ * six domains, each regrouping its missions and services into a single
+ * coherent entry point (no separate portals for taxes, customs, budget…):
  *
- *   Le Gouvernement      -> Qui gouverne ?
- *   L'action publique    -> Que fait la Republique ?
- *   Services publics     -> Puis-je faire avec l'Etat ?
- *   Actualites           -> Que se passe-t-il actuellement ?
- *   La Republique        -> Comment fonctionne l'Etat ?
- *   Informations utiles  -> O trouver une information pratique ?
+ *   Économie             -> Politique économique, croissance, emploi, innovation
+ *   Fiscalité            -> Impôts, taxes, déclarations et paiements
+ *   Entreprises          -> Créer, gérer, financer, exporter
+ *   Finances publiques   -> Budget de l'État, dette, transparence
+ *   Commerce & Douanes   -> Commerce intérieur et international, douanes
+ *   Données & Ressources -> Données, statistiques, études, réglementation
  *
- * When the user is authenticated, the "Se connecter" link in the
- * quick-access toolbar is hidden and a custom account menu
- * (`UserAccountMenu`) is rendered instead. The menu content is driven
- * by `siteAccountConfig` so each site can present a different account
+ * The six domains are flanked by two transversal actions: the global search
+ * (ministry-wide search over pages, services, démarches, data…) and
+ * "Mon espace", the personal space designed to work with MyGouv.
+ *
+ * When the user is authenticated, the "Mon espace" link in the quick-access
+ * toolbar is hidden and a custom account menu (`UserAccountMenu`) is
+ * rendered instead, presenting the personal-space entries (mes démarches,
+ * mes obligations, mes paiements…). The menu content is driven by
+ * `siteAccountConfig` so each site can present a different account
  * interface without touching this component.
  */
 export function GovernmentHeader() {
@@ -135,15 +141,17 @@ export function GovernmentHeader() {
   // Auth state for conditional account UI
   const { isAuthenticated, isLoading: isAuthLoading } = useAuth();
 
-  // Quick-access items — the login link is replaced by the account menu
-  // when the user is authenticated.
+  // Quick-access items — “Mon espace” is a transversal action: it points to
+  // the SSO personal space when the user is not authenticated, and is
+  // replaced by the account menu (with its personal-space entries) once the
+  // user is authenticated.
   const quickAccessItems = React.useMemo(() => {
     const items: HeaderProps.QuickAccessItem[] = [];
 
     if (!isAuthenticated || isAuthLoading) {
       items.push({
         iconId: "fr-icon-account-circle-line",
-        text: t("header.loginLink"),
+        text: t("header.mySpace"),
         linkProps: { href: getDomainUrl("sso", "/login") },
       });
     }

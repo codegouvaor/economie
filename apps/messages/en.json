@@ -1,0 +1,500 @@
+{
+  "brand": {
+    "republicName": "Republic of Astoria"
+  },
+  "common": {
+    "skipToContent": "Skip to content",
+    "skipToFooter": "Skip to footer",
+    "backToTop": {
+      "ariaLabel": "Back to top"
+    }
+  },
+  "header": {
+    "homeTitle": "Home — Ministry of Economy and Finance",
+    "serviceTitle": "Ministry of Economy and Finance",
+    "serviceTagline": "The single digital entry point of the Ministry of Economy and Finance",
+    "mySpace": "My space",
+    "accountLabel": "My space",
+    "logoutLink": "Log out",
+    "account": {
+      "demarches": "My procedures",
+      "obligations": "My obligations",
+      "paiements": "My payments",
+      "documents": "My documents",
+      "notifications": "My notifications",
+      "entreprises": "My companies",
+      "profile": "My profile",
+      "settings": "Settings"
+    }
+  },
+  "meta": {
+    "defaultTitle": "Ministry of Economy and Finance",
+    "suffix": "Ministry of Economy and Finance",
+    "description": "The single digital entry point of the Ministry of Economy and Finance: procedures, services, economic data, budget and regulation.",
+    "searchPlaceholder": "Search the ministry website"
+  },
+  "home": {
+    "metaTitle": "Ministry of Economy and Finance — The ministry's digital entry point",
+    "hero": {
+      "kicker": "Ministry of Economy and Finance",
+      "title": "The economy and public finances serving a strong, prosperous and sustainable Astoria.",
+      "lead": "Discover the ministry's missions, complete your procedures online and consult the country's economic and budgetary data.",
+      "servicesCta": "Access my services",
+      "economyCta": "Discover Astoria's economy"
+    },
+    "search": {
+      "kicker": "Search",
+      "title": "What are you looking for?",
+      "lead": "A procedure, a tax, a company, a regulation, a publication or an economic data point.",
+      "label": "Search the ministry website",
+      "placeholder": "E.g. declare my income, VAT, budget, inflation…",
+      "popularLabel": "Popular searches:",
+      "popular": {
+        "impots": "Declare my income",
+        "creerEntreprise": "Create a company",
+        "tva": "VAT",
+        "budget": "2027 budget",
+        "importer": "Import goods",
+        "inflation": "Inflation"
+      }
+    },
+    "services": {
+      "kicker": "Procedures",
+      "title": "Most used services",
+      "lead": "Complete your main procedures directly from the ministry application.",
+      "items": {
+        "declarerRevenus": {
+          "title": "Declare my income",
+          "desc": "Complete my tax return online"
+        },
+        "situationFiscale": {
+          "title": "Check my tax situation",
+          "desc": "Track my taxes and refunds"
+        },
+        "payerImpot": {
+          "title": "Pay a tax or duty",
+          "desc": "Pay my taxes and duties online"
+        },
+        "creerEntreprise": {
+          "title": "Create a company",
+          "desc": "Complete the incorporation formalities"
+        },
+        "gererEntreprise": {
+          "title": "Manage my company",
+          "desc": "Access day-to-day management services"
+        },
+        "demarcheDouaniere": {
+          "title": "Complete a customs procedure",
+          "desc": "Declare my imported or exported goods"
+        }
+      },
+      "allLink": "See all services"
+    },
+    "domains": {
+      "kicker": "The ministry",
+      "title": "The domains of economy and finance",
+      "lead": "Six major domains bring together all of the ministry's missions and digital services.",
+      "items": {
+        "economie": {
+          "title": "Economy",
+          "desc": "Understand Astoria's economy and the policies supporting growth, employment, investment and innovation."
+        },
+        "fiscalite": {
+          "title": "Taxation",
+          "desc": "Understand, declare and pay your taxes and duties."
+        },
+        "entreprises": {
+          "title": "Companies",
+          "desc": "Create, manage, finance and grow a company in Astoria."
+        },
+        "financesPubliques": {
+          "title": "Public finances",
+          "desc": "Understand the State budget, its revenue, expenditure and debt."
+        },
+        "commerceDouanes": {
+          "title": "Trade & Customs",
+          "desc": "Support for domestic and international trade and customs procedures."
+        },
+        "donneesRessources": {
+          "title": "Data & Resources",
+          "desc": "Access statistics, indicators, publications, studies, official texts and public data."
+        }
+      }
+    },
+    "monEspace": {
+      "kicker": "MyGouv",
+      "title": "My space",
+      "lead": "Find your procedures, obligations and documents in one place.",
+      "items": {
+        "demarches": "My procedures",
+        "obligations": "My obligations",
+        "paiements": "My payments",
+        "documents": "My documents",
+        "notifications": "My notifications",
+        "entreprises": "My companies"
+      },
+      "cta": "Access my space",
+      "loginCta": "Sign in with MyGouv"
+    },
+    "stats": {
+      "kicker": "Key figures",
+      "title": "Astoria's economy in a few figures",
+      "lead": "The country's main economic and financial indicators.",
+      "items": {
+        "pib": {
+          "label": "GDP"
+        },
+        "inflation": {
+          "label": "Inflation"
+        },
+        "emploi": {
+          "label": "Employment"
+        },
+        "dette": {
+          "label": "Public debt"
+        }
+      },
+      "exploreLink": "Explore economic data",
+      "note": "Provisional values pending official publication."
+    },
+    "budget": {
+      "kicker": "Budget",
+      "title": "The State budget",
+      "lead": "Revenue, expenditure, balance and debt: the main aggregates of Astoria's public finances.",
+      "items": {
+        "recettes": {
+          "label": "Revenue"
+        },
+        "depenses": {
+          "label": "Expenditure"
+        },
+        "solde": {
+          "label": "Budget balance"
+        },
+        "dette": {
+          "label": "Public debt"
+        }
+      },
+      "exploreLink": "Explore the budget",
+      "note": "Provisional figures — consult the official documents for final amounts."
+    },
+    "news": {
+      "kicker": "News",
+      "title": "Top stories",
+      "lead": "The ministry's latest decisions, publications and press releases.",
+      "featured": {
+        "title": "Tax reform: what changes for individuals in 2027",
+        "text": "The ministry details the main measures of the tax reform and their entry into force.",
+        "tag": "Taxation",
+        "date": "12 January 2027"
+      },
+      "items": {
+        "budget2027": {
+          "title": "The 2027 draft budget presented to Parliament",
+          "tag": "Budget",
+          "date": "8 January 2027"
+        },
+        "entreprises": {
+          "title": "New innovation support for companies",
+          "tag": "Companies",
+          "date": "6 January 2027"
+        },
+        "commerce": {
+          "title": "A new trade agreement for Astorian companies",
+          "tag": "Trade",
+          "date": "3 January 2027"
+        }
+      },
+      "allLink": "All news"
+    },
+    "enterprise": {
+      "kicker": "Companies",
+      "title": "Are you a company?",
+      "lead": "Dedicated services to create, manage, finance and grow your business.",
+      "items": {
+        "creer": {
+          "title": "Create your company",
+          "desc": "Formalities, structures and support"
+        },
+        "gerer": {
+          "title": "Manage your activity",
+          "desc": "Administrative obligations and regulation"
+        },
+        "financer": {
+          "title": "Find funding",
+          "desc": "Public support, grants and investment"
+        },
+        "international": {
+          "title": "Grow your business internationally",
+          "desc": "Exporting and international markets"
+        }
+      },
+      "cta": "Access services for companies"
+    },
+    "resources": {
+      "kicker": "Resources",
+      "title": "Publications and resources",
+      "lead": "Reports, studies, regulatory texts and public data from the ministry.",
+      "items": {
+        "rapports": {
+          "title": "Reports",
+          "desc": "The ministry's official reports"
+        },
+        "etudes": {
+          "title": "Studies",
+          "desc": "Analyses and research work"
+        },
+        "textes": {
+          "title": "Regulatory texts",
+          "desc": "Laws, decrees and circulars"
+        },
+        "donnees": {
+          "title": "Public data",
+          "desc": "Open datasets and indicators"
+        }
+      },
+      "allLink": "See all resources"
+    },
+    "help": {
+      "kicker": "Support",
+      "title": "Need help?",
+      "lead": "A question or difficulty? The ministry is here to help.",
+      "items": {
+        "contact": {
+          "title": "Contact the ministry"
+        },
+        "service": {
+          "title": "Find a service"
+        },
+        "faq": {
+          "title": "Browse the FAQ"
+        },
+        "signalement": {
+          "title": "Report a problem"
+        },
+        "aide": {
+          "title": "Access online help"
+        }
+      }
+    }
+  },
+  "nav": {
+    "primary": {
+      "economie": "Economy",
+      "fiscalite": "Taxation",
+      "entreprises": "Companies",
+      "financesPubliques": "Public finances",
+      "commerceDouanes": "Trade & Customs",
+      "donneesRessources": "Data & Resources"
+    },
+    "panel": {
+      "economieTitle": "Economy",
+      "economieText": "Economic policy, growth, employment, investment and innovation.",
+      "economieAllLink": "Explore Economy",
+      "fiscaliteTitle": "Taxation",
+      "fiscaliteText": "Taxes, duties, declarations and payments for individuals and companies.",
+      "fiscaliteAllLink": "Explore Taxation",
+      "entreprisesTitle": "Companies",
+      "entreprisesText": "Create, manage, finance and grow your company, in Astoria and abroad.",
+      "entreprisesAllLink": "Explore Companies",
+      "financesTitle": "Public finances",
+      "financesText": "State budget, revenue, expenditure, debt and financial transparency.",
+      "financesAllLink": "Explore Public finances",
+      "commerceDouanesTitle": "Trade & Customs",
+      "commerceDouanesText": "Domestic and international trade, imports, exports and customs regulation.",
+      "commerceDouanesAllLink": "Explore Trade & Customs",
+      "donneesRessourcesTitle": "Data & Resources",
+      "donneesRessourcesText": "Economic data, statistics, studies, publications and official texts.",
+      "donneesRessourcesAllLink": "Explore Data & Resources",
+
+      "economiePolitiqueCategory": "Economic policy",
+      "economieCroissanceCategory": "Growth & competitiveness",
+      "economieEmploiCategory": "Employment & activity",
+      "economieInvestissementCategory": "Investment & innovation",
+      "fiscaliteParticuliersCategory": "Individuals",
+      "fiscaliteEntreprisesCategory": "Companies",
+      "fiscaliteTaxesCategory": "Taxes & contributions",
+      "fiscaliteDeclarationsCategory": "Declarations & payments",
+      "entreprisesCreerCategory": "Create & register",
+      "entreprisesGererCategory": "Manage & grow",
+      "entreprisesFinancerCategory": "Finance & invest",
+      "entreprisesExporterCategory": "Export & international",
+      "financesBudgetCategory": "State budget",
+      "financesRecettesCategory": "Revenue & expenditure",
+      "financesDetteCategory": "Debt & treasury",
+      "financesTransparenceCategory": "Financial transparency",
+      "commerceInterieurCategory": "Domestic trade",
+      "commerceInternationalCategory": "International trade",
+      "commerceImporterCategory": "Import & export",
+      "commerceDouanesCategory": "Customs & duties",
+      "donneesDonneesCategory": "Economic data",
+      "donneesStatistiquesCategory": "Statistics & indicators",
+      "donneesEtudesCategory": "Studies & publications",
+      "donneesLoisCategory": "Law & regulation",
+
+      "economieStrategie": "Economic strategy",
+      "economieReformes": "Economic reforms",
+      "economieIndustrie": "Industrial policy",
+      "economiePolitiqueCompetitivite": "Competitiveness policy",
+      "economieCroissance": "Growth",
+      "economieProductivite": "Productivity",
+      "economieCompetitivite": "Competitiveness",
+      "economieDeveloppement": "Economic development",
+      "economieMarcheTravail": "Labour market",
+      "economieActivite": "Economic activity",
+      "economieEntrepreneuriat": "Entrepreneurship",
+      "economieDynamiqueEntreprises": "Company dynamics",
+      "economieInvestissement": "Investment",
+      "economieInnovation": "Innovation",
+      "economieRecherche": "Research",
+      "economieTechnologiesStrategiques": "Strategic technologies",
+
+      "fiscaliteImpotRevenu": "Income tax",
+      "fiscaliteDeclarationFiscale": "Tax return",
+      "fiscalitePaiement": "Payment",
+      "fiscaliteSituationFiscale": "Tax situation",
+      "fiscaliteImpotSocietes": "Corporate tax",
+      "fiscaliteTva": "VAT",
+      "fiscaliteEntreprises": "Business taxation",
+      "fiscaliteObligationsFiscales": "Tax obligations",
+      "fiscaliteTaxes": "Taxes",
+      "fiscaliteContributions": "Contributions",
+      "fiscaliteDroitsPrelevements": "Duties and levies",
+      "fiscaliteRegimesParticuliers": "Special schemes",
+      "fiscaliteDeclarer": "Declare",
+      "fiscalitePayer": "Pay",
+      "fiscaliteEcheances": "Deadlines",
+      "fiscaliteSimulateurs": "Tax simulators",
+
+      "entreprisesCreer": "Create a company",
+      "entreprisesChoisirStructure": "Choose a structure",
+      "entreprisesEnregistrerActivite": "Register an activity",
+      "entreprisesModifier": "Modify a company",
+      "entreprisesObligationsAdministratives": "Administrative obligations",
+      "entreprisesDeveloppement": "Development",
+      "entreprisesGestion": "Management",
+      "entreprisesReglementation": "Regulation",
+      "entreprisesFinancement": "Financing",
+      "entreprisesAidesPubliques": "Public support",
+      "entreprisesSubventions": "Grants",
+      "entreprisesInvestissement": "Investment",
+      "entreprisesExportation": "Exporting",
+      "entreprisesMarchesInternationaux": "International markets",
+      "entreprisesAccompagnement": "Support",
+      "entreprisesCommerceInternational": "International trade",
+
+      "financesBudgetAnnuel": "Annual budget",
+      "financesProjetBudget": "Draft budget",
+      "financesLoiFinances": "Finance act",
+      "financesExecutionBudgetaire": "Budget execution",
+      "financesRecettesPubliques": "Public revenue",
+      "financesDepensesPubliques": "Public expenditure",
+      "financesRepartitionDepenses": "Spending breakdown",
+      "financesDepensesMinistere": "Spending by ministry",
+      "financesDettePublique": "Public debt",
+      "financesTresorerie": "Treasury",
+      "financesFinancementEtat": "State financing",
+      "financesGestionDette": "Debt management",
+      "financesComptesPublics": "Public accounts",
+      "financesDonneesBudgetaires": "Budget data",
+      "financesControleFinancier": "Financial control",
+      "financesRapports": "Reports",
+
+      "commerceReglementationCommerciale": "Commercial regulation",
+      "commerceProtectionMarche": "Market protection",
+      "commercePratiquesCommerciales": "Commercial practices",
+      "commerceConcurrence": "Competition",
+      "commerceExterieur": "Foreign trade",
+      "commerceAccordsCommerciaux": "Trade agreements",
+      "commerceMarchesInternationaux": "International markets",
+      "commercePolitiqueCommerciale": "Trade policy",
+      "commerceImportation": "Importing",
+      "commerceExportation": "Exporting",
+      "commerceDeclarations": "Declarations",
+      "commerceProcedures": "Procedures",
+      "commerceDouanes": "Customs",
+      "commerceDroitsTaxes": "Duties and taxes",
+      "commerceTarifs": "Tariffs",
+      "commerceReglementationDouaniere": "Customs regulation",
+
+      "donneesEconomiques": "Economic data",
+      "donneesIndicateurs": "Indicators",
+      "donneesSeriesHistoriques": "Historical series",
+      "donneesOuvertes": "Open data",
+      "donneesPib": "GDP",
+      "donneesInflation": "Inflation",
+      "donneesEmploi": "Employment",
+      "donneesCommerceExterieur": "Foreign trade",
+      "donneesRapports": "Reports",
+      "donneesEtudes": "Studies",
+      "donneesAnalyses": "Analyses",
+      "donneesPublications": "Publications",
+      "donneesTextesOfficiels": "Official texts",
+      "donneesReglementation": "Regulation",
+      "donneesDoctrine": "Doctrine",
+      "donneesDocumentation": "Documentation",
+
+      "allNews": "All news",
+      "actualitePremierMinistre": "Prime Minister's news",
+      "budget": "Budget",
+      "sante": "Health",
+      "ceQuiChange": "What changes",
+      "vosQuestions": "Your questions, our answers",
+      "videos": "Videos",
+      "podcasts": "Podcasts",
+      "lettresInfo": "Newsletters",
+      "articlesAudio": "Audio articles",
+      "parlonsSanteMentale": "Let's talk mental health",
+      "toutesEtTousEgaux": "Equal for all",
+      "relanceLogement": "Housing recovery",
+      "republiqueGrandAngle": "The Republic in wide angle",
+      "astoria2030": "Astoria 2030",
+      "astoriaNationVerte": "Astoria, green nation",
+      "maisonsServicesPublics": "Public service houses",
+      "tousLesGrandsDossiers": "All major topics",
+      "sePreparerUrgenceTitle": "Preparing for an emergency",
+      "risquesNaturels": "Natural and technological risks",
+      "risquesEpidemiques": "Epidemic risks",
+      "menaceTerroriste": "Terrorist threat",
+      "menaceCyber": "Cyber threat",
+      "portailAccessibilite": "Accessibility portal",
+      "marqueEtat": "The State brand",
+      "devenirPartenaireEtat": "Become a State partner",
+      "liensUtilesDemarches": "Useful links and procedures",
+      "suiviEngagementsFooter": "Commitment tracking",
+      "homeLink": "The State and me",
+      "etatOrganisateur": "The organising State",
+      "etatProtecteur": "The protective State",
+      "etatFacilitateur": "The facilitating State",
+      "etatMoteur": "The driving State",
+      "etatPromoteur": "The promoting State",
+      "etatInfluent": "The influential State"
+    }
+  },
+  "footer": {
+    "contentDescription": "The Ministry of Economy and Finance brings together its missions, information and digital services in a single application.",
+    "columns": {
+      "actualites": {
+        "title": "News"
+      },
+      "grandsDossiers": {
+        "title": "Major topics"
+      },
+      "prevenirLesRisques": {
+        "title": "Preventing risks"
+      },
+      "outils": {
+        "title": "Tools"
+      },
+      "lEtatEtMoi": {
+        "title": "The State and me"
+      }
+    },
+    "bottom": {
+      "privacy": "Privacy",
+      "cookies": "Cookie management",
+      "publications": "Official publications"
+    },
+    "license": "Unless otherwise stated, all content on this site is licensed under the <link>APSL License</link>"
+  }
+}

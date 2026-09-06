@@ -44,14 +44,49 @@ export type SiteAccountConfig = {
 };
 
 /**
- * Default site configuration for the Government portal of the Republic
- * of Astoria. Override this in site-specific configurations.
+ * Default site configuration for the Ministry of Economy and Finance.
+ * Override this in site-specific configurations.
+ *
+ * The account menu follows the MyGouv personal-space model: the user
+ * reaches their files, obligations, payments and documents through a single
+ * entry point, without having to know which internal administration handles
+ * each case.
  */
 export const siteAccountConfig: SiteAccountConfig = {
   enabled: true,
   labelKey: "header.accountLabel",
   logoutLabelKey: "header.logoutLink",
   items: [
+    {
+      labelKey: "header.account.demarches",
+      href: "/mon-espace/demarches",
+      iconId: "fr-icon-file-text-line",
+    },
+    {
+      labelKey: "header.account.obligations",
+      href: "/mon-espace/obligations",
+      iconId: "fr-icon-calendar-line",
+    },
+    {
+      labelKey: "header.account.paiements",
+      href: "/mon-espace/paiements",
+      iconId: "fr-icon-bank-line",
+    },
+    {
+      labelKey: "header.account.documents",
+      href: "/mon-espace/documents",
+      iconId: "fr-icon-folder-2-line",
+    },
+    {
+      labelKey: "header.account.notifications",
+      href: "/mon-espace/notifications",
+      iconId: "fr-icon-notification-3-line",
+    },
+    {
+      labelKey: "header.account.entreprises",
+      href: "/mon-espace/entreprises",
+      iconId: "fr-icon-building-line",
+    },
     {
       labelKey: "header.account.profile",
       href: "/profile",

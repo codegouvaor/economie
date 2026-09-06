@@ -51,11 +51,13 @@ test("joinApiPath builds API URLs from the configured base", () => {
 
 test("public URL guards reject Docker and localhost hosts in production", () => {
   const previousNodeEnv = process.env.NODE_ENV;
-  process.env.NODE_ENV = "production";
+  // `NODE_ENV` is typed read-only on `process.env`; the tests exercise the
+  // runtime behaviour, so the assignment goes through a mutable view.
+  (process.env as Record<string, string | undefined>).NODE_ENV = "production";
 
   assert.throws(() => assertPublicRealtimeUrl("wss://server/api/v1/realtime/ws"));
   assert.throws(() => assertPublicLiveKitUrl("ws://localhost:7880"));
   assert.equal(assertPublicLiveKitUrl("wss://webrtc.example.com"), "wss://webrtc.example.com");
 
-  process.env.NODE_ENV = previousNodeEnv;
+  (process.env as Record<string, string | undefined>).NODE_ENV = previousNodeEnv;
 });

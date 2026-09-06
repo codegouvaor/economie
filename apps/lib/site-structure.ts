@@ -9,12 +9,12 @@
 export const PORTAL_HOME = "/";
 
 export type PrimaryNavKey =
-  | "gouvernement"
-  | "actionPublique"
-  | "servicesPublics"
-  | "actualites"
-  | "republique"
-  | "informationsUtiles";
+  | "economie"
+  | "fiscalite"
+  | "entreprises"
+  | "financesPubliques"
+  | "commerceDouanes"
+  | "donneesRessources";
 
 /** A link inside a mega-menu panel; its label is a `nav.panel` message key. */
 export type PrimaryNavLink = {
@@ -205,321 +205,336 @@ export const footerNavigation: ReadonlyArray<FooterColumn> = [
 ];
 
 /**
- * Main navigation of the Government Header — the permanent architecture of
- * the portal, in six entries. Each entry answers one user intention:
+ * Main navigation of the Government Header of the Ministry of Economy and
+ * Finance — the permanent architecture of the application, in six domains.
+ * Each domain regroups the ministry's missions and services into one
+ * coherent application (no separate portals for taxes, customs, budget…):
  *
- *   Le Gouvernement      → Qui gouverne et comment fonctionne le Gouvernement ?
- *   L'action publique    → Que fait la République ?
- *   Services publics     → Que puis-je faire avec l'État ?
- *   Actualités           → Que se passe-t-il actuellement ?
- *   La République        → Comment fonctionne l'État ?
- *   Informations utiles  → Où trouver une information pratique ou importante ?
+ *   Économie             → Politique économique, croissance, emploi, innovation
+ *   Fiscalité            → Impôts, taxes, déclarations et paiements
+ *   Entreprises          → Créer, gérer, financer, exporter
+ *   Finances publiques   → Budget de l'État, dette, transparence
+ *   Commerce & Douanes   → Commerce intérieur et international, douanes
+ *   Données & Ressources → Données, statistiques, études, réglementation
  *
- * The former entries are repositioned, not deleted (their URLs stay alive):
- * À la une / Décryptages → Actualités, Politiques prioritaires →
- * L'action publique, L'État et moi → Services publics, Prévention des
- * risques / Liens utiles → Informations utiles.
+ * Every domain opens a mega-menu panel with four thematic sections of four
+ * links each, so the ministry can be navigated as a single application
+ * rather than as a collection of linked administrative sites. The structure
+ * is configuration-driven: the same architecture can be reused for another
+ * ministry by providing a different `primaryNavigation`.
  *
- * Hrefs follow the URL plan already used across the portal; a few point to
- * pages being published (e.g. /politiques-publiques/<slug>, /republique/…)
- * and will resolve as soon as those sections ship.
+ * Hrefs follow the URL plan of the ministry portal; a few point to pages
+ * being published and will resolve as soon as those sections ship.
  */
 export const primaryNavigation: ReadonlyArray<PrimaryNavItem> = [
   {
     type: "megaMenu",
-    labelKey: "gouvernement",
-    href: "/government",
+    labelKey: "economie",
+    href: "/economie",
     leader: {
-      titleKey: "gouvernementTitle",
-      paragraphKey: "gouvernementText",
-      link: { labelKey: "gouvernementAllLink", href: "/government" },
+      titleKey: "economieTitle",
+      paragraphKey: "economieText",
+      link: { labelKey: "economieAllLink", href: "/economie" },
     },
     categories: [
       {
-        // LE GOUVERNEMENT
-        mainLink: { labelKey: "gouvernementCategory", href: "/government" },
+        // POLITIQUE ÉCONOMIQUE
+        titleKey: "economiePolitiqueCategory",
         links: [
-          { labelKey: "gouvernementComposition", href: "/government/composition" },
-          { labelKey: "gouvernementMembres", href: "/government/membres" },
-          { labelKey: "premierMinistre", href: "/government/liamvonastoria" },
-          { labelKey: "gouvernementBiographies", href: "/government/biographies" },
+          { labelKey: "economieStrategie", href: "/economie/strategie-economique" },
+          { labelKey: "economieReformes", href: "/economie/reformes-economiques" },
+          { labelKey: "economieIndustrie", href: "/economie/politique-industrielle" },
+          { labelKey: "economiePolitiqueCompetitivite", href: "/economie/politique-de-competitivite" },
         ],
       },
       {
-        // ORGANISATION
-        mainLink: { labelKey: "gouvernementOrganisation", href: "/government/organisation" },
+        // CROISSANCE & COMPÉTITIVITÉ
+        titleKey: "economieCroissanceCategory",
         links: [
-          { labelKey: "conseilMinistres", href: "/government/conseil-des-ministres" },
-          { labelKey: "ministeres", href: "/government/ministere" },
-          { labelKey: "gouvernementSecretariats", href: "/government/organisation/secretariats" },
-          {
-            labelKey: "administrationsRattachees",
-            href: "/government/organisation/administrations-rattachees",
-          },
-          {
-            labelKey: "serviceInformationGouvernement",
-            href: "/government/sig",
-          },
+          { labelKey: "economieCroissance", href: "/economie/croissance" },
+          { labelKey: "economieProductivite", href: "/economie/productivite" },
+          { labelKey: "economieCompetitivite", href: "/economie/competitivite" },
+          { labelKey: "economieDeveloppement", href: "/economie/developpement-economique" },
         ],
       },
       {
-        // ACTION DU GOUVERNEMENT
-        mainLink: { labelKey: "politiquesPubliques", href: sectionPaths.politiquesPubliques },
+        // EMPLOI & ACTIVITÉ
+        titleKey: "economieEmploiCategory",
         links: [
-          { labelKey: "prioritesGouvernement", href: sectionPaths.politiquesPrioritaires },
-          { labelKey: "grandsDossiers", href: "/news/grands-dossiers" },
-          { labelKey: "reformes", href: "/reformes" },
-          { labelKey: "ceQuiChange", href: "/news/ce-qui-change" },
-          { labelKey: "resultatsActionPublique", href: sectionPaths.suiviDesEngagements },
+          { labelKey: "economieMarcheTravail", href: "/economie/marche-du-travail" },
+          { labelKey: "economieActivite", href: "/economie/activite-economique" },
+          { labelKey: "economieEntrepreneuriat", href: "/economie/entrepreneuriat" },
+          { labelKey: "economieDynamiqueEntreprises", href: "/economie/dynamique-des-entreprises" },
         ],
       },
       {
-        // AGENDA & TRAVAUX
-        mainLink: { labelKey: "agenda", href: "/agenda" },
+        // INVESTISSEMENT & INNOVATION
+        titleKey: "economieInvestissementCategory",
         links: [
-          { labelKey: "decisions", href: "/decisions" },
-          { labelKey: "discours", href: "/discours-et-rapports" },
-          { labelKey: "communiques", href: "/communiques" },
-          { labelKey: "publications", href: "/publications-officielles" },
+          { labelKey: "economieInvestissement", href: "/economie/investissement" },
+          { labelKey: "economieInnovation", href: "/economie/innovation" },
+          { labelKey: "economieRecherche", href: "/economie/recherche" },
+          { labelKey: "economieTechnologiesStrategiques", href: "/economie/technologies-strategiques" },
         ],
       },
     ],
   },
   {
     type: "megaMenu",
-    labelKey: "actionPublique",
-    href: sectionPaths.politiquesPubliques,
+    labelKey: "fiscalite",
+    href: "/fiscalite",
     leader: {
-      titleKey: "actionPubliqueTitle",
-      paragraphKey: "actionPubliqueText",
-      link: { labelKey: "actionPubliqueAllLink", href: sectionPaths.politiquesPubliques },
+      titleKey: "fiscaliteTitle",
+      paragraphKey: "fiscaliteText",
+      link: { labelKey: "fiscaliteAllLink", href: "/fiscalite" },
     },
     categories: [
       {
-        // POLITIQUES PUBLIQUES — the permanent policy areas
-        mainLink: { labelKey: "actionPubliquePolitiquesCategory", href: sectionPaths.politiquesPubliques },
+        // PARTICULIERS
+        titleKey: "fiscaliteParticuliersCategory",
         links: [
-          { labelKey: "politiqueEconomie", href: "/politiques-publiques/economie" },
-          { labelKey: "politiqueEducation", href: "/politiques-publiques/education" },
-          { labelKey: "politiqueSante", href: "/politiques-publiques/sante" },
-          { labelKey: "politiqueSecurite", href: "/politiques-publiques/securite" },
-          { labelKey: "politiqueNumerique", href: "/politiques-publiques/numerique" },
-          { labelKey: "politiqueEnvironnement", href: "/politiques-publiques/environnement" },
-          { labelKey: "politiqueMobilite", href: "/politiques-publiques/mobilite" },
-          { labelKey: "politiqueCulture", href: "/politiques-publiques/culture" },
+          { labelKey: "fiscaliteImpotRevenu", href: "/fiscalite/impot-sur-le-revenu" },
+          { labelKey: "fiscaliteDeclarationFiscale", href: "/fiscalite/declaration-fiscale" },
+          { labelKey: "fiscalitePaiement", href: "/fiscalite/paiement" },
+          { labelKey: "fiscaliteSituationFiscale", href: "/fiscalite/situation-fiscale" },
         ],
       },
       {
-        // PRIORITÉS
-        mainLink: { labelKey: "prioritesGouvernement", href: sectionPaths.politiquesPrioritaires },
+        // ENTREPRISES
+        titleKey: "fiscaliteEntreprisesCategory",
         links: [
-          { labelKey: "grandsDossiers", href: "/news/grands-dossiers" },
-          { labelKey: "reformes", href: "/government/reformes" },
+          { labelKey: "fiscaliteImpotSocietes", href: "/fiscalite/impot-sur-les-societes" },
+          { labelKey: "fiscaliteTva", href: "/fiscalite/tva" },
+          { labelKey: "fiscaliteEntreprises", href: "/fiscalite/fiscalite-des-entreprises" },
+          { labelKey: "fiscaliteObligationsFiscales", href: "/fiscalite/obligations-fiscales" },
         ],
       },
       {
-        // COMPRENDRE L'ACTION PUBLIQUE
-        titleKey: "actionPubliqueComprendreCategory",
+        // TAXES & CONTRIBUTIONS
+        titleKey: "fiscaliteTaxesCategory",
         links: [
-          { labelKey: "ceQuiChange", href: "/news/ce-qui-change" },
-          { labelKey: "resultatsActionPublique", href: sectionPaths.suiviDesEngagements },
-          { labelKey: "evaluationPolitiquesPubliques", href: "/politiques-publiques/evaluation" },
+          { labelKey: "fiscaliteTaxes", href: "/fiscalite/taxes" },
+          { labelKey: "fiscaliteContributions", href: "/fiscalite/contributions" },
+          { labelKey: "fiscaliteDroitsPrelevements", href: "/fiscalite/droits-et-prelevements" },
+          { labelKey: "fiscaliteRegimesParticuliers", href: "/fiscalite/regimes-particuliers" },
         ],
       },
       {
-        // RESSOURCES
-        titleKey: "actionPubliqueRessourcesCategory",
+        // DÉCLARATIONS & PAIEMENTS — oriented towards action
+        titleKey: "fiscaliteDeclarationsCategory",
         links: [
-          { labelKey: "publications", href: "/publications-officielles" },
-          { labelKey: "rapports", href: "/discours-et-rapports" },
-          { labelKey: "donneesOuvertes", href: "https://data.gouv.aor/" },
+          { labelKey: "fiscaliteDeclarer", href: "/fiscalite/declarer" },
+          { labelKey: "fiscalitePayer", href: "/fiscalite/payer" },
+          { labelKey: "fiscaliteEcheances", href: "/fiscalite/echeances" },
+          { labelKey: "fiscaliteSimulateurs", href: "/fiscalite/simulateurs-fiscaux" },
         ],
       },
     ],
   },
   {
     type: "megaMenu",
-    labelKey: "servicesPublics",
-    href: "/services",
+    labelKey: "entreprises",
+    href: "/entreprises",
     leader: {
-      titleKey: "servicesTitle",
-      paragraphKey: "servicesText",
-      // The services hub is the entry point to search for a “démarche”.
-      link: { labelKey: "servicesRechercheLink", href: "/services" },
+      titleKey: "entreprisesTitle",
+      paragraphKey: "entreprisesText",
+      link: { labelKey: "entreprisesAllLink", href: "/entreprises" },
     },
     categories: [
       {
-        // DÉMARCHES
-        mainLink: { labelKey: "toutesLesDemarches", href: "/services" },
+        // CRÉER & ENREGISTRER
+        titleKey: "entreprisesCreerCategory",
         links: [
-          { labelKey: "demarcheIdentite", href: "/services/demarches/identite" },
-          { labelKey: "demarcheFiscalite", href: "/services/demarches/fiscalite" },
-          { labelKey: "demarcheLogement", href: "/services/demarches/logement" },
-          { labelKey: "demarcheTransport", href: "/services/demarches/transport" },
-          { labelKey: "demarcheEducation", href: "/services/demarches/education" },
-          { labelKey: "demarcheSante", href: "/services/demarches/sante" },
+          { labelKey: "entreprisesCreer", href: "/entreprises/creer-une-entreprise" },
+          { labelKey: "entreprisesChoisirStructure", href: "/entreprises/choisir-une-structure" },
+          { labelKey: "entreprisesEnregistrerActivite", href: "/entreprises/enregistrer-une-activite" },
+          { labelKey: "entreprisesModifier", href: "/entreprises/modifier-une-entreprise" },
         ],
       },
       {
-        // PAR SITUATION
-        titleKey: "servicesSituationsCategory",
+        // GÉRER & DÉVELOPPER
+        titleKey: "entreprisesGererCategory",
         links: [
-          { labelKey: "situationCitoyen", href: "/services/citoyen" },
-          { labelKey: "situationEtudiant", href: "/services/etudiant" },
-          { labelKey: "situationProfessionnel", href: "/services/professionnel" },
-          { labelKey: "situationEntreprise", href: "/services/entreprise" },
-          { labelKey: "situationAssociation", href: "/services/association" },
-          { labelKey: "situationEtranger", href: "/services/etranger" },
+          { labelKey: "entreprisesObligationsAdministratives", href: "/entreprises/obligations-administratives" },
+          { labelKey: "entreprisesDeveloppement", href: "/entreprises/developpement" },
+          { labelKey: "entreprisesGestion", href: "/entreprises/gestion" },
+          { labelKey: "entreprisesReglementation", href: "/entreprises/reglementation" },
         ],
       },
       {
-        // SERVICES
-        titleKey: "servicesServicesCategory",
+        // FINANCER & INVESTIR
+        titleKey: "entreprisesFinancerCategory",
         links: [
-          { labelKey: "administrations", href: "/organisation/administrations" },
-          { labelKey: "servicesEnLigne", href: "/services/services-en-ligne" },
+          { labelKey: "entreprisesFinancement", href: "/entreprises/financement" },
+          { labelKey: "entreprisesAidesPubliques", href: "/entreprises/aides-publiques" },
+          { labelKey: "entreprisesSubventions", href: "/entreprises/subventions" },
+          { labelKey: "entreprisesInvestissement", href: "/entreprises/investissement" },
+        ],
+      },
+      {
+        // EXPORTER & INTERNATIONAL
+        titleKey: "entreprisesExporterCategory",
+        links: [
+          { labelKey: "entreprisesExportation", href: "/entreprises/exportation" },
+          { labelKey: "entreprisesMarchesInternationaux", href: "/entreprises/marches-internationaux" },
+          { labelKey: "entreprisesAccompagnement", href: "/entreprises/accompagnement" },
+          { labelKey: "entreprisesCommerceInternational", href: "/entreprises/commerce-international" },
         ],
       },
     ],
   },
   {
     type: "megaMenu",
-    labelKey: "actualites",
-    href: "/news",
+    labelKey: "financesPubliques",
+    href: "/finances-publiques",
     leader: {
-      titleKey: "actualitesTitle",
-      paragraphKey: "actualitesText",
-      link: { labelKey: "actualitesAllLink", href: "/news" },
-    },
-    // “À la une” — the featured news zone, first column of the panel.
-    // Keep in sync with `featuredArticle` in `lib/home-content.ts`; feed it
-    // from the editorial API when it becomes available.
-    featuredLink: {
-      titleKey: "actualitesUneCategory",
-      // Keep in sync with `featuredArticle` (lib/home-content.ts).
-      href: "/news/ce-qui-change",
+      titleKey: "financesTitle",
+      paragraphKey: "financesText",
+      link: { labelKey: "financesAllLink", href: "/finances-publiques" },
     },
     categories: [
       {
-        // ACTUALITÉS
-        titleKey: "actualitesCategory",
+        // BUDGET DE L'ÉTAT
+        titleKey: "financesBudgetCategory",
         links: [
-          { labelKey: "allNews", href: "/news" },
-          { labelKey: "decryptages", href: sectionPaths.decryptages },
-          { labelKey: "communiques", href: "/communiques" },
-          { labelKey: "discours", href: "/discours-et-rapports" },
-          { labelKey: "conferencesPresse", href: "/actualites/conferences-de-presse" },
-          { labelKey: "videos", href: "/news/videos" },
+          { labelKey: "financesBudgetAnnuel", href: "/finances-publiques/budget-annuel" },
+          { labelKey: "financesProjetBudget", href: "/finances-publiques/projet-de-budget" },
+          { labelKey: "financesLoiFinances", href: "/finances-publiques/loi-de-finances" },
+          { labelKey: "financesExecutionBudgetaire", href: "/finances-publiques/execution-budgetaire" },
         ],
       },
       {
-        // THÉMATIQUES
-        titleKey: "thematiquesNewsCategory",
+        // RECETTES & DÉPENSES
+        titleKey: "financesRecettesCategory",
         links: [
-          { labelKey: "politiqueEconomie", href: "/news/budget" },
-          { labelKey: "politiqueEducation", href: "/news/rentree-scolaire" },
-          { labelKey: "politiqueSante", href: "/news/sante" },
-          { labelKey: "politiqueSecurite", href: "/news/narcotrafic" },
-          { labelKey: "politiqueNumerique", href: "/news/intelligence-artificielle" },
-          { labelKey: "politiqueEnvironnement", href: "/news/astoria-nation-verte" },
-          { labelKey: "thematiqueSociete", href: "/news/laicite" },
+          { labelKey: "financesRecettesPubliques", href: "/finances-publiques/recettes-publiques" },
+          { labelKey: "financesDepensesPubliques", href: "/finances-publiques/depenses-publiques" },
+          { labelKey: "financesRepartitionDepenses", href: "/finances-publiques/repartition-des-depenses" },
+          { labelKey: "financesDepensesMinistere", href: "/finances-publiques/depenses-par-ministere" },
+        ],
+      },
+      {
+        // DETTE & TRÉSORERIE
+        titleKey: "financesDetteCategory",
+        links: [
+          { labelKey: "financesDettePublique", href: "/finances-publiques/dette-publique" },
+          { labelKey: "financesTresorerie", href: "/finances-publiques/tresorerie" },
+          { labelKey: "financesFinancementEtat", href: "/finances-publiques/financement-de-letat" },
+          { labelKey: "financesGestionDette", href: "/finances-publiques/gestion-de-la-dette" },
+        ],
+      },
+      {
+        // TRANSPARENCE FINANCIÈRE
+        titleKey: "financesTransparenceCategory",
+        links: [
+          { labelKey: "financesComptesPublics", href: "/finances-publiques/comptes-publics" },
+          { labelKey: "financesDonneesBudgetaires", href: "/finances-publiques/donnees-budgetaires" },
+          { labelKey: "financesControleFinancier", href: "/finances-publiques/controle-financier" },
+          { labelKey: "financesRapports", href: "/finances-publiques/rapports" },
         ],
       },
     ],
   },
   {
     type: "megaMenu",
-    labelKey: "republique",
-    href: "/republique",
+    labelKey: "commerceDouanes",
+    href: "/commerce-et-douanes",
     leader: {
-      titleKey: "republiqueTitle",
-      paragraphKey: "republiqueText",
-      link: { labelKey: "republiqueDiscoverLink", href: "/republique" },
+      titleKey: "commerceDouanesTitle",
+      paragraphKey: "commerceDouanesText",
+      link: { labelKey: "commerceDouanesAllLink", href: "/commerce-et-douanes" },
     },
     categories: [
       {
-        // INSTITUTIONS
-        mainLink: { labelKey: "institutionsRepublic", href: "/republique" },
+        // COMMERCE INTÉRIEUR
+        titleKey: "commerceInterieurCategory",
         links: [
-          { labelKey: "constitution", href: "/republique/constitution" },
-          { labelKey: "organisationEtat", href: "/republique/organisation" },
-          { labelKey: "administrations", href: "/republique/administrations" },
-          { labelKey: "autoritesPubliques", href: "/republique/autorites-publiques" },
-          { labelKey: "territoiresCollectivites", href: "/republique/territoires" },
+          { labelKey: "commerceReglementationCommerciale", href: "/commerce-et-douanes/reglementation-commerciale" },
+          { labelKey: "commerceProtectionMarche", href: "/commerce-et-douanes/protection-du-marche" },
+          { labelKey: "commercePratiquesCommerciales", href: "/commerce-et-douanes/pratiques-commerciales" },
+          { labelKey: "commerceConcurrence", href: "/commerce-et-douanes/concurrence" },
         ],
       },
       {
-        // FONCTIONNEMENT
-        titleKey: "republiqueFonctionnementCategory",
+        // COMMERCE INTERNATIONAL
+        titleKey: "commerceInternationalCategory",
         links: [
-          { labelKey: "fonctionnementInstitutions", href: "/republique/fonctionnement" },
-          { labelKey: "relationsInstitutions", href: "/republique/relations-entre-institutions" },
-          { labelKey: "servicePublicLink", href: "/republique/services" },
+          { labelKey: "commerceExterieur", href: "/commerce-et-douanes/commerce-exterieur" },
+          { labelKey: "commerceAccordsCommerciaux", href: "/commerce-et-douanes/accords-commerciaux" },
+          { labelKey: "commerceMarchesInternationaux", href: "/commerce-et-douanes/marches-internationaux" },
+          { labelKey: "commercePolitiqueCommerciale", href: "/commerce-et-douanes/politique-commerciale" },
         ],
       },
       {
-        // RÉPUBLIQUE OUVERTE
-        titleKey: "republiqueOuverteCategory",
+        // IMPORTER & EXPORTER
+        titleKey: "commerceImporterCategory",
         links: [
-          { labelKey: "transparence", href: "/republique/transparence" },
-          { labelKey: "donneesOuvertes", href: "https://data.gouv.aor/" },
-          { labelKey: "publications", href: "/republique/publications-officielles" },
-          { labelKey: "openSource", href: "/republique/open-source" },
-          { labelKey: "participationCitoyenne", href: sectionPaths.participation },
-          { labelKey: "devenirVolontaire", href: "/republique/devenir-volontaire" },
+          { labelKey: "commerceImportation", href: "/commerce-et-douanes/importation" },
+          { labelKey: "commerceExportation", href: "/commerce-et-douanes/exportation" },
+          { labelKey: "commerceDeclarations", href: "/commerce-et-douanes/declarations" },
+          { labelKey: "commerceProcedures", href: "/commerce-et-douanes/procedures" },
+        ],
+      },
+      {
+        // DOUANES & DROITS
+        titleKey: "commerceDouanesCategory",
+        links: [
+          { labelKey: "commerceDouanes", href: "/commerce-et-douanes/douanes" },
+          { labelKey: "commerceDroitsTaxes", href: "/commerce-et-douanes/droits-et-taxes" },
+          { labelKey: "commerceTarifs", href: "/commerce-et-douanes/tarifs" },
+          { labelKey: "commerceReglementationDouaniere", href: "/commerce-et-douanes/reglementation-douaniere" },
         ],
       },
     ],
   },
   {
     type: "megaMenu",
-    labelKey: "informationsUtiles",
-    href: sectionPaths.liensUtiles,
+    labelKey: "donneesRessources",
+    href: "/donnees-et-ressources",
     leader: {
-      titleKey: "infosUtilesTitle",
-      paragraphKey: "infosUtilesText",
-      link: { labelKey: "infosUtilesAllLink", href: sectionPaths.liensUtiles },
+      titleKey: "donneesRessourcesTitle",
+      paragraphKey: "donneesRessourcesText",
+      link: { labelKey: "donneesRessourcesAllLink", href: "/donnees-et-ressources" },
     },
     categories: [
       {
-        // PRÉVENTION & SÉCURITÉ
-        titleKey: "infosPreventionCategory",
+        // DONNÉES ÉCONOMIQUES
+        titleKey: "donneesDonneesCategory",
         links: [
-          { labelKey: "risquesMajeurs", href: sectionPaths.preventionDesRisques },
-          {
-            labelKey: "sePreparerUrgenceTitle",
-            href: "/prevention-des-risques/se-preparer-a-une-situation-durgence",
-          },
-          {
-            labelKey: "risquesNaturels",
-            href: "/prevention-des-risques/risques-naturels-et-technologiques",
-          },
-          { labelKey: "menaceTerroriste", href: "/prevention-des-risques/menace-terroriste" },
-          { labelKey: "menaceCyber", href: "/prevention-des-risques/menace-cyber" },
+          { labelKey: "donneesEconomiques", href: "/donnees-et-ressources/donnees-economiques" },
+          { labelKey: "donneesIndicateurs", href: "/donnees-et-ressources/indicateurs" },
+          { labelKey: "donneesSeriesHistoriques", href: "/donnees-et-ressources/series-historiques" },
+          { labelKey: "donneesOuvertes", href: "/donnees-et-ressources/donnees-ouvertes" },
         ],
       },
       {
-        // INFORMATIONS PRATIQUES
-        titleKey: "infosPratiquesCategory",
+        // STATISTIQUES & INDICATEURS
+        titleKey: "donneesStatistiquesCategory",
         links: [
-          { labelKey: "contacts", href: "/contact" },
-          { labelKey: "numerosUtiles", href: "/liens-utiles/numeros-utiles" },
-          { labelKey: "accessibilite", href: legalPaths.accessibility },
-          { labelKey: "questionsFrequentes", href: "/liens-utiles/faq" },
-          // The official-sites directory stays reachable through its page.
-          { labelKey: "liensUtiles", href: sectionPaths.liensUtiles },
+          { labelKey: "donneesPib", href: "/donnees-et-ressources/pib" },
+          { labelKey: "donneesInflation", href: "/donnees-et-ressources/inflation" },
+          { labelKey: "donneesEmploi", href: "/donnees-et-ressources/emploi" },
+          { labelKey: "donneesCommerceExterieur", href: "/donnees-et-ressources/commerce-exterieur" },
         ],
       },
       {
-        // LE PORTAIL
-        titleKey: "infosPortailCategory",
+        // ÉTUDES & PUBLICATIONS
+        titleKey: "donneesEtudesCategory",
         links: [
-          { labelKey: "planDuSite", href: legalPaths.sitemap },
-          { labelKey: "espacePresse", href: pressPath },
-          { labelKey: "accessibilite", href: legalPaths.accessibility },
-          { labelKey: "informationsLegales", href: legalPaths.terms },
-          { labelKey: "confidentialite", href: legalPaths.privacy },
-          { labelKey: "gestionCookies", href: legalPaths.cookies },
+          { labelKey: "donneesRapports", href: "/donnees-et-ressources/rapports" },
+          { labelKey: "donneesEtudes", href: "/donnees-et-ressources/etudes" },
+          { labelKey: "donneesAnalyses", href: "/donnees-et-ressources/analyses" },
+          { labelKey: "donneesPublications", href: "/donnees-et-ressources/publications" },
+        ],
+      },
+      {
+        // LOIS & RÉGLEMENTATION
+        titleKey: "donneesLoisCategory",
+        links: [
+          { labelKey: "donneesTextesOfficiels", href: "/donnees-et-ressources/textes-officiels" },
+          { labelKey: "donneesReglementation", href: "/donnees-et-ressources/reglementation" },
+          { labelKey: "donneesDoctrine", href: "/donnees-et-ressources/doctrine" },
+          { labelKey: "donneesDocumentation", href: "/donnees-et-ressources/documentation" },
         ],
       },
     ],

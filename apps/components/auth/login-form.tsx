@@ -96,7 +96,6 @@ export default function LoginForm() {
       {/* Remember me + forgot password */}
       <div className="gov-login-form__options">
         <Checkbox
-          type="checkbox"
           legend={<span className="sr-only">Options</span>}
           options={[
             {
