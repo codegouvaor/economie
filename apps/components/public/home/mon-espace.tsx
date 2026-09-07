@@ -36,9 +36,9 @@ export function MonEspace() {
     <div className="gov-home-espace">
       <div className="gov-home-espace__intro">
         <p className="gov-kicker">{t("monEspace.kicker")}</p>
-        <h3 id="espace-title" className="gov-home-espace__title">
+        <h2 id="espace-title" className="gov-home-espace__title">
           {t("monEspace.title")}
-        </h3>
+        </h2>
         <p className="gov-home-espace__lead">{t("monEspace.lead")}</p>
       </div>
 
@@ -73,10 +73,7 @@ export function MonEspace() {
           </ul>
           <p className="gov-home-espace__note">{t("monEspace.authNote")}</p>
           <div className="gov-home-espace__cta">
-            <a
-              className="gov-home-espace__button"
-              href={getDomainUrl("sso", "/login")}
-            >
+            <a className="gov-home-espace__button" href={getDomainUrl("sso", "/login")}>
               <span className="fr-icon-account-circle-line" aria-hidden="true" />
               {t("monEspace.cta")}
             </a>

@@ -67,59 +67,36 @@
       "lead": "Each path takes you straight to the corresponding service.",
       "items": {
         "declarer": {
-          "title": "Declare",
-          "desc": "Declare my income, taxes or obligations."
+          "title": "Declare my income",
+          "desc": "File my taxes and duties online."
         },
         "payer": {
-          "title": "Pay",
-          "desc": "Make a payment or check my payments."
+          "title": "Pay a tax",
+          "desc": "Settle a tax, duty or fine."
+        },
+        "creerEntreprise": {
+          "title": "Create a company",
+          "desc": "Choose a structure and register my activity."
         },
         "gererEntreprise": {
           "title": "Manage my company",
-          "desc": "Create, manage or grow my business."
-        },
-        "documents": {
-          "title": "Access my documents",
-          "desc": "Find my notices, declarations and official documents."
+          "desc": "Update my details and keep up with my obligations."
         },
         "obligations": {
-          "title": "Understand my obligations",
+          "title": "Know my tax obligations",
           "desc": "Find the rules that apply to my situation."
         },
-        "information": {
-          "title": "Find information",
-          "desc": "Access economic data, statistics and resources."
-        }
-      }
-    },
-    "domains": {
-      "kicker": "Explore",
-      "title": "Explore the economy and public finances",
-      "lead": "Six major domains covering all of the ministry's missions, data and services.",
-      "items": {
-        "economie": {
-          "title": "Economy",
-          "desc": "Understand Astoria's economy and the policies supporting growth, employment, investment and innovation."
+        "aides": {
+          "title": "Find support",
+          "desc": "Browse the support and funding available to companies."
         },
-        "fiscalite": {
-          "title": "Taxation",
-          "desc": "Understand, declare and pay your taxes and duties."
+        "budget": {
+          "title": "Browse the State budget",
+          "desc": "Understand State revenue, expenditure and balance."
         },
-        "entreprises": {
-          "title": "Companies",
-          "desc": "Create, manage, finance and grow a company in Astoria."
-        },
-        "financesPubliques": {
-          "title": "Public finances",
-          "desc": "Understand the State budget, its revenue, expenditure and debt."
-        },
-        "commerceDouanes": {
-          "title": "Trade & Customs",
-          "desc": "Support for domestic and international trade and customs procedures."
-        },
-        "donneesRessources": {
-          "title": "Data & Resources",
-          "desc": "Access statistics, indicators, publications, studies, official texts and public data."
+        "donnees": {
+          "title": "Browse economic data",
+          "desc": "Access economic indicators and statistics."
         }
       }
     },
@@ -138,26 +115,25 @@
       "cta": "Access my space",
       "authNote": "Secure sign-in with MyGouv, your State digital identity."
     },
-    "audiences": {
-      "kicker": "Profiles",
-      "title": "Depending on your situation",
-      "lead": "I don't know where to look, but I know who I am: find the paths that suit you, on the same platform.",
+    "alerts": {
+      "kicker": "Your attention",
+      "title": "Important information",
+      "lead": "Deadlines, regulatory changes and decisions that may affect you.",
       "items": {
-        "particulier": {
-          "title": "Individual",
-          "desc": "Taxes, payments, procedures and personal situation."
+        "echeance": {
+          "tag": "Deadline",
+          "title": "The income tax return campaign is open",
+          "desc": "File online before the May deadline to avoid any tax surcharge."
         },
-        "entreprise": {
-          "title": "Company",
-          "desc": "Taxation, obligations, funding and growth."
+        "reglementation": {
+          "tag": "Regulation",
+          "title": "New VAT rates as of 1 January 2027",
+          "desc": "Applicable rates and associated invoicing rules have been updated."
         },
-        "professionnel": {
-          "title": "Professional",
-          "desc": "Regulation, procedures and professional resources."
-        },
-        "administration": {
-          "title": "Administration",
-          "desc": "Public finances, data and resources for administrations."
+        "comptes": {
+          "tag": "Public finances",
+          "title": "The 2026 public accounts are published",
+          "desc": "State revenue, expenditure and balance: find the official figures."
         }
       }
     },
@@ -185,8 +161,22 @@
           "label": "Foreign trade"
         }
       },
-      "exploreLink": "Explore economic data",
+      "exploreLink": "All statistics and indicators",
       "note": "Provisional values pending official publication."
+    },
+    "budget": {
+      "kicker": "Public finances",
+      "title": "The State budget",
+      "lead": "How much does the State collect and spend, and on what? The key budget balances at a glance.",
+      "note": "Provisional values pending official figures.",
+      "cta": "Browse the State budget",
+      "totalLabel": "2027 State budget",
+      "figures": {
+        "recettes": "Revenue",
+        "depenses": "Expenditure",
+        "solde": "Balance",
+        "dette": "Public debt"
+      }
     },
     "news": {
       "kicker": "News",
@@ -217,6 +207,12 @@
       },
       "allLink": "All news"
     },
+    "resources": {
+      "kicker": "Resources",
+      "title": "Data, studies and publications",
+      "lead": "Direct access to the ministry's most consulted documents and publications.",
+      "allLink": "All data and resources"
+    },
     "ministry": {
       "kicker": "Institution",
       "title": "The Ministry of Economy and Finance",
@@ -235,28 +231,27 @@
           "title": "Contact us"
         }
       }
+    }
+  },
+  "stayInTouch": {
+    "newsletter": {
+      "title": "Stay informed about ministry news",
+      "desc": "Receive our newsletters on a regular basis and keep up with the State's economic and financial decisions.",
+      "label": "Email address",
+      "placeholder": "you@address.gouv.aor",
+      "submit": "Subscribe",
+      "hint": "Your email address is only used to send you our newsletters. You can unsubscribe at any time.",
+      "invalidEmail": "Please enter a valid email address.",
+      "success": "Thank you, your subscription has been registered."
     },
-    "social": {
-      "newsletter": {
-        "kicker": "Newsletter",
-        "title": "Subscribe to our newsletters",
-        "desc": "Receive the latest news from the Ministry of Economy and Finance straight to your inbox.",
-        "label": "Email address",
-        "placeholder": "you@address.gouv.aor",
-        "submit": "Subscribe",
-        "hint": "Your email address is only used to send you our newsletters. You can unsubscribe at any time.",
-        "invalidEmail": "Please enter a valid email address.",
-        "success": "Thank you, your subscription has been registered."
-      },
-      "follow": {
-        "title": "Follow the ministry",
-        "items": {
-          "x": "X (formerly Twitter)",
-          "facebook": "Facebook",
-          "linkedin": "LinkedIn",
-          "instagram": "Instagram",
-          "threads": "Threads"
-        }
+    "follow": {
+      "title": "Follow the ministry",
+      "items": {
+        "x": "X (formerly Twitter)",
+        "facebook": "Facebook",
+        "linkedin": "LinkedIn",
+        "instagram": "Instagram",
+        "threads": "Threads"
       }
     }
   },

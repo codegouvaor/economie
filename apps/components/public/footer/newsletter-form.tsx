@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /**
- * Newsletter subscription form of the home “social” section.
+ * Newsletter subscription form of the footer “stay in touch” zone.
  *
  * The form validates the address client-side and confirms the subscription.
  * There is no public subscription API yet (the server endpoint is restricted
@@ -16,12 +16,10 @@ const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
  * response, without changing the markup or the styles.
  */
 export function NewsletterForm() {
-  const t = useTranslations("home.social.newsletter");
+  const t = useTranslations("stayInTouch.newsletter");
 
   const [email, setEmail] = React.useState("");
-  const [status, setStatus] = React.useState<"idle" | "error" | "success">(
-    "idle",
-  );
+  const [status, setStatus] = React.useState<"idle" | "error" | "success">("idle");
   const [error, setError] = React.useState<string | null>(null);
 
   const inputId = React.useId();
@@ -43,14 +41,14 @@ export function NewsletterForm() {
   }
 
   return (
-    <form className="gov-home-social__form" onSubmit={handleSubmit} noValidate>
-      <div className="gov-home-social__form-row">
+    <form className="gov-stay-in-touch__form" onSubmit={handleSubmit} noValidate>
+      <div className="gov-stay-in-touch__form-row">
         <label className="sr-only" htmlFor={inputId}>
           {t("label")}
         </label>
         <input
           id={inputId}
-          className="gov-home-social__input"
+          className="gov-stay-in-touch__input"
           type="email"
           autoComplete="email"
           placeholder={t("placeholder")}
@@ -65,23 +63,23 @@ export function NewsletterForm() {
           aria-invalid={status === "error"}
           aria-describedby={status === "error" ? errorId : undefined}
         />
-        <button type="submit" className="gov-home-social__button">
+        <button type="submit" className="gov-stay-in-touch__button">
           {t("submit")}
         </button>
       </div>
 
       {status === "error" && error && (
-        <p id={errorId} className="gov-home-social__form-error" role="alert">
+        <p id={errorId} className="gov-stay-in-touch__form-error" role="alert">
           {error}
         </p>
       )}
       {status === "success" && (
-        <p className="gov-home-social__form-success" role="status">
+        <p className="gov-stay-in-touch__form-success" role="status">
           {t("success")}
         </p>
       )}
 
-      <p className="gov-home-social__form-hint">{t("hint")}</p>
+      <p className="gov-stay-in-touch__form-hint">{t("hint")}</p>
     </form>
   );
 }

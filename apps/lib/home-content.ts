@@ -10,18 +10,23 @@ import type { FrIconClassName } from "@codegouvaor/react-ads/fr";
  * catalogs), never rewriting the interface — the same architecture can be
  * reused for another ministry with a different configuration.
  *
- * The homepage tells one story — find, do, manage, get oriented, explore,
- * understand, get informed, discover — through nine sections:
+ * The homepage is the *functional front door* of the ministry, distinct from
+ * the header (which allows exploring the six domains): it lets the visitor
+ * act now. It tells one story through nine sections:
  *
- *   01 Hero / Accès immédiat      → popularSearches
- *   02 Que souhaitez-vous faire ? → actions
- *   03 Mon espace                 → monEspace
- *   04 Selon votre situation      → audiences
- *   05 Explorer les domaines      → domains
- *   06 L'économie en chiffres     → indicators
- *   07 Actualités                 → news
- *   08 Le ministère               → ministry
- *   09 Rester en contact          → social
+ *   01 Hero / Recherche             → popularSearches
+ *   02 Que souhaitez-vous faire ?   → actions
+ *   03 Mon espace                   → monEspace
+ *   04 Informations importantes     → importantInfo
+ *   05 L'économie d'Astoria         → indicators
+ *   06 Budget de l'État             → budget
+ *   07 Actualités                   → news
+ *   08 Ressources                   → resources
+ *   09 Le ministère                 → ministry
+ *
+ * The six functional domains are intentionally absent from this page: the
+ * header navigation is their home. Newsletter and social accounts live in
+ * the footer (see the stay-in-touch zone of GovernmentFooter).
  */
 export type HomeLink = {
   /** Message key (namespace `home`) of the entry label. */
@@ -32,10 +37,6 @@ export type HomeLink = {
 export type HomeAction = HomeLink & {
   /** Message key (namespace `home`) of the one-line description. */
   descKey: string;
-  iconId: FrIconClassName;
-};
-
-export type HomeDomain = HomeLink & {
   iconId: FrIconClassName;
 };
 
@@ -57,6 +58,24 @@ export type HomeNewsItem = {
   href: string;
 };
 
+/**
+ * One operational alert of the “Informations importantes” section. Alerts
+ * carry a real operational importance (échéance, changement réglementaire,
+ * mesure, réforme…) and therefore come before general news.
+ */
+export type HomeAlert = HomeLink & {
+  iconId: FrIconClassName;
+};
+
+/**
+ * One key figure of the State budget section. Figures are provisional/mocked
+ * until the official budget data is published; labels resolve under
+ * `home.budget.figures.<key>`.
+ */
+export type HomeBudgetFigure = HomeLink & {
+  value: string;
+};
+
 export const ministryHome = {
   /**
    * Quick suggestions under the hero search. Labels resolve under
@@ -70,8 +89,9 @@ export const ministryHome = {
     { key: "reglementation", href: "/donnees-et-ressources/reglementation" },
   ] satisfies ReadonlyArray<HomeLink>,
   /**
-   * Section 02 — “Que souhaitez-vous faire ?” : user intentions, each mapped
-   * to a real destination (never decorative cards).
+   * Section 02 — “Que souhaitez-vous faire ?” : concrete, frequent actions,
+   * each mapped to a real destination (never decorative cards). Six to eight
+   * entries — selected by real importance, not to fill the section.
    */
   actions: [
     {
@@ -87,16 +107,16 @@ export const ministryHome = {
       iconId: "fr-icon-bank-card-line",
     },
     {
+      key: "creerEntreprise",
+      descKey: "actions.items.creerEntreprise.desc",
+      href: "/entreprises/creer-une-entreprise",
+      iconId: "fr-icon-building-line",
+    },
+    {
       key: "gererEntreprise",
       descKey: "actions.items.gererEntreprise.desc",
       href: "/entreprises/gestion",
       iconId: "fr-icon-settings-5-line",
-    },
-    {
-      key: "documents",
-      descKey: "actions.items.documents.desc",
-      href: "/mon-espace/documents",
-      iconId: "fr-icon-folder-2-line",
     },
     {
       key: "obligations",
@@ -105,9 +125,21 @@ export const ministryHome = {
       iconId: "fr-icon-book-2-line",
     },
     {
-      key: "information",
-      descKey: "actions.items.information.desc",
-      href: "/donnees-et-ressources",
+      key: "aides",
+      descKey: "actions.items.aides.desc",
+      href: "/entreprises/aides-publiques",
+      iconId: "fr-icon-gift-line",
+    },
+    {
+      key: "budget",
+      descKey: "actions.items.budget.desc",
+      href: "/finances-publiques/budget-annuel",
+      iconId: "fr-icon-bank-line",
+    },
+    {
+      key: "donnees",
+      descKey: "actions.items.donnees.desc",
+      href: "/donnees-et-ressources/donnees-economiques",
       iconId: "fr-icon-bar-chart-2-line",
     },
   ] satisfies ReadonlyArray<HomeAction>,
@@ -137,50 +169,32 @@ export const ministryHome = {
     ] satisfies ReadonlyArray<{ key: string; iconId: FrIconClassName }>,
   },
   /**
-   * Section 04 — “Selon votre situation” : audience orientation towards the
-   * right parcours of the same platform (no separate sites per audience).
+   * Section 04 — “Informations importantes” : operational alerts needing the
+   * public's attention (échéance fiscale, changement réglementaire, mesure,
+   * réforme, service). They take precedence over general news. Labels resolve
+   * under `home.alerts.items.<key>`.
    */
-  audiences: [
+  importantInfo: [
     {
-      key: "particulier",
-      descKey: "audiences.items.particulier.desc",
-      href: "/fiscalite",
-      iconId: "fr-icon-user-line",
+      key: "echeance",
+      href: "/fiscalite/echeances",
+      iconId: "fr-icon-calendar-line",
     },
     {
-      key: "entreprise",
-      descKey: "audiences.items.entreprise.desc",
-      href: "/entreprises",
-      iconId: "fr-icon-building-line",
+      key: "reglementation",
+      href: "/donnees-et-ressources/reglementation",
+      iconId: "fr-icon-article-line",
     },
     {
-      key: "professionnel",
-      descKey: "audiences.items.professionnel.desc",
-      href: "/commerce-et-douanes",
-      iconId: "fr-icon-suitcase-2-line",
+      key: "comptes",
+      href: "/finances-publiques/comptes-publics",
+      iconId: "fr-icon-bank-line",
     },
-    {
-      key: "administration",
-      descKey: "audiences.items.administration.desc",
-      href: "/finances-publiques",
-      iconId: "fr-icon-government-line",
-    },
-  ] satisfies ReadonlyArray<HomeAction>,
+  ] satisfies ReadonlyArray<HomeAlert>,
   /**
-   * The six functional domains of the ministry — same hrefs as the header.
-   */
-  domains: [
-    { key: "economie", href: "/economie", iconId: "fr-icon-line-chart-line" },
-    { key: "fiscalite", href: "/fiscalite", iconId: "fr-icon-money-euro-circle-line" },
-    { key: "entreprises", href: "/entreprises", iconId: "fr-icon-building-line" },
-    { key: "financesPubliques", href: "/finances-publiques", iconId: "fr-icon-bank-line" },
-    { key: "commerceDouanes", href: "/commerce-et-douanes", iconId: "fr-icon-global-line" },
-    { key: "donneesRessources", href: "/donnees-et-ressources", iconId: "fr-icon-database-line" },
-  ] satisfies ReadonlyArray<HomeDomain>,
-  /**
-   * Key economic indicators. Values are provisional/mocked until real data is
-   * published; the config is the seam where a future API or data source
-   * plugs in (labels resolve under `home.stats.items.<key>.label`).
+   * Section 05 — key economic indicators. Values are provisional/mocked until
+   * real data is published; the config is the seam where a future API or data
+   * source plugs in (labels resolve under `home.stats.items.<key>.label`).
    */
   indicators: [
     { key: "pib", value: "XXX Md A$", href: "/donnees-et-ressources/pib" },
@@ -188,8 +202,46 @@ export const ministryHome = {
     { key: "emploi", value: "XX %", href: "/donnees-et-ressources/emploi" },
     { key: "dette", value: "XX % du PIB", href: "/finances-publiques/dette-publique" },
     { key: "deficit", value: "−XX Md A$", href: "/finances-publiques/comptes-publics" },
-    { key: "commerceExterieur", value: "XXX Md A$", href: "/donnees-et-ressources/commerce-exterieur" },
+    {
+      key: "commerceExterieur",
+      value: "XXX Md A$",
+      href: "/donnees-et-ressources/commerce-exterieur",
+    },
   ] satisfies ReadonlyArray<HomeIndicator>,
+  /**
+   * Section 06 — the State budget, made understandable. The headline total
+   * leads to the annual budget page; each key figure links to its dedicated
+   * page. Values are provisional/mocked — this config is the seam where the
+   * real budget data (and later a richer visualisation) plugs in.
+   */
+  budget: {
+    total: {
+      value: "XXX Md A$",
+      href: "/finances-publiques/budget-annuel",
+    },
+    figures: [
+      {
+        key: "recettes",
+        value: "XXX Md A$",
+        href: "/finances-publiques/recettes-publiques",
+      },
+      {
+        key: "depenses",
+        value: "XXX Md A$",
+        href: "/finances-publiques/depenses-publiques",
+      },
+      {
+        key: "solde",
+        value: "−XX Md A$",
+        href: "/finances-publiques/comptes-publics",
+      },
+      {
+        key: "dette",
+        value: "XX % du PIB",
+        href: "/finances-publiques/dette-publique",
+      },
+    ] satisfies ReadonlyArray<HomeBudgetFigure>,
+  },
   news: {
     featured: {
       titleKey: "news.featured.title",
@@ -220,7 +272,20 @@ export const ministryHome = {
     ] satisfies ReadonlyArray<HomeNewsItem>,
   },
   /**
-   * Section 08 — institutional links of the closing section. Labels resolve
+   * Section 08 — frequent documentary resources: a compact shortcut to the
+   * “Données & Ressources” domain content (no sixth domain, no second
+   * navigation). Labels intentionally reuse the `nav.panel` vocabulary of the
+   * header so the whole ecosystem speaks the same language.
+   */
+  resources: [
+    { key: "donneesEconomiques", href: "/donnees-et-ressources/donnees-economiques" },
+    { key: "donneesStatistiquesCategory", href: "/donnees-et-ressources/indicateurs" },
+    { key: "donneesEtudes", href: "/donnees-et-ressources/etudes" },
+    { key: "donneesPublications", href: "/donnees-et-ressources/publications" },
+    { key: "donneesLoisCategory", href: "/donnees-et-ressources/reglementation" },
+  ] satisfies ReadonlyArray<HomeLink>,
+  /**
+   * Section 09 — institutional links of the closing section. Labels resolve
    * under `home.ministry.links.<key>`.
    */
   ministry: [
@@ -229,20 +294,4 @@ export const ministryHome = {
     { key: "organisation", href: "/government/composition" },
     { key: "contact", href: "/contact" },
   ] satisfies ReadonlyArray<HomeLink>,
-  /**
-   * Section 09 — “Rester en contact” : newsletter subscription and the
-   * ministry's social accounts. The hrefs below are placeholders (the
-   * ministry's real accounts do not exist yet); the social labels resolve
-   * under `home.social.follow.items.<key>`. The icon for each key is mapped
-   * in the homepage (social icons are components, not DSFR icon ids).
-   */
-  social: {
-    follow: [
-      { key: "x", href: "https://x.com" },
-      { key: "facebook", href: "https://www.facebook.com" },
-      { key: "linkedin", href: "https://www.linkedin.com" },
-      { key: "instagram", href: "https://www.instagram.com" },
-      { key: "threads", href: "https://www.threads.net" },
-    ] satisfies ReadonlyArray<HomeLink>,
-  },
 };

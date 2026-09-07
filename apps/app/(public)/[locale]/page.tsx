@@ -1,4 +1,3 @@
-import type { ComponentType } from "react";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { localizedAlternates, resolveLocaleParam } from "@/lib/localized-metadata";
@@ -11,24 +10,11 @@ import {
   SearchSuggestionTag,
 } from "@/components/public/content/ads-fragments";
 import { MonEspace } from "@/components/public/home/mon-espace";
-import { NewsletterForm } from "@/components/public/home/newsletter-form";
-import { FacebookIcon } from "@/components/ui/icons/FacebookIcon";
-import { InstagramIcon } from "@/components/ui/icons/InstagramIcon";
-import { LinkedinIcon } from "@/components/ui/icons/LinkedinIcon";
-import { ThreadsIcon } from "@/components/ui/icons/ThreadsIcon";
-import { TwitterIcon } from "@/components/ui/icons/TwitterIcon";
-
-/** Icon of each social account, keyed by the `social.follow` config key. */
-const SOCIAL_ICONS: Record<string, ComponentType<{ className?: string }>> = {
-  x: TwitterIcon,
-  facebook: FacebookIcon,
-  linkedin: LinkedinIcon,
-  instagram: InstagramIcon,
-  threads: ThreadsIcon,
-};
 
 const HOME_PATH = "/";
 const NEWS_PATH = "/news";
+/** Données & Ressources → Statistiques & indicateurs. */
+const STATS_PATH = "/donnees-et-ressources/indicateurs";
 const DATA_PATH = "/donnees-et-ressources";
 
 type PageProps = { params: Promise<{ locale: string }> };
@@ -48,26 +34,29 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 /**
- * Homepage of the Ministry of Economy and Finance — the single digital entry
- * point of the economy and finance platform.
+ * Homepage of the Ministry of Economy and Finance — the functional front
+ * door of the economy and finance platform.
  *
- * The page is organised around usages, not the ministry's internal
- * organisation. It tells one story, section after section:
+ * The header allows exploring the ministry (six domains, unchanged); this
+ * page allows acting. It answers “what can I do now?”, section after
+ * section:
  *
- *   01 Hero / Accès immédiat      — who we are, and search first
- *   02 Que souhaitez-vous faire ? — user intentions, each a real parcours
- *   03 Mon espace                 — the personal space (auth via MyGouv)
- *   04 Selon votre situation      — audience orientation on the same platform
- *   05 Explorer les domaines      — the six functional domains
- *   06 L'économie en chiffres     — key economic indicators
- *   07 Actualités et informations — ministry news, after services
- *   08 Le ministère               — discreet institutional closing
- *   09 Rester en contact          — newsletter + social accounts
+ *   01 Hero / Recherche            — who we are, and search first
+ *   02 Que souhaitez-vous faire ?  — frequent actions, each a real parcours
+ *   03 Mon espace                  — the personal space (auth via MyGouv)
+ *   04 Informations importantes    — operational alerts, before general news
+ *   05 L'économie d'Astoria        — key economic indicators
+ *   06 Budget de l'État            — public finances, made understandable
+ *   07 Actualités                  — ministry news, after usages
+ *   08 Ressources                  — compact shortcut to documentary content
+ *   09 Le ministère                — discreet institutional closing
  *
  * Every section is driven by the `ministryHome` configuration
  * (lib/home-content.ts) and the message catalogs, so the content can evolve
- * without rewriting the interface. The six domains keep the same hrefs as
- * the header navigation.
+ * without rewriting the interface. The six domains deliberately do not
+ * appear here as a second navigation: they belong to the header. Newsletter
+ * and social accounts are relegated to the footer (stay-in-touch zone of
+ * GovernmentFooter).
  */
 export default async function HomePage({ params }: PageProps) {
   const { locale: rawLocale } = await params;
@@ -75,11 +64,12 @@ export default async function HomePage({ params }: PageProps) {
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "home" });
+  const tNavPanel = await getTranslations({ locale, namespace: "nav.panel" });
 
   return (
     <>
-      {/* 01 — Hero / Accès immédiat: institutional statement and the main
-          search, visually the most important element of the page. */}
+      {/* 01 — Hero / Recherche: institutional statement and the main search,
+          visually the most important element of the page. */}
       <section className="gov-home-hero gov-section" aria-labelledby="home-hero-title">
         <div className="gov-section__container">
           <p className="gov-kicker">{t("hero.kicker")}</p>
@@ -111,8 +101,8 @@ export default async function HomePage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* 02 — Que souhaitez-vous faire ?: the first functional entry point,
-          user intentions each mapped to a real destination. */}
+      {/* 02 — Que souhaitez-vous faire ?: the functional heart of the page,
+          concrete frequent actions each mapped to a real destination. */}
       <section className="gov-section gov-section--subtle" aria-labelledby="actions-title">
         <div className="gov-section__container">
           <div className="gov-section__header">
@@ -147,68 +137,49 @@ export default async function HomePage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* 04 — Selon votre situation: audience orientation towards the right
-          parcours of the same platform. */}
-      <section className="gov-section gov-section--subtle" aria-labelledby="audiences-title">
+      {/* 04 — Informations importantes: operational alerts (échéance,
+          changement réglementaire, mesure, réforme…). They come before
+          general news when an item has an operational importance. */}
+      <section className="gov-section gov-section--subtle" aria-labelledby="alerts-title">
         <div className="gov-section__container">
           <div className="gov-section__header">
             <div>
-              <p className="gov-kicker">{t("audiences.kicker")}</p>
-              <h2 id="audiences-title" className="gov-section__title">
-                {t("audiences.title")}
+              <p className="gov-kicker">{t("alerts.kicker")}</p>
+              <h2 id="alerts-title" className="gov-section__title">
+                {t("alerts.title")}
               </h2>
-              <p className="gov-lead">{t("audiences.lead")}</p>
+              <p className="gov-lead">{t("alerts.lead")}</p>
             </div>
           </div>
-          <div className="fr-grid-row fr-grid-row--gutters">
-            {ministryHome.audiences.map((item) => (
-              <div key={item.key} className="fr-col-12 fr-col-md-6 fr-col-lg-3">
-                <LinkTile
-                  title={t(`audiences.items.${item.key}.title`)}
-                  desc={t(item.descKey)}
-                  href={item.href}
-                  iconId={item.iconId}
-                />
-              </div>
+          <ul className="gov-home-alerts" role="list">
+            {ministryHome.importantInfo.map((item) => (
+              <li key={item.key}>
+                <a className="gov-home-alert" href={item.href}>
+                  <span className={`gov-home-alert__icon ${item.iconId}`} aria-hidden="true" />
+                  <span className="gov-home-alert__content">
+                    <span className="gov-home-alert__tag">{t(`alerts.items.${item.key}.tag`)}</span>
+                    <span className="gov-home-alert__title">
+                      {t(`alerts.items.${item.key}.title`)}
+                    </span>
+                    <span className="gov-home-alert__desc">
+                      {t(`alerts.items.${item.key}.desc`)}
+                    </span>
+                  </span>
+                  <span
+                    className="gov-home-alert__arrow fr-icon-arrow-right-line"
+                    aria-hidden="true"
+                  />
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
-      {/* 05 — Explorer l'économie et les finances: the six functional domains.
-          Visually secondary to the usage sections above. */}
-      <section className="gov-section" aria-labelledby="domains-title">
-        <div className="gov-section__container">
-          <div className="gov-section__header">
-            <div>
-              <p className="gov-kicker">{t("domains.kicker")}</p>
-              <h2 id="domains-title" className="gov-section__title">
-                {t("domains.title")}
-              </h2>
-              <p className="gov-lead">{t("domains.lead")}</p>
-            </div>
-          </div>
-          <div className="fr-grid-row fr-grid-row--gutters">
-            {ministryHome.domains.map((item) => (
-              <div key={item.key} className="fr-col-12 fr-col-md-6 fr-col-lg-4">
-                <LinkTile
-                  small
-                  horizontal
-                  title={t(`domains.items.${item.key}.title`)}
-                  desc={t(`domains.items.${item.key}.desc`)}
-                  href={item.href}
-                  iconId={item.iconId}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 06 — L'économie d'Astoria en chiffres: synthetic view of the
+      {/* 05 — L'économie d'Astoria en chiffres: synthetic view of the
           country's economy, driven by the indicators config (the seam where a
           future data source plugs in). */}
-      <section className="gov-section gov-section--subtle" aria-labelledby="stats-title">
+      <section className="gov-section" aria-labelledby="stats-title">
         <div className="gov-section__container">
           <div className="gov-section__header">
             <div>
@@ -222,7 +193,7 @@ export default async function HomePage({ params }: PageProps) {
               buttons={[
                 {
                   children: t("stats.exploreLink"),
-                  href: DATA_PATH,
+                  href: STATS_PATH,
                   priority: "secondary",
                   iconId: "fr-icon-arrow-right-line",
                 },
@@ -237,7 +208,10 @@ export default async function HomePage({ params }: PageProps) {
                   <span className="gov-home-stat__label">
                     {t(`stats.items.${indicator.key}.label`)}
                   </span>
-                  <span className="gov-home-stat__arrow fr-icon-arrow-right-line" aria-hidden="true" />
+                  <span
+                    className="gov-home-stat__arrow fr-icon-arrow-right-line"
+                    aria-hidden="true"
+                  />
                 </a>
               </li>
             ))}
@@ -246,8 +220,55 @@ export default async function HomePage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* 07 — Actualités et informations: one featured article, several
-          secondary ones. News comes after services and usages. */}
+      {/* 06 — Budget de l'État: the State budget made understandable — total,
+          revenue, expenditure, balance and debt. Sober on purpose: no chart
+          until the real budget data is available. */}
+      <section className="gov-section gov-section--subtle" aria-labelledby="budget-title">
+        <div className="gov-section__container">
+          <div className="gov-section__header">
+            <div>
+              <p className="gov-kicker">{t("budget.kicker")}</p>
+              <h2 id="budget-title" className="gov-section__title">
+                {t("budget.title")}
+              </h2>
+              <p className="gov-lead">{t("budget.lead")}</p>
+            </div>
+          </div>
+          <div className="gov-home-budget">
+            <div className="gov-home-budget__summary">
+              <p className="gov-home-budget__label">{t("budget.totalLabel")}</p>
+              <p className="gov-home-budget__total">{ministryHome.budget.total.value}</p>
+              <CtaButtonsGroup
+                buttons={[
+                  {
+                    children: t("budget.cta"),
+                    href: ministryHome.budget.total.href,
+                    priority: "secondary",
+                    iconId: "fr-icon-arrow-right-line",
+                  },
+                ]}
+              />
+            </div>
+            <ul className="gov-home-budget__figures" role="list">
+              {ministryHome.budget.figures.map((figure) => (
+                <li key={figure.key}>
+                  <a className="gov-home-budget__figure" href={figure.href}>
+                    <span className="gov-home-budget__figure-label">
+                      {t(`budget.figures.${figure.key}`)}
+                    </span>
+                    <span className="gov-home-budget__figure-value">{figure.value}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <p className="gov-caption">{t("budget.note")}</p>
+        </div>
+      </section>
+
+      {/* 07 — Actualités: one featured article, several secondary ones. News
+          comes after usages, figures and the budget — it no longer dominates
+          the page. */}
       <section className="gov-section" aria-labelledby="news-title">
         <div className="gov-section__container">
           <div className="gov-section__header">
@@ -303,10 +324,47 @@ export default async function HomePage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* 08 — Le Ministère de l'Économie et des Finances: discreet
+      {/* 08 — Ressources: compact shortcut to the most consulted documentary
+          content of “Données & Ressources”. Not a sixth domain and not a
+          second navigation — labels reuse the header vocabulary. */}
+      <section className="gov-section gov-section--subtle" aria-labelledby="resources-title">
+        <div className="gov-section__container">
+          <div className="gov-section__header">
+            <div>
+              <p className="gov-kicker">{t("resources.kicker")}</p>
+              <h2 id="resources-title" className="gov-section__title">
+                {t("resources.title")}
+              </h2>
+              <p className="gov-lead">{t("resources.lead")}</p>
+            </div>
+            <CtaButtonsGroup
+              buttons={[
+                {
+                  children: t("resources.allLink"),
+                  href: DATA_PATH,
+                  priority: "secondary",
+                  iconId: "fr-icon-arrow-right-line",
+                },
+              ]}
+            />
+          </div>
+          <ul className="gov-home-resources" role="list">
+            {ministryHome.resources.map((item) => (
+              <li key={item.key}>
+                <a className="gov-home-resources__link" href={item.href}>
+                  {tNavPanel(item.key)}
+                  <span className="fr-icon-arrow-right-line" aria-hidden="true" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* 09 — Le Ministère de l'Économie et des Finances: discreet
           institutional closing. The user first does, then understands, then
           discovers the institution. */}
-      <section className="gov-section gov-section--subtle" aria-labelledby="ministry-title">
+      <section className="gov-section" aria-labelledby="ministry-title">
         <div className="gov-section__container">
           <div className="gov-home-ministry">
             <p className="gov-kicker">{t("ministry.kicker")}</p>
@@ -324,49 +382,6 @@ export default async function HomePage({ params }: PageProps) {
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* 09 — Rester en contact: newsletter subscription and the ministry's
-          social accounts. Compact, secondary strip at the bottom of the page:
-          the newsletter is the primary content, the social icons secondary. */}
-      <section className="gov-section" aria-labelledby="social-newsletter-title">
-        <div className="gov-section__container">
-          <div className="gov-home-social">
-            <div className="gov-home-social__newsletter">
-              <p className="gov-kicker">{t("social.newsletter.kicker")}</p>
-              <h2 id="social-newsletter-title" className="gov-section__title">
-                {t("social.newsletter.title")}
-              </h2>
-              <p className="gov-lead">{t("social.newsletter.desc")}</p>
-              <NewsletterForm />
-            </div>
-            <div className="gov-home-social__follow">
-              <h2 id="social-follow-title" className="gov-home-social__follow-title">
-                {t("social.follow.title")}
-              </h2>
-              <ul
-                className="gov-home-social__list"
-                aria-labelledby="social-follow-title"
-                role="list"
-              >
-                {ministryHome.social.follow.map((item) => {
-                  const Icon = SOCIAL_ICONS[item.key];
-                  return (
-                    <li key={item.key}>
-                      <a
-                        className="gov-home-social__icon"
-                        href={item.href}
-                        aria-label={t(`social.follow.items.${item.key}`)}
-                      >
-                        <Icon />
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
           </div>
         </div>
       </section>
