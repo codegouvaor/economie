@@ -70,12 +70,31 @@ export default function RegisterForm() {
   }
 
   return (
-    <form className="gov-login-form" onSubmit={handleSubmit} noValidate>
+    <form
+      onSubmit={handleSubmit}
+      noValidate
+      style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}
+    >
       {/* Error alert */}
       {error && (
-        <div className="gov-login-form__alert" role="alert">
-          <span className="fr-icon-error-line" aria-hidden="true" />
-          <p className="gov-login-form__alert-text">{error}</p>
+        <div
+          role="alert"
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            gap: "0.625rem",
+            padding: "0.75rem 1rem",
+            background: "color-mix(in srgb, var(--ads-color-danger) 8%, transparent)",
+            border: "1px solid var(--ads-color-danger)",
+            color: "var(--ads-color-danger)",
+          }}
+        >
+          <span
+            className="fr-icon-error-line"
+            aria-hidden="true"
+            style={{ fontSize: "1.25rem", marginTop: "0.125rem" }}
+          />
+          <p style={{ margin: "0", fontSize: "0.875rem", lineHeight: 1.5 }}>{error}</p>
         </div>
       )}
 
@@ -149,7 +168,7 @@ export default function RegisterForm() {
       />
 
       {/* Submit */}
-      <div className="gov-login-form__submit">
+      <div>
         <Button
           type="submit"
           priority="primary"
@@ -165,15 +184,25 @@ export default function RegisterForm() {
       </div>
 
       {/* Divider */}
-      <div className="gov-login-form__divider">
-        <span className="gov-login-form__divider-text">or</span>
+      <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+        <span style={{ flex: 1, height: "1px", background: "var(--ads-color-border)" }} />
+        <span
+          style={{
+            whiteSpace: "nowrap",
+            fontSize: "0.8125rem",
+            color: "var(--ads-color-text-muted)",
+          }}
+        >
+          or
+        </span>
+        <span style={{ flex: 1, height: "1px", background: "var(--ads-color-border)" }} />
       </div>
 
       {/* Login link */}
-      <div className="gov-login-form__register">
-        <p className="gov-login-form__register-text">
+      <div style={{ textAlign: "center" }}>
+        <p style={{ margin: "0", fontSize: "0.9375rem" }}>
           Already have an account?{" "}
-          <a href="/login" className="gov-login-form__register-link">
+          <a href="/login" style={{ fontWeight: 600, textUnderlineOffset: "0.15em" }}>
             Sign in
           </a>
         </p>

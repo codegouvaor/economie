@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { localizedAlternates, resolveLocaleParam } from "@/lib/localized-metadata";
@@ -32,6 +33,118 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ...localizedAlternates(locale, HOME_PATH),
   };
 }
+
+/* Layout helpers below use the ADS design tokens through `var(--ads-*)` (the
+ * single source of tokens — main.css) so light/dark switching and theming stay
+ * owned by the Design System. Only the ministry-specific arrangement of these
+ * blocks is expressed here, inline, without any local stylesheet. */
+
+const heroContainerStyle: CSSProperties = {
+  maxWidth: "52rem",
+  marginInline: "auto",
+  textAlign: "center",
+};
+
+const searchBlockStyle: CSSProperties = {
+  maxWidth: "42rem",
+  margin: "2.25rem auto 0",
+  textAlign: "left",
+};
+
+const searchTitleStyle: CSSProperties = {
+  margin: "0 0 0.75rem",
+  fontSize: "1.25rem",
+  lineHeight: 1.3,
+  fontWeight: 700,
+};
+
+const popularLabelStyle: CSSProperties = {
+  margin: "0 0 0.5rem",
+  fontSize: "0.875rem",
+  color: "var(--ads-color-text-muted)",
+};
+
+const popularListStyle: CSSProperties = {
+  listStyle: "none",
+  margin: "0",
+  padding: "0",
+  display: "flex",
+  flexWrap: "wrap",
+  gap: "0.5rem",
+};
+
+const cardListStyle: CSSProperties = {
+  listStyle: "none",
+  margin: "0",
+  padding: "0",
+  display: "grid",
+  gap: "1.5rem",
+};
+
+const linkListStyle: CSSProperties = {
+  listStyle: "none",
+  margin: "0",
+  padding: "0",
+  display: "grid",
+  gap: "0",
+  maxWidth: "72rem",
+};
+
+/** Whole-card link block (alerts, indicators, budget figures…). */
+const teaserCardStyle: CSSProperties = {
+  display: "flex",
+  flexDirection: "column",
+  gap: "0.75rem",
+  height: "100%",
+  padding: "1.25rem",
+  background: "var(--ads-color-background)",
+  border: "1px solid var(--ads-color-border)",
+  borderTop: "3px solid var(--ads-color-primary)",
+  textDecoration: "none",
+  color: "var(--ads-color-text)",
+};
+
+const teaserTagStyle: CSSProperties = {
+  fontSize: "0.75rem",
+  fontWeight: 700,
+  letterSpacing: "0.06em",
+  textTransform: "uppercase",
+  color: "var(--ads-color-primary)",
+};
+
+const teaserTitleStyle: CSSProperties = {
+  display: "block",
+  fontSize: "1.0625rem",
+  lineHeight: 1.35,
+  fontWeight: 700,
+};
+
+const teaserDescStyle: CSSProperties = {
+  display: "block",
+  fontSize: "0.875rem",
+  lineHeight: 1.55,
+  color: "var(--ads-color-text-muted)",
+};
+
+const teaserArrowStyle: CSSProperties = {
+  marginTop: "auto",
+  alignSelf: "flex-end",
+  fontSize: "1rem",
+  color: "var(--ads-color-primary)",
+};
+
+const figureValueStyle: CSSProperties = {
+  display: "block",
+  fontSize: "clamp(1.5rem, 3vw, 2rem)",
+  lineHeight: 1.2,
+  fontWeight: 700,
+};
+
+const figureLabelStyle: CSSProperties = {
+  display: "block",
+  fontSize: "0.9375rem",
+  fontWeight: 600,
+};
 
 /**
  * Homepage of the Ministry of Economy and Finance — the functional front
@@ -70,23 +183,21 @@ export default async function HomePage({ params }: PageProps) {
     <>
       {/* 01 — Hero / Recherche: institutional statement and the main search,
           visually the most important element of the page. */}
-      <section className="gov-home-hero gov-section" aria-labelledby="home-hero-title">
-        <div className="gov-section__container">
+      <section className="gov-section" aria-labelledby="home-hero-title">
+        <div className="gov-section__container" style={heroContainerStyle}>
           <p className="gov-kicker">{t("hero.kicker")}</p>
-          <h1 id="home-hero-title" className="gov-home-hero__title">
-            {t("hero.title")}
-          </h1>
+          <h1 id="home-hero-title">{t("hero.title")}</h1>
           <p className="gov-lead">{t("hero.lead")}</p>
-          <div className="gov-home-hero__search">
-            <h2 id="home-search-title" className="gov-home-hero__search-title">
+          <div style={searchBlockStyle}>
+            <h2 id="home-search-title" style={searchTitleStyle}>
               {t("search.title")}
             </h2>
             <PortalSearchBar label={t("search.label")} placeholder={t("search.placeholder")} />
-            <div className="gov-home-hero__popular">
-              <p className="gov-home-hero__popular-label" id="popular-searches-label">
+            <div style={{ marginTop: "1.25rem" }}>
+              <p style={popularLabelStyle} id="popular-searches-label">
                 {t("search.popularLabel")}
               </p>
-              <ul className="gov-popular-searches" aria-labelledby="popular-searches-label">
+              <ul style={popularListStyle} aria-labelledby="popular-searches-label">
                 {ministryHome.popularSearches.map((search) => (
                   <li key={search.key}>
                     <SearchSuggestionTag
@@ -132,7 +243,7 @@ export default async function HomePage({ params }: PageProps) {
       {/* 03 — Mon espace: the personal space of the ministry. MyGouv provides
           the identity/SSO; this section presents the space, not MyGouv. */}
       <section className="gov-section" aria-labelledby="espace-title">
-        <div className="gov-section__container">
+        <div className="gov-section__container" style={{ maxWidth: "64rem" }}>
           <MonEspace />
         </div>
       </section>
@@ -151,23 +262,24 @@ export default async function HomePage({ params }: PageProps) {
               <p className="gov-lead">{t("alerts.lead")}</p>
             </div>
           </div>
-          <ul className="gov-home-alerts" role="list">
+          <ul className="fr-grid-row fr-grid-row--gutters" role="list">
             {ministryHome.importantInfo.map((item) => (
-              <li key={item.key}>
-                <a className="gov-home-alert" href={item.href}>
-                  <span className={`gov-home-alert__icon ${item.iconId}`} aria-hidden="true" />
-                  <span className="gov-home-alert__content">
-                    <span className="gov-home-alert__tag">{t(`alerts.items.${item.key}.tag`)}</span>
-                    <span className="gov-home-alert__title">
-                      {t(`alerts.items.${item.key}.title`)}
-                    </span>
-                    <span className="gov-home-alert__desc">
-                      {t(`alerts.items.${item.key}.desc`)}
-                    </span>
+              <li key={item.key} className="fr-col-12 fr-col-md-6 fr-col-lg-4">
+                <a href={item.href} style={teaserCardStyle}>
+                  <span
+                    className={item.iconId}
+                    aria-hidden="true"
+                    style={{ fontSize: "1.375rem", lineHeight: 1, color: "var(--ads-color-primary)" }}
+                  />
+                  <span style={{ display: "flex", flexDirection: "column", gap: "0.375rem" }}>
+                    <span style={teaserTagStyle}>{t(`alerts.items.${item.key}.tag`)}</span>
+                    <span style={teaserTitleStyle}>{t(`alerts.items.${item.key}.title`)}</span>
+                    <span style={teaserDescStyle}>{t(`alerts.items.${item.key}.desc`)}</span>
                   </span>
                   <span
-                    className="gov-home-alert__arrow fr-icon-arrow-right-line"
+                    className="fr-icon-arrow-right-line"
                     aria-hidden="true"
+                    style={teaserArrowStyle}
                   />
                 </a>
               </li>
@@ -200,23 +312,24 @@ export default async function HomePage({ params }: PageProps) {
               ]}
             />
           </div>
-          <ul className="gov-home-stats" role="list">
+          <ul className="fr-grid-row fr-grid-row--gutters" role="list">
             {ministryHome.indicators.map((indicator) => (
-              <li key={indicator.key}>
-                <a className="gov-home-stat" href={indicator.href}>
-                  <span className="gov-home-stat__value">{indicator.value}</span>
-                  <span className="gov-home-stat__label">
-                    {t(`stats.items.${indicator.key}.label`)}
-                  </span>
+              <li key={indicator.key} className="fr-col-12 fr-col-md-6 fr-col-lg-4">
+                <a href={indicator.href} style={teaserCardStyle}>
+                  <span style={figureValueStyle}>{indicator.value}</span>
+                  <span style={figureLabelStyle}>{t(`stats.items.${indicator.key}.label`)}</span>
                   <span
-                    className="gov-home-stat__arrow fr-icon-arrow-right-line"
+                    className="fr-icon-arrow-right-line"
                     aria-hidden="true"
+                    style={teaserArrowStyle}
                   />
                 </a>
               </li>
             ))}
           </ul>
-          <p className="gov-caption">{t("stats.note")}</p>
+          <p className="fr-text--sm" style={{ color: "var(--ads-color-text-muted)" }}>
+            {t("stats.note")}
+          </p>
         </div>
       </section>
 
@@ -234,10 +347,24 @@ export default async function HomePage({ params }: PageProps) {
               <p className="gov-lead">{t("budget.lead")}</p>
             </div>
           </div>
-          <div className="gov-home-budget">
-            <div className="gov-home-budget__summary">
-              <p className="gov-home-budget__label">{t("budget.totalLabel")}</p>
-              <p className="gov-home-budget__total">{ministryHome.budget.total.value}</p>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr",
+              gap: "1.75rem",
+              maxWidth: "72rem",
+              padding: "1.75rem",
+              background: "var(--ads-color-background)",
+              border: "1px solid var(--ads-color-border)",
+            }}
+          >
+            <div>
+              <p style={{ margin: "0 0 0.375rem", fontSize: "0.875rem", fontWeight: 600, color: "var(--ads-color-text-muted)" }}>
+                {t("budget.totalLabel")}
+              </p>
+              <p style={{ margin: "0 0 1.5rem", fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", lineHeight: 1.2, fontWeight: 700 }}>
+                {ministryHome.budget.total.value}
+              </p>
               <CtaButtonsGroup
                 buttons={[
                   {
@@ -249,20 +376,37 @@ export default async function HomePage({ params }: PageProps) {
                 ]}
               />
             </div>
-            <ul className="gov-home-budget__figures" role="list">
+            <ul className="fr-grid-row fr-grid-row--gutters" role="list">
               {ministryHome.budget.figures.map((figure) => (
-                <li key={figure.key}>
-                  <a className="gov-home-budget__figure" href={figure.href}>
-                    <span className="gov-home-budget__figure-label">
+                <li key={figure.key} className="fr-col-12 fr-col-sm-6 fr-col-lg-3">
+                  <a
+                    href={figure.href}
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "0.25rem",
+                      height: "100%",
+                      padding: "0.875rem 1rem",
+                      background: "var(--ads-color-surface-muted)",
+                      border: "1px solid var(--ads-color-border)",
+                      textDecoration: "none",
+                      color: "var(--ads-color-text)",
+                    }}
+                  >
+                    <span style={{ fontSize: "0.8125rem", fontWeight: 600, color: "var(--ads-color-text-muted)" }}>
                       {t(`budget.figures.${figure.key}`)}
                     </span>
-                    <span className="gov-home-budget__figure-value">{figure.value}</span>
+                    <span style={{ fontSize: "1.125rem", lineHeight: 1.3, fontWeight: 700 }}>
+                      {figure.value}
+                    </span>
                   </a>
                 </li>
               ))}
             </ul>
           </div>
-          <p className="gov-caption">{t("budget.note")}</p>
+          <p className="fr-text--sm" style={{ color: "var(--ads-color-text-muted)" }}>
+            {t("budget.note")}
+          </p>
         </div>
       </section>
 
@@ -306,7 +450,7 @@ export default async function HomePage({ params }: PageProps) {
               />
             </div>
             <div className="fr-col-12 fr-col-lg-5">
-              <ul className="gov-card-list">
+              <ul style={cardListStyle}>
                 {ministryHome.news.secondary.map((article) => (
                   <li key={article.href}>
                     <ArticleCard
@@ -348,10 +492,25 @@ export default async function HomePage({ params }: PageProps) {
               ]}
             />
           </div>
-          <ul className="gov-home-resources" role="list">
+          <ul role="list" style={linkListStyle}>
             {ministryHome.resources.map((item) => (
               <li key={item.key}>
-                <a className="gov-home-resources__link" href={item.href}>
+                <a
+                  href={item.href}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: "1rem",
+                    padding: "1rem 1.25rem",
+                    fontWeight: 600,
+                    textDecoration: "none",
+                    color: "var(--ads-color-text)",
+                    border: "1px solid var(--ads-color-border)",
+                    borderTop: "none",
+                    background: "var(--ads-color-background)",
+                  }}
+                >
                   {tNavPanel(item.key)}
                   <span className="fr-icon-arrow-right-line" aria-hidden="true" />
                 </a>
@@ -365,24 +524,40 @@ export default async function HomePage({ params }: PageProps) {
           institutional closing. The user first does, then understands, then
           discovers the institution. */}
       <section className="gov-section" aria-labelledby="ministry-title">
-        <div className="gov-section__container">
-          <div className="gov-home-ministry">
-            <p className="gov-kicker">{t("ministry.kicker")}</p>
-            <h2 id="ministry-title" className="gov-section__title">
-              {t("ministry.title")}
-            </h2>
-            <p className="gov-home-ministry__lead">{t("ministry.lead")}</p>
-            <ul className="gov-home-ministry__links" role="list">
-              {ministryHome.ministry.map((link) => (
-                <li key={link.key}>
-                  <a className="gov-home-ministry__link" href={link.href}>
-                    {t(`ministry.links.${link.key}.title`)}
-                    <span className="fr-icon-arrow-right-line" aria-hidden="true" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="gov-section__container" style={heroContainerStyle}>
+          <p className="gov-kicker">{t("ministry.kicker")}</p>
+          <h2 id="ministry-title" className="gov-section__title">
+            {t("ministry.title")}
+          </h2>
+          <p
+            style={{
+              margin: "0 auto 1.5rem",
+              maxWidth: "42rem",
+              fontSize: "0.9375rem",
+              lineHeight: 1.7,
+              color: "var(--ads-color-text-muted)",
+            }}
+          >
+            {t("ministry.lead")}
+          </p>
+          <ul
+            role="list"
+            style={{
+              ...popularListStyle,
+              justifyContent: "center",
+              marginTop: "1.5rem",
+              gap: "0.625rem 1.75rem",
+            }}
+          >
+            {ministryHome.ministry.map((link) => (
+              <li key={link.key}>
+                <a href={link.href} style={{ fontWeight: 600, textUnderlineOffset: "0.2em" }}>
+                  {t(`ministry.links.${link.key}.title`)}
+                  <span className="fr-icon-arrow-right-line" aria-hidden="true" />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </>

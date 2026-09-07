@@ -8,11 +8,11 @@ import { GovernmentHeader } from "@/components/public/header/government-header";
 import { GovernmentFooter } from "@/components/public/footer/government-footer";
 import { BackToTopButton } from "@/components/common/back-to-top-button";
 
-// Astoria Design System stylesheet (icons + components). Imported here so the
-// CSS is only shipped to the localized public routes.
+// Astoria Design System stylesheet (tokens, reset/base, typography, themes,
+// layout shell, component styles, DSFR legacy layer) — the single source of
+// global government CSS. Imported here so the CSS is only shipped to the
+// localized public routes.
 import "@codegouvaor/react-ads/main.css";
-// Portal layer (Astorian identity lockup, page chrome, content typography).
-import "@/styles/globals.css";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://economie.gouv.aor";
 
@@ -71,8 +71,8 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning className="select-none">
-      <body className="gov-ads">
+    <html lang={locale} suppressHydrationWarning>
+      <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <AdsProvider lang={locale}>
             <div className="gov-page">

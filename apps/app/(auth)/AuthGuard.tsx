@@ -40,7 +40,17 @@ export function AuthGuard({ children }: { children: React.ReactNode }) {
 
   if (isLoading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-background text-sm text-muted-foreground">
+      <div
+        style={{
+          display: "flex",
+          minHeight: "100vh",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "var(--ads-color-background)",
+          color: "var(--ads-color-text-muted)",
+          fontSize: "0.875rem",
+        }}
+      >
         Vérification de la session…
       </div>
     );

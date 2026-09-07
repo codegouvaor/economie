@@ -49,12 +49,31 @@ export default function LoginForm() {
   }
 
   return (
-    <form className="gov-login-form" onSubmit={handleSubmit} noValidate>
+    <form
+      onSubmit={handleSubmit}
+      noValidate
+      style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}
+    >
       {/* Error alert */}
       {error && (
-        <div className="gov-login-form__alert" role="alert">
-          <span className="fr-icon-error-line" aria-hidden="true" />
-          <p className="gov-login-form__alert-text">{error}</p>
+        <div
+          role="alert"
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            gap: "0.625rem",
+            padding: "0.75rem 1rem",
+            background: "color-mix(in srgb, var(--ads-color-danger) 8%, transparent)",
+            border: "1px solid var(--ads-color-danger)",
+            color: "var(--ads-color-danger)",
+          }}
+        >
+          <span
+            className="fr-icon-error-line"
+            aria-hidden="true"
+            style={{ fontSize: "1.25rem", marginTop: "0.125rem" }}
+          />
+          <p style={{ margin: "0", fontSize: "0.875rem", lineHeight: 1.5 }}>{error}</p>
         </div>
       )}
 
@@ -94,9 +113,17 @@ export default function LoginForm() {
       />
 
       {/* Remember me + forgot password */}
-      <div className="gov-login-form__options">
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          gap: "0.5rem",
+        }}
+      >
         <Checkbox
-          legend={<span className="sr-only">Options</span>}
+          legend={<span className="ads-sr-only">Options</span>}
           options={[
             {
               label: "Remember me",
@@ -110,13 +137,16 @@ export default function LoginForm() {
           ]}
         />
 
-        <a href="/forgot-password" className="gov-login-form__forgot-link">
+        <a
+          href="/forgot-password"
+          style={{ fontSize: "0.875rem", fontWeight: 600, textUnderlineOffset: "0.15em" }}
+        >
           Forgot your password?
         </a>
       </div>
 
       {/* Submit */}
-      <div className="gov-login-form__submit">
+      <div>
         <Button
           type="submit"
           priority="primary"
@@ -132,15 +162,25 @@ export default function LoginForm() {
       </div>
 
       {/* Divider */}
-      <div className="gov-login-form__divider">
-        <span className="gov-login-form__divider-text">or</span>
+      <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+        <span style={{ flex: 1, height: "1px", background: "var(--ads-color-border)" }} />
+        <span
+          style={{
+            whiteSpace: "nowrap",
+            fontSize: "0.8125rem",
+            color: "var(--ads-color-text-muted)",
+          }}
+        >
+          or
+        </span>
+        <span style={{ flex: 1, height: "1px", background: "var(--ads-color-border)" }} />
       </div>
 
       {/* Register link */}
-      <div className="gov-login-form__register">
-        <p className="gov-login-form__register-text">
+      <div style={{ textAlign: "center" }}>
+        <p style={{ margin: "0", fontSize: "0.9375rem" }}>
           Don&apos;t have an account?{" "}
-          <a href="/register" className="gov-login-form__register-link">
+          <a href="/register" style={{ fontWeight: 600, textUnderlineOffset: "0.15em" }}>
             Create one
           </a>
         </p>

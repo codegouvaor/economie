@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
@@ -24,6 +25,71 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ...localizedAlternates(locale, CREATE_COMPANY_PATH),
   };
 }
+
+/* ------------------------------------------------------------------------- *
+ * Ministry-specific arrangement of this service page.
+ *
+ * Everything below the `gov-section*` primitives comes from
+ * `@codegouvaor/react-ads/main.css` (single global CSS source). The blocks
+ * that are specific to the « créer une entreprise » parcours are expressed
+ * with the ADS tokens (`var(--ads-*)`) and the DSFR grid/icon classes, inline
+ * — there is no local stylesheet.
+ * ------------------------------------------------------------------------- */
+
+const anchorSectionStyle: CSSProperties = { scrollMarginTop: "6.5rem" };
+
+const numberedListStyle: CSSProperties = {
+  listStyle: "none",
+  margin: "0",
+  padding: "0",
+  maxWidth: "60rem",
+  borderTop: "1px solid var(--ads-color-border)",
+};
+
+const chipListStyle: CSSProperties = {
+  listStyle: "none",
+  margin: "0",
+  padding: "0",
+  display: "flex",
+  flexWrap: "wrap",
+  gap: "0.625rem",
+  maxWidth: "60rem",
+};
+
+const chipStyle: CSSProperties = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: "0.5rem",
+  padding: "0.625rem 1rem",
+  fontSize: "0.9375rem",
+  fontWeight: 600,
+  lineHeight: 1.5,
+  color: "var(--ads-color-text)",
+  background: "var(--ads-color-background)",
+  border: "1px solid var(--ads-color-border)",
+  textDecoration: "none",
+};
+
+const borderedListStyle: CSSProperties = {
+  listStyle: "none",
+  margin: "0",
+  padding: "0",
+  maxWidth: "60rem",
+  background: "var(--ads-color-background)",
+  border: "1px solid var(--ads-color-border)",
+};
+
+const panelStyle: CSSProperties = {
+  padding: "1.75rem",
+  background: "var(--ads-color-background)",
+  border: "1px solid var(--ads-color-border)",
+  borderLeft: "4px solid var(--ads-color-primary)",
+};
+
+const faqStyle: CSSProperties = {
+  maxWidth: "56rem",
+  borderTop: "1px solid var(--ads-color-border)",
+};
 
 /**
  * « Créer une entreprise » — a *parcours* page, not an editorial article.
@@ -68,14 +134,12 @@ export default async function CreerUneEntreprisePage({ params }: PageProps) {
   return (
     <>
       {/* 01 — Hero: functional, action-oriented, left-aligned (not a banner). */}
-      <section className="gov-section gov-create-hero" aria-labelledby="create-hero-title">
-        <div className="gov-section__container">
+      <section className="gov-section" aria-labelledby="create-hero-title">
+        <div className="gov-section__container" style={{ maxWidth: "60rem" }}>
           <p className="gov-kicker">{t("hero.kicker")}</p>
-          <h1 id="create-hero-title" className="gov-create-hero__title">
-            {t("hero.title")}
-          </h1>
+          <h1 id="create-hero-title">{t("hero.title")}</h1>
           <p className="gov-lead">{t("hero.lead")}</p>
-          <div className="gov-create-hero__actions">
+          <div style={{ marginTop: "1.75rem" }}>
             <CtaButtonsGroup
               buttons={[
                 {
@@ -89,7 +153,7 @@ export default async function CreerUneEntreprisePage({ params }: PageProps) {
               ]}
             />
           </div>
-          <div className="gov-create-hero__notice">
+          <div style={{ marginTop: "1.5rem", maxWidth: "46rem" }}>
             <NoticeCallout title={t("hero.notice.title")} iconId="fr-icon-information-line">
               {t("hero.notice.text")}
             </NoticeCallout>
@@ -110,10 +174,33 @@ export default async function CreerUneEntreprisePage({ params }: PageProps) {
               <p className="gov-lead">{t("beforeStart.lead")}</p>
             </div>
           </div>
-          <ul className="gov-checklist" role="list">
+          <ul
+            role="list"
+            style={{
+              listStyle: "none",
+              margin: "0",
+              padding: "0",
+              maxWidth: "56rem",
+              display: "grid",
+              gap: "0.75rem",
+            }}
+          >
             {createCompanyContent.requirements.map((item) => (
-              <li key={item.key} className="gov-checklist__item">
-                <span className="fr-icon-check-line gov-checklist__icon" aria-hidden="true" />
+              <li
+                key={item.key}
+                style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem", lineHeight: 1.6 }}
+              >
+                <span
+                  className="fr-icon-check-line"
+                  aria-hidden="true"
+                  style={{
+                    flex: "none",
+                    fontSize: "1.25rem",
+                    lineHeight: 1,
+                    color: "var(--ads-color-primary)",
+                    marginTop: "0.2rem",
+                  }}
+                />
                 {t(`beforeStart.items.${item.key}`)}
               </li>
             ))}
@@ -124,7 +211,8 @@ export default async function CreerUneEntreprisePage({ params }: PageProps) {
       {/* 03 — Les étapes: the parcours itself, ordered and understandable. */}
       <section
         id="etapes"
-        className="gov-section gov-service-anchor"
+        className="gov-section"
+        style={anchorSectionStyle}
         aria-labelledby="steps-title"
       >
         <div className="gov-section__container">
@@ -137,17 +225,54 @@ export default async function CreerUneEntreprisePage({ params }: PageProps) {
               <p className="gov-lead">{t("steps.lead")}</p>
             </div>
           </div>
-          <ol className="gov-steps">
+          <ol style={numberedListStyle}>
             {steps.map((step, index) => (
-              <li key={step.key} className="gov-step">
-                <span className="gov-step__number" aria-hidden="true">
+              <li
+                key={step.key}
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "3.25rem 1fr",
+                  gap: "0.75rem 1.25rem",
+                  padding: "1.25rem 0",
+                  borderBottom: "1px solid var(--ads-color-border)",
+                }}
+              >
+                <span
+                  aria-hidden="true"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "3.25rem",
+                    height: "3.25rem",
+                    border: "1px solid var(--ads-color-border)",
+                    borderRadius: "50%",
+                    fontSize: "0.9375rem",
+                    fontWeight: 700,
+                    color: "var(--ads-color-primary)",
+                    background: "var(--ads-color-background)",
+                  }}
+                >
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <div className="gov-step__content">
-                  <h3 className="gov-step__title">{t(`steps.items.${step.key}.title`)}</h3>
-                  <p className="gov-step__text">{t(`steps.items.${step.key}.desc`)}</p>
+                <div style={{ minWidth: 0 }}>
+                  <h3 style={{ margin: "0 0 0.375rem", fontSize: "1.125rem", lineHeight: 1.4 }}>
+                    {t(`steps.items.${step.key}.title`)}
+                  </h3>
+                  <p style={{ margin: "0 0 0.625rem", maxWidth: "48rem", lineHeight: 1.7 }}>
+                    {t(`steps.items.${step.key}.desc`)}
+                  </p>
                   {step.href ? (
-                    <Link className="gov-step__link" href={step.href}>
+                    <Link
+                      href={step.href}
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "0.5rem",
+                        fontWeight: 600,
+                        textUnderlineOffset: "0.2em",
+                      }}
+                    >
                       {t("steps.seeStep")}
                       <span className="fr-icon-arrow-right-line" aria-hidden="true" />
                     </Link>
@@ -184,7 +309,9 @@ export default async function CreerUneEntreprisePage({ params }: PageProps) {
               </div>
             ))}
           </div>
-          <p className="gov-caption">{t("structures.note")}</p>
+          <p className="fr-text--sm" style={{ color: "var(--ads-color-text-muted)" }}>
+            {t("structures.note")}
+          </p>
         </div>
       </section>
 
@@ -201,10 +328,10 @@ export default async function CreerUneEntreprisePage({ params }: PageProps) {
               <p className="gov-lead">{t("situations.lead")}</p>
             </div>
           </div>
-          <ul className="gov-situations" role="list">
+          <ul role="list" style={chipListStyle}>
             {createCompanyContent.situations.map((item) => (
               <li key={item.key}>
-                <Link className="gov-situation" href={item.href}>
+                <Link href={item.href} style={chipStyle}>
                   {t(`situations.items.${item.key}`)}
                 </Link>
               </li>
@@ -226,17 +353,32 @@ export default async function CreerUneEntreprisePage({ params }: PageProps) {
               <p className="gov-lead">{t("costs.lead")}</p>
             </div>
           </div>
-          <ul className="gov-costs" role="list">
-            {createCompanyContent.costs.map((item) => (
-              <li key={item.key} className="gov-cost">
-                <span className="gov-cost__label">{t(`costs.items.${item.key}.label`)}</span>
-                <span className="gov-cost__amount gov-cost__amount--pending">
+          <ul role="list" style={borderedListStyle}>
+            {createCompanyContent.costs.map((item, index) => (
+              <li
+                key={item.key}
+                style={{
+                  display: "flex",
+                  alignItems: "baseline",
+                  justifyContent: "space-between",
+                  gap: "1rem",
+                  padding: "1rem 1.25rem",
+                  borderBottom:
+                    index === createCompanyContent.costs.length - 1
+                      ? "none"
+                      : "1px solid var(--ads-color-border)",
+                }}
+              >
+                <span style={{ fontWeight: 600 }}>{t(`costs.items.${item.key}.label`)}</span>
+                <span style={{ color: "var(--ads-color-text-muted)" }}>
                   {t(`costs.items.${item.key}.amount`)}
                 </span>
               </li>
             ))}
           </ul>
-          <p className="gov-caption">{t("costs.note")}</p>
+          <p className="fr-text--sm" style={{ color: "var(--ads-color-text-muted)" }}>
+            {t("costs.note")}
+          </p>
         </div>
       </section>
 
@@ -247,28 +389,75 @@ export default async function CreerUneEntreprisePage({ params }: PageProps) {
           upcoming capabilities are listed honestly, and the connected view
           will be wired to the real SSO session when it exists. */}
       <section className="gov-section" aria-labelledby="progress-title">
-        <div className="gov-section__container">
-          <div className="gov-progress">
-            <div className="gov-progress__intro">
+        <div className="gov-section__container" style={{ maxWidth: "64rem" }}>
+          <div style={panelStyle}>
+            <div style={{ maxWidth: "48rem" }}>
               <p className="gov-kicker">{t("progress.kicker")}</p>
-              <h2 id="progress-title" className="gov-progress__title">
+              <h2 id="progress-title" style={{ margin: "0 0 0.5rem" }}>
                 {t("progress.title")}
               </h2>
-              <p className="gov-progress__lead">{t("progress.lead")}</p>
+              <p style={{ margin: "0", lineHeight: 1.6 }}>{t("progress.lead")}</p>
             </div>
-            <div className="gov-progress__body">
-              <p className="gov-progress__upcoming-title">{t("progress.upcomingTitle")}</p>
-              <ul className="gov-progress__upcoming" role="list">
+            <div style={{ marginTop: "1.25rem" }}>
+              <p style={{ margin: "0 0 0.625rem", fontSize: "0.9375rem", fontWeight: 700 }}>
+                {t("progress.upcomingTitle")}
+              </p>
+              <ul
+                role="list"
+                style={{
+                  listStyle: "none",
+                  margin: "0",
+                  padding: "0",
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "0.625rem 1.75rem",
+                }}
+              >
                 {createCompanyContent.progressUpcoming.map((item) => (
-                  <li key={item.key}>{t(`progress.upcoming.${item.key}`)}</li>
+                  <li
+                    key={item.key}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                      fontSize: "0.9375rem",
+                      fontWeight: 600,
+                    }}
+                  >
+                    <span
+                      aria-hidden="true"
+                      style={{
+                        flex: "none",
+                        width: "0.5rem",
+                        height: "0.5rem",
+                        borderRadius: "50%",
+                        background: "var(--ads-color-primary)",
+                      }}
+                    />
+                    {t(`progress.upcoming.${item.key}`)}
+                  </li>
                 ))}
               </ul>
-              <p className="gov-progress__note">{t("progress.authNote")}</p>
-              <div className="gov-progress__cta">
-                <a className="gov-progress__button" href={getDomainUrl("sso", "/login")}>
-                  <span className="fr-icon-account-circle-line" aria-hidden="true" />
-                  {t("progress.authCta")}
-                </a>
+              <p
+                style={{
+                  margin: "0.875rem 0 0",
+                  fontSize: "0.875rem",
+                  color: "var(--ads-color-text-muted)",
+                }}
+              >
+                {t("progress.authNote")}
+              </p>
+              <div style={{ marginTop: "1.5rem" }}>
+                <CtaButtonsGroup
+                  buttons={[
+                    {
+                      children: t("progress.authCta"),
+                      href: getDomainUrl("sso", "/login"),
+                      iconId: "fr-icon-account-circle-line",
+                      iconPosition: "left",
+                    },
+                  ]}
+                />
               </div>
             </div>
           </div>
@@ -288,19 +477,44 @@ export default async function CreerUneEntreprisePage({ params }: PageProps) {
               <p className="gov-lead">{t("obligations.lead")}</p>
             </div>
           </div>
-          <ul className="gov-link-rows" role="list">
-            {createCompanyContent.obligations.map((item) => (
-              <li key={item.key}>
-                <Link className="gov-link-row" href={item.href}>
-                  <span className="gov-link-row__content">
-                    <span className="gov-link-row__title">
+          <ul role="list" style={borderedListStyle}>
+            {createCompanyContent.obligations.map((item, index) => (
+              <li
+                key={item.key}
+                style={{
+                  borderBottom:
+                    index === createCompanyContent.obligations.length - 1
+                      ? "none"
+                      : "1px solid var(--ads-color-border)",
+                }}
+              >
+                <Link
+                  href={item.href}
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    justifyContent: "space-between",
+                    gap: "1rem",
+                    padding: "1.125rem 1.25rem",
+                    textDecoration: "none",
+                    color: "var(--ads-color-text)",
+                  }}
+                >
+                  <span style={{ display: "flex", flexDirection: "column", gap: "0.125rem", minWidth: 0 }}>
+                    <span style={{ fontSize: "1rem", lineHeight: 1.4, fontWeight: 700 }}>
                       {t(`obligations.items.${item.key}.title`)}
                     </span>
-                    <span className="gov-link-row__desc">
+                    <span
+                      style={{ fontSize: "0.875rem", lineHeight: 1.55, color: "var(--ads-color-text-muted)" }}
+                    >
                       {t(`obligations.items.${item.key}.desc`)}
                     </span>
                   </span>
-                  <span className="fr-icon-arrow-right-line gov-link-row__arrow" aria-hidden="true" />
+                  <span
+                    className="fr-icon-arrow-right-line"
+                    aria-hidden="true"
+                    style={{ flex: "none", marginTop: "0.125rem", color: "var(--ads-color-primary)" }}
+                  />
                 </Link>
               </li>
             ))}
@@ -350,29 +564,56 @@ export default async function CreerUneEntreprisePage({ params }: PageProps) {
               <p className="gov-lead">{t("resources.lead")}</p>
             </div>
           </div>
-          <ul className="gov-link-rows" role="list">
-            {createCompanyContent.resources.map((item) => (
-              <li key={item.key}>
-                <Link className="gov-link-row" href={item.href}>
-                  <span className="gov-link-row__content">
-                    <span className="gov-link-row__title">
+          <ul role="list" style={borderedListStyle}>
+            {createCompanyContent.resources.map((item, index) => (
+              <li
+                key={item.key}
+                style={{
+                  borderBottom:
+                    index === createCompanyContent.resources.length - 1
+                      ? "none"
+                      : "1px solid var(--ads-color-border)",
+                }}
+              >
+                <Link
+                  href={item.href}
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    justifyContent: "space-between",
+                    gap: "1rem",
+                    padding: "1.125rem 1.25rem",
+                    textDecoration: "none",
+                    color: "var(--ads-color-text)",
+                  }}
+                >
+                  <span style={{ display: "flex", flexDirection: "column", gap: "0.125rem", minWidth: 0 }}>
+                    <span style={{ fontSize: "1rem", lineHeight: 1.4, fontWeight: 700 }}>
                       {t(`resources.items.${item.key}.title`)}
                     </span>
-                    <span className="gov-link-row__desc">
+                    <span
+                      style={{ fontSize: "0.875rem", lineHeight: 1.55, color: "var(--ads-color-text-muted)" }}
+                    >
                       {t(`resources.items.${item.key}.desc`)}
                     </span>
                   </span>
-                  <span className="fr-icon-arrow-right-line gov-link-row__arrow" aria-hidden="true" />
+                  <span
+                    className="fr-icon-arrow-right-line"
+                    aria-hidden="true"
+                    style={{ flex: "none", marginTop: "0.125rem", color: "var(--ads-color-primary)" }}
+                  />
                 </Link>
               </li>
             ))}
           </ul>
-          <p className="gov-caption">{t("resources.note")}</p>
+          <p className="fr-text--sm" style={{ color: "var(--ads-color-text-muted)" }}>
+            {t("resources.note")}
+          </p>
         </div>
       </section>
 
       {/* 11 — FAQ: compact, native, accessible accordion (no JS needed). */}
-      <section id="faq" className="gov-section gov-service-anchor" aria-labelledby="faq-title">
+      <section id="faq" className="gov-section" style={anchorSectionStyle} aria-labelledby="faq-title">
         <div className="gov-section__container">
           <div className="gov-section__header">
             <div>
@@ -382,14 +623,35 @@ export default async function CreerUneEntreprisePage({ params }: PageProps) {
               </h2>
             </div>
           </div>
-          <div className="gov-faq">
+          <div style={faqStyle}>
             {createCompanyContent.faq.map((item) => (
-              <details key={item.key} className="gov-faq__item">
-                <summary className="gov-faq__summary">
+              <details
+                key={item.key}
+                style={{ borderBottom: "1px solid var(--ads-color-border)" }}
+              >
+                <summary
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: "1rem",
+                    padding: "1rem 0",
+                    fontWeight: 700,
+                    lineHeight: 1.5,
+                    listStyle: "none",
+                    cursor: "pointer",
+                  }}
+                >
                   {t(`faq.items.${item.key}.question`)}
-                  <span className="fr-icon-arrow-down-s-line" aria-hidden="true" />
+                  <span
+                    className="fr-icon-arrow-down-s-line"
+                    aria-hidden="true"
+                    style={{ flex: "none", fontSize: "1.25rem", color: "var(--ads-color-text-muted)" }}
+                  />
                 </summary>
-                <p className="gov-faq__answer">{t(`faq.items.${item.key}.answer`)}</p>
+                <p style={{ margin: "0", padding: "0 0 1rem", maxWidth: "48rem", lineHeight: 1.7 }}>
+                  {t(`faq.items.${item.key}.answer`)}
+                </p>
               </details>
             ))}
           </div>
@@ -398,15 +660,18 @@ export default async function CreerUneEntreprisePage({ params }: PageProps) {
 
       {/* 12 — Besoin d'aide ?: discreet closing, never a huge contact block. */}
       <section className="gov-section gov-section--subtle" aria-labelledby="help-title">
-        <div className="gov-section__container">
-          <div className="gov-help">
+        <div className="gov-section__container" style={{ textAlign: "center" }}>
+          <div style={{ maxWidth: "52rem", marginInline: "auto" }}>
             <p className="gov-kicker">{t("help.kicker")}</p>
             <h2 id="help-title" className="gov-section__title">
               {t("help.title")}
             </h2>
-            <p className="gov-lead">{t("help.lead")}</p>
-            <div className="gov-help__actions">
+            <p className="gov-lead" style={{ marginInline: "auto" }}>
+              {t("help.lead")}
+            </p>
+            <div style={{ marginTop: "1.5rem" }}>
               <CtaButtonsGroup
+                alignment="center"
                 buttons={[
                   {
                     children: t("help.cta"),
