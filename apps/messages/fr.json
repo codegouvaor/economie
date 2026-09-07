@@ -5,6 +5,7 @@
   "common": {
     "skipToContent": "Aller au contenu",
     "skipToFooter": "Aller au pied de page",
+    "breadcrumb": "Fil d'Ariane",
     "backToTop": {
       "ariaLabel": "Revenir en haut de page"
     }
@@ -453,5 +454,225 @@
       "publications": "Publications officielles"
     },
     "license": "Sauf mention contraire, tous les contenus de ce site sont sous <link>licence APSL</link>"
+  },
+  "createCompany": {
+    "meta": {
+      "title": "Créer une entreprise",
+      "description": "Préparez et réalisez les démarches de création de votre entreprise en Astoria : étapes, informations à préparer, coûts et services associés."
+    },
+    "hero": {
+      "kicker": "Création d'entreprise",
+      "title": "Créer une entreprise",
+      "lead": "Préparez et réalisez les principales démarches nécessaires à la création de votre entreprise en Astoria.",
+      "cta": "Commencer la création de mon entreprise",
+      "notice": {
+        "title": "Le service en ligne sera bientôt disponible",
+        "text": "L'enregistrement en ligne de votre entreprise n'est pas encore ouvert sur ce portail. Vous pouvez dès maintenant préparer votre projet : les étapes ci-dessous vous indiquent quoi faire et quoi rassembler."
+      }
+    },
+    "beforeStart": {
+      "kicker": "Préparation",
+      "title": "Avant de commencer",
+      "lead": "Vous aurez notamment besoin de :",
+      "items": {
+        "structure": "Choisir la forme juridique de votre entreprise",
+        "activity": "Définir votre activité",
+        "address": "Disposer d'une adresse d'établissement",
+        "informations": "Préparer les informations nécessaires à l'enregistrement",
+        "taxes": "Connaître les éventuelles obligations fiscales"
+      }
+    },
+    "steps": {
+      "kicker": "Le parcours",
+      "title": "Les étapes de la création",
+      "lead": "Cinq étapes pour passer de votre projet à une entreprise en activité.",
+      "seeStep": "En savoir plus",
+      "items": {
+        "prepare": {
+          "title": "Choisir et préparer son entreprise",
+          "desc": "Définissez votre activité et choisissez la forme juridique adaptée à votre projet."
+        },
+        "informations": {
+          "title": "Préparer les informations nécessaires",
+          "desc": "Rassemblez les informations requises pour l'enregistrement de votre entreprise."
+        },
+        "register": {
+          "title": "Enregistrer l'entreprise",
+          "desc": "Enregistrez votre entreprise pour obtenir votre numéro d'entreprise."
+        },
+        "taxesSocial": {
+          "title": "Effectuer les démarches fiscales et sociales",
+          "desc": "Identifiez et remplissez vos premières obligations fiscales et sociales."
+        },
+        "start": {
+          "title": "Démarrer son activité",
+          "desc": "Vous pouvez exercer votre activité en respectant vos obligations."
+        }
+      }
+    },
+    "structures": {
+      "kicker": "Orientation",
+      "title": "Quelle entreprise souhaitez-vous créer ?",
+      "lead": "Votre projet détermine la structure la mieux adaptée. Ces pistes vous aident à vous orienter avant de choisir.",
+      "items": {
+        "individual": {
+          "title": "Entreprise individuelle",
+          "desc": "Vous exercez votre activité en votre nom propre, sans créer de société."
+        },
+        "company": {
+          "title": "Société",
+          "desc": "Vous créez une personne morale avec un ou plusieurs associés."
+        },
+        "other": {
+          "title": "Autre structure",
+          "desc": "Association, coopérative ou autre forme adaptée à votre projet."
+        }
+      },
+      "note": "Les informations officielles sur les formes juridiques seront publiées avec le guide de création.",
+      "cta": "En savoir plus sur le choix d'une structure"
+    },
+    "situations": {
+      "kicker": "Selon votre situation",
+      "title": "Vous êtes…",
+      "lead": "Votre parcours peut varier selon votre situation.",
+      "items": {
+        "individual": "Un entrepreneur individuel",
+        "company": "Une société",
+        "foreign": "Un entrepreneur étranger",
+        "alreadyDirector": "Déjà dirigeant d'une entreprise"
+      }
+    },
+    "costs": {
+      "kicker": "Budget",
+      "title": "Coûts à prévoir",
+      "lead": "La création d'une entreprise peut entraîner des frais d'enregistrement et de formalités.",
+      "items": {
+        "registration": { "label": "Enregistrement", "amount": "À venir" },
+        "formalities": { "label": "Formalités", "amount": "À venir" },
+        "other": { "label": "Autres frais éventuels", "amount": "Selon votre situation" }
+      },
+      "note": "Les montants officiels seront affichés dès leur publication."
+    },
+    "progress": {
+      "kicker": "Votre parcours",
+      "title": "Suivez votre création d'entreprise",
+      "lead": "Votre progression, vos démarches en cours et vos documents seront réunis dans votre espace personnel.",
+      "authNote": "Connectez-vous avec MyGouv pour sauvegarder votre progression et retrouver vos démarches.",
+      "authCta": "Se connecter avec MyGouv",
+      "upcomingTitle": "Bientôt dans votre espace",
+      "upcoming": {
+        "progress": "Progression sauvegardée",
+        "demarches": "Démarches en cours",
+        "documents": "Documents",
+        "notifications": "Notifications",
+        "nextSteps": "Prochaines étapes"
+      }
+    },
+    "obligations": {
+      "kicker": "Après la création",
+      "title": "Vos obligations après la création",
+      "lead": "La création n'est pas la fin du parcours : une fois en activité, votre entreprise doit respecter certaines obligations.",
+      "items": {
+        "taxes": {
+          "title": "Vos obligations fiscales",
+          "desc": "Les règles fiscales qui s'appliquent à votre entreprise."
+        },
+        "declarations": {
+          "title": "Déclarer",
+          "desc": "Déclarer vos revenus, taxes et contributions."
+        },
+        "payments": {
+          "title": "Payer",
+          "desc": "Régler vos impôts et taxes."
+        },
+        "administrative": {
+          "title": "Vos obligations administratives",
+          "desc": "Les formalités administratives à respecter au fil de la vie de l'entreprise."
+        },
+        "companyInfo": {
+          "title": "Modifier les informations de votre entreprise",
+          "desc": "Mettre à jour vos informations auprès de l'administration."
+        }
+      }
+    },
+    "services": {
+      "kicker": "Services",
+      "title": "Services liés à la création d'une entreprise",
+      "lead": "Les services de la vie de votre entreprise, à retrouver dans le domaine Entreprises.",
+      "items": {
+        "register": {
+          "title": "Enregistrer une entreprise",
+          "desc": "Enregistrer votre activité et obtenir votre numéro d'entreprise."
+        },
+        "modify": {
+          "title": "Modifier une entreprise",
+          "desc": "Mettre à jour les informations d'une entreprise."
+        },
+        "structure": {
+          "title": "Choisir une structure",
+          "desc": "Comparer et choisir la forme juridique de votre entreprise."
+        },
+        "dossier": {
+          "title": "Consulter son dossier",
+          "desc": "Retrouver vos démarches et documents dans votre espace."
+        }
+      }
+    },
+    "resources": {
+      "kicker": "Ressources",
+      "title": "Documents et ressources",
+      "lead": "Guides, réglementation et réponses aux questions fréquentes pour accompagner votre projet.",
+      "items": {
+        "guideStructure": {
+          "title": "Choisir une structure",
+          "desc": "Le guide du choix de la forme juridique."
+        },
+        "regulation": {
+          "title": "Réglementation des entreprises",
+          "desc": "Les textes et règles applicables aux entreprises."
+        },
+        "obligations": {
+          "title": "Obligations administratives",
+          "desc": "Les formalités à respecter."
+        },
+        "faq": {
+          "title": "Questions fréquentes",
+          "desc": "Les réponses aux questions les plus courantes."
+        }
+      },
+      "note": "Les guides et formulaires officiels seront ajoutés dès leur publication."
+    },
+    "faq": {
+      "kicker": "Questions fréquentes",
+      "title": "Vos questions",
+      "items": {
+        "beforeActivity": {
+          "question": "Dois-je créer mon entreprise avant de commencer mon activité ?",
+          "answer": "En général, l'enregistrement de votre entreprise est une étape préalable à l'exercice de votre activité. Les conditions exactes seront détaillées dans le guide officiel de création."
+        },
+        "documents": {
+          "question": "Quels documents dois-je préparer ?",
+          "answer": "Pièce d'identité, adresse d'établissement et informations sur votre activité et votre forme juridique comptent parmi les éléments nécessaires. La liste officielle sera publiée avec le service d'enregistrement en ligne."
+        },
+        "duration": {
+          "question": "Combien de temps prend la création ?",
+          "answer": "La durée dépend de votre situation et de la forme juridique choisie. Elle sera précisée dès la mise en ligne du service d'enregistrement."
+        },
+        "online": {
+          "question": "Puis-je effectuer les démarches en ligne ?",
+          "answer": "Le service d'enregistrement en ligne sera bientôt disponible. En attendant, cette page vous permet de préparer toutes les informations nécessaires."
+        },
+        "followUp": {
+          "question": "Puis-je suivre ma demande ?",
+          "answer": "Une fois connecté avec MyGouv, vous pourrez retrouver et suivre vos démarches dans votre espace personnel."
+        }
+      }
+    },
+    "help": {
+      "kicker": "Assistance",
+      "title": "Besoin d'aide ?",
+      "lead": "Consultez les ressources de cette page ou contactez le service compétent du ministère.",
+      "cta": "Nous contacter"
+    }
   }
 }

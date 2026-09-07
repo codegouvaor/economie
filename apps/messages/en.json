@@ -5,6 +5,7 @@
   "common": {
     "skipToContent": "Skip to content",
     "skipToFooter": "Skip to footer",
+    "breadcrumb": "Breadcrumb",
     "backToTop": {
       "ariaLabel": "Back to top"
     }
@@ -453,5 +454,225 @@
       "publications": "Official publications"
     },
     "license": "Unless otherwise stated, all content on this site is licensed under the <link>APSL License</link>"
+  },
+  "createCompany": {
+    "meta": {
+      "title": "Create a company",
+      "description": "Prepare and complete the steps to create your company in Astoria: steps, information to prepare, costs and related services."
+    },
+    "hero": {
+      "kicker": "Company creation",
+      "title": "Create a company",
+      "lead": "Prepare and complete the main steps needed to create your company in Astoria.",
+      "cta": "Start creating my company",
+      "notice": {
+        "title": "The online service will be available soon",
+        "text": "Online registration of your company is not yet open on this portal. You can start preparing your project now: the steps below tell you what to do and what to gather."
+      }
+    },
+    "beforeStart": {
+      "kicker": "Preparation",
+      "title": "Before you start",
+      "lead": "You will in particular need to:",
+      "items": {
+        "structure": "Choose the legal form of your company",
+        "activity": "Define your activity",
+        "address": "Have an establishment address",
+        "informations": "Prepare the information required for registration",
+        "taxes": "Know any tax obligations that may apply"
+      }
+    },
+    "steps": {
+      "kicker": "The journey",
+      "title": "The steps of creating a company",
+      "lead": "Five steps to go from your project to a running company.",
+      "seeStep": "Find out more",
+      "items": {
+        "prepare": {
+          "title": "Choose and prepare your company",
+          "desc": "Define your activity and choose the legal form that fits your project."
+        },
+        "informations": {
+          "title": "Prepare the required information",
+          "desc": "Gather the information required to register your company."
+        },
+        "register": {
+          "title": "Register the company",
+          "desc": "Register your company to obtain your company number."
+        },
+        "taxesSocial": {
+          "title": "Complete the tax and social procedures",
+          "desc": "Identify and meet your first tax and social obligations."
+        },
+        "start": {
+          "title": "Start your activity",
+          "desc": "You can run your activity while meeting your obligations."
+        }
+      }
+    },
+    "structures": {
+      "kicker": "Orientation",
+      "title": "What kind of company do you want to create?",
+      "lead": "Your project determines the structure that fits best. These paths help you find your way before choosing.",
+      "items": {
+        "individual": {
+          "title": "Sole proprietorship",
+          "desc": "You run your activity in your own name, without creating a company."
+        },
+        "company": {
+          "title": "Company",
+          "desc": "You create a legal entity with one or more partners."
+        },
+        "other": {
+          "title": "Other structure",
+          "desc": "Association, cooperative or another form that fits your project."
+        }
+      },
+      "note": "Official information on the legal forms will be published with the creation guide.",
+      "cta": "Find out more about choosing a structure"
+    },
+    "situations": {
+      "kicker": "Depending on your situation",
+      "title": "You are…",
+      "lead": "Your journey may differ depending on your situation.",
+      "items": {
+        "individual": "A sole trader",
+        "company": "A company",
+        "foreign": "A foreign entrepreneur",
+        "alreadyDirector": "Already the director of a company"
+      }
+    },
+    "costs": {
+      "kicker": "Budget",
+      "title": "Costs to plan for",
+      "lead": "Creating a company can involve registration and formalities fees.",
+      "items": {
+        "registration": { "label": "Registration", "amount": "Coming soon" },
+        "formalities": { "label": "Formalities", "amount": "Coming soon" },
+        "other": { "label": "Other possible fees", "amount": "Depending on your situation" }
+      },
+      "note": "Official amounts will be displayed as soon as they are published."
+    },
+    "progress": {
+      "kicker": "Your journey",
+      "title": "Track your company creation",
+      "lead": "Your progress, ongoing procedures and documents will be gathered in your personal space.",
+      "authNote": "Sign in with MyGouv to save your progress and find your procedures again.",
+      "authCta": "Sign in with MyGouv",
+      "upcomingTitle": "Coming soon in your space",
+      "upcoming": {
+        "progress": "Saved progress",
+        "demarches": "Ongoing procedures",
+        "documents": "Documents",
+        "notifications": "Notifications",
+        "nextSteps": "Next steps"
+      }
+    },
+    "obligations": {
+      "kicker": "After creation",
+      "title": "Your obligations after creation",
+      "lead": "Creating the company is not the end of the journey: once in activity, your company must meet certain obligations.",
+      "items": {
+        "taxes": {
+          "title": "Your tax obligations",
+          "desc": "The tax rules that apply to your company."
+        },
+        "declarations": {
+          "title": "Declare",
+          "desc": "Declare your income, taxes and contributions."
+        },
+        "payments": {
+          "title": "Pay",
+          "desc": "Settle your taxes and duties."
+        },
+        "administrative": {
+          "title": "Your administrative obligations",
+          "desc": "The administrative formalities to meet throughout the life of the company."
+        },
+        "companyInfo": {
+          "title": "Update your company information",
+          "desc": "Update your information with the administration."
+        }
+      }
+    },
+    "services": {
+      "kicker": "Services",
+      "title": "Services related to creating a company",
+      "lead": "The services of your company's life, in the Companies domain.",
+      "items": {
+        "register": {
+          "title": "Register a company",
+          "desc": "Register your activity and obtain your company number."
+        },
+        "modify": {
+          "title": "Modify a company",
+          "desc": "Update the information of a company."
+        },
+        "structure": {
+          "title": "Choose a structure",
+          "desc": "Compare and choose the legal form of your company."
+        },
+        "dossier": {
+          "title": "Check your file",
+          "desc": "Find your procedures and documents in your space."
+        }
+      }
+    },
+    "resources": {
+      "kicker": "Resources",
+      "title": "Documents and resources",
+      "lead": "Guides, regulation and answers to frequently asked questions to support your project.",
+      "items": {
+        "guideStructure": {
+          "title": "Choose a structure",
+          "desc": "The guide to choosing the legal form."
+        },
+        "regulation": {
+          "title": "Company regulation",
+          "desc": "The texts and rules that apply to companies."
+        },
+        "obligations": {
+          "title": "Administrative obligations",
+          "desc": "The formalities to meet."
+        },
+        "faq": {
+          "title": "Frequently asked questions",
+          "desc": "Answers to the most common questions."
+        }
+      },
+      "note": "Official guides and forms will be added as soon as they are published."
+    },
+    "faq": {
+      "kicker": "Frequently asked questions",
+      "title": "Your questions",
+      "items": {
+        "beforeActivity": {
+          "question": "Do I have to create my company before starting my activity?",
+          "answer": "In general, registering your company is a step that comes before running your activity. The exact conditions will be detailed in the official creation guide."
+        },
+        "documents": {
+          "question": "Which documents do I need to prepare?",
+          "answer": "An identity document, an establishment address and information about your activity and legal form are among the required items. The official list will be published with the online registration service."
+        },
+        "duration": {
+          "question": "How long does creation take?",
+          "answer": "The duration depends on your situation and the legal form you choose. It will be specified as soon as the online registration service goes live."
+        },
+        "online": {
+          "question": "Can I complete the procedures online?",
+          "answer": "The online registration service will be available soon. In the meantime, this page lets you prepare all the required information."
+        },
+        "followUp": {
+          "question": "Can I track my request?",
+          "answer": "Once signed in with MyGouv, you will be able to find and track your procedures in your personal space."
+        }
+      }
+    },
+    "help": {
+      "kicker": "Assistance",
+      "title": "Need help?",
+      "lead": "Browse the resources on this page or contact the competent ministry service.",
+      "cta": "Contact us"
+    }
   }
 }
